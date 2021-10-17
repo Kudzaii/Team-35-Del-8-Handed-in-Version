@@ -76,7 +76,7 @@ namespace API_FICS.Controllers
 
         [Route("api/Access/Register/{userroleid}")]
         [HttpPost]
-        public async Task<dynamic> RegisterAsync([FromBody] Registeration user, int userroleid)
+        public object RegisterAsync([FromBody] Registeration user, int userroleid)
         {
             db.Configuration.ProxyCreationEnabled = false;
             try
@@ -84,6 +84,8 @@ namespace API_FICS.Controllers
                 //User check = db.Users.Where(x => x.Email_Address == user.Email_Address).FirstOrDefault();
 
                 User usr = new User();
+
+                dynamic UserEmail = new ExpandoObject();
                 if (true)
                 {
                     var hash = GenerateHash(ApplySomeSalt(user.Password));
@@ -128,6 +130,7 @@ namespace API_FICS.Controllers
                             client.Client_Status = true;
                             client.ClientStatus_ID = 1;
                             client.User_ID = usr.User_ID;
+                            UserEmail = client;
                             db.Clients.Add(client);
                             db.SaveChanges();
 
@@ -160,6 +163,7 @@ namespace API_FICS.Controllers
                             practitioner.PractitionerStatus_ID = 2;
                             practitioner.User_ID = usr.User_ID;
                             db.Practitioners.Add(practitioner);
+                            UserEmail = practitioner;
                             db.SaveChanges();
                         }
                         else if (userroleid == 4) //Trainer
@@ -178,6 +182,7 @@ namespace API_FICS.Controllers
                             trainer.TrainerStatus_ID = 3;
 
                             db.Trainers.Add(trainer);
+                            UserEmail = trainer;
                             db.SaveChanges();
                         }
                         else if (userroleid == 5) //Trainee
@@ -195,14 +200,16 @@ namespace API_FICS.Controllers
                             trainee.TraineeStatus_ID = 3;
 
                             db.Trainees.Add(trainee);
+                            UserEmail = trainee;
+
                             db.SaveChanges();
                         }
 
                     }
 
                 }
-                await SendSMS(user.Contact_Number);
-                SendEmail(usr.Email_Address, 1, usr);
+                SendEmail(usr.Email_Address, 1, UserEmail);
+
                 return usr;
             }
             catch (Exception e)

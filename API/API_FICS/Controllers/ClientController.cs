@@ -415,9 +415,9 @@ namespace API_FICS.Controllers
                     packages.Questions = list;
                 }
             }
-            catch (Exception)
+            catch (Exception c)
             {
-                return null;
+                return c;
             }
             return packages;
         }
@@ -990,7 +990,7 @@ namespace API_FICS.Controllers
                         int indexAfter = 0;
                         if (intarray.Length != 1)
                         {
-                            indexAfter = after + 1;
+                            indexAfter = after;
                         }
 
 
@@ -1031,7 +1031,7 @@ namespace API_FICS.Controllers
             }
             catch (Exception e)
             {
-                return null;
+                return e;
             }
             return bookedsession;
         }

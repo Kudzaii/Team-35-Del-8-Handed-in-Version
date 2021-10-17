@@ -55,7 +55,7 @@ namespace API_FICS.Controllers
             List<object> results = new List<object>();
             try
             {
-                List<Session> sessions = db.Sessions.Where(x => x.Date >= DateTime.Now && x.Client_ID == id).ToList();
+                List<Session> sessions = db.Sessions.Where(x => x.Date >= DateTime.Now && x.Client_ID == id).OrderBy(x => x.Date).ToList();
 
                 foreach (var session in sessions)
                 {

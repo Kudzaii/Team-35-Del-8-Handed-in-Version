@@ -380,6 +380,62 @@ namespace API_FICS.Controllers
                 db.SaveChanges();
                 tasks = task;
 
+                Trainee trainee = db.Trainees.Where(x => x.Trainee_ID == task.Trainee_ID).FirstOrDefault();
+                Trainer trainer = db.Trainers.Where(x => x.Trainer_ID == task.Trainer_ID).FirstOrDefault();
+
+                List<Task> taskslist = db.Tasks.Where(x => x.Trainee_ID == trainee.Trainer_ID && x.TaskStatus_ID == 3).ToList();
+
+                //PROMOTE USER
+                if (taskslist.Count >= 8)
+                {
+                    User user = db.Users.Where(x => x.User_ID == trainee.User_ID).FirstOrDefault();
+                    user.UserRole_ID = 4;
+                    db.SaveChanges();
+
+                    User traineruser = db.Users.Where(x => x.User_ID == trainer.User_ID).FirstOrDefault();
+
+
+                    dynamic obj = new ExpandoObject();
+
+                    MailMessage message = new MailMessage();
+                    SmtpClient smtp = new SmtpClient();
+                    message.From = new MailAddress("ficscorp29@gmail.com");
+                    message.To.Add(new MailAddress(user.Email_Address));
+                    message.Subject = "You are now a Trainer!";
+                    message.IsBodyHtml = true;
+                    message.Body = "[AUTOMATED EMAIL FROM FICS CORP] <br /><br /> Greetings " + user.Username + ", <br /><br /> We're sending you this email to notify you that you are now a FICS Trainer."
+                        + "<br /><br />" + "Congratulations on your achievement. <br /><br /> Kind Regards<br />FICS Support Team";
+
+                    smtp.Port = 587;
+                    smtp.Host = "smtp.gmail.com";
+                    smtp.EnableSsl = true;
+                    smtp.UseDefaultCredentials = false;
+                    smtp.Credentials = new NetworkCredential("ficscorp29@gmail.com", "Ficscorp@2900");
+                    smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+                    smtp.Send(message);
+                    obj = message;
+
+                    dynamic obj2 = new ExpandoObject();
+
+                    MailMessage message2 = new MailMessage();
+                    SmtpClient smtp2 = new SmtpClient();
+                    message.From = new MailAddress("ficscorp29@gmail.com");
+                    message.To.Add(new MailAddress(traineruser.Email_Address));
+                    message.Subject = trainee.Name + " " + trainee.Surname + " is now a FICS Trainer!";
+                    message.IsBodyHtml = true;
+                    message.Body = "[AUTOMATED EMAIL FROM FICS CORP] <br /><br /> Greetings " + traineruser.Username + ", <br /><br /> We're sending you this email to notify you that " + trainee.Name + " " + trainee.Surname + " is now a FICS Trainer."
+                        + "<br /><br />" + "Congratulations on training them! <br /><br /> Kind Regards<br />FICS Support Team";
+
+                    smtp2.Port = 587;
+                    smtp2.Host = "smtp.gmail.com";
+                    smtp2.EnableSsl = true;
+                    smtp2.UseDefaultCredentials = false;
+                    smtp2.Credentials = new NetworkCredential("ficscorp29@gmail.com", "Ficscorp@2900");
+                    smtp2.DeliveryMethod = SmtpDeliveryMethod.Network;
+                    smtp2.Send(message2);
+                    obj2 = message2;
+                }
+
                 return tasks;
             }
             catch (Exception)
@@ -428,5 +484,7 @@ namespace API_FICS.Controllers
                 return null;
             }
         }
+
+
     }
 }

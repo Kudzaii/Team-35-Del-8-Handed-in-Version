@@ -176,12 +176,14 @@ namespace API_FICS.Controllers
                 results.Add(decobj);
 
                 UserRole role = db.UserRoles.Where(x => x.UserRole_ID == id).FirstOrDefault();
-                report.Title = role.Name + " user's Registeration since " + sinceDate + " Report";
+                string date = sinceDate.ToString();
+                report.Date = sinceDate;
+                report.Role = role.Name;
                 report.Results = results;
 
                 User userr = db.Users.Where(x => x.User_ID == 1).FirstOrDefault();
                 AuditTrail RegisteredUsersReport = new AuditTrail();
-                RegisteredUsersReport.Description = report.Title;
+                RegisteredUsersReport.Description = "Registered User's report";
                 RegisteredUsersReport.Date_Log = DateTime.Now;
                 RegisteredUsersReport.User_ID = userr.User_ID;
                 RegisteredUsersReport.Log_History = userr.Username;
@@ -391,7 +393,7 @@ namespace API_FICS.Controllers
         }
 
         [HttpGet]
-        [Route("api/Admin/ViewTrainees")]
+        [Route("api/Report/ViewTrainees")]
         public List<Trainee> ViewTrainees()
         {
             db.Configuration.ProxyCreationEnabled = false;

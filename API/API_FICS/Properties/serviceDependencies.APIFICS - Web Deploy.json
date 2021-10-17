@@ -1,0 +1,10 @@
+﻿{
+  "dependencies": {
+    "mssql1": {
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourcegroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/api-ficsdbserver/databases/API_FICS",
+      "type": "mssql.azure",
+      "connectionId": "FICSDB",
+      "secretStore": "AzureAppSettings"
+    }
+  }
+}
