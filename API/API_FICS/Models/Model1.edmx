@@ -629,7 +629,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__AuditTrai__User___0E6E26BF">
+        <Association Name="FK__AuditTrai__User___0F624AF8">
           <End Role="User" Type="Self.User" Multiplicity="0..1" />
           <End Role="AuditTrail" Type="Self.AuditTrail" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1793,7 +1793,7 @@
             <End Role="Session" EntitySet="Session" />
             <End Role="AuditTrail" EntitySet="AuditTrail" />
           </AssociationSet>
-          <AssociationSet Name="FK__AuditTrai__User___0E6E26BF" Association="Self.FK__AuditTrai__User___0E6E26BF">
+          <AssociationSet Name="FK__AuditTrai__User___0F624AF8" Association="Self.FK__AuditTrai__User___0F624AF8">
             <End Role="User" EntitySet="User" />
             <End Role="AuditTrail" EntitySet="AuditTrail" />
           </AssociationSet>
@@ -2189,7 +2189,7 @@
           <NavigationProperty Name="ClientProgress" Relationship="Self.FK__AuditTrai__Clien__0C85DE4D" FromRole="AuditTrail" ToRole="ClientProgress" />
           <NavigationProperty Name="Sale" Relationship="Self.FK__AuditTrai__Sale___0D7A0286" FromRole="AuditTrail" ToRole="Sale" />
           <NavigationProperty Name="Session" Relationship="Self.FK__AuditTrai__Sessi__0E6E26BF" FromRole="AuditTrail" ToRole="Session" />
-          <NavigationProperty Name="User" Relationship="Self.FK__AuditTrai__User___0E6E26BF" FromRole="AuditTrail" ToRole="User" />
+          <NavigationProperty Name="User" Relationship="Self.FK__AuditTrai__User___0F624AF8" FromRole="AuditTrail" ToRole="User" />
         </EntityType>
         <EntityType Name="Availability">
           <Key>
@@ -2867,7 +2867,7 @@
           <Property Name="Email_Address" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="OTP" Type="Int32" Nullable="false" />
           <Property Name="UserRole_ID" Type="Int32" />
-          <NavigationProperty Name="AuditTrails" Relationship="Self.FK__AuditTrai__User___0E6E26BF" FromRole="User" ToRole="AuditTrail" />
+          <NavigationProperty Name="AuditTrails" Relationship="Self.FK__AuditTrai__User___0F624AF8" FromRole="User" ToRole="AuditTrail" />
           <NavigationProperty Name="Bookings" Relationship="Self.FK__Booking__User_ID__1AD3FDA4" FromRole="User" ToRole="Booking" />
           <NavigationProperty Name="Clients" Relationship="Self.FK__Client__User_ID__1F98B2C1" FromRole="User" ToRole="Client" />
           <NavigationProperty Name="Documents" Relationship="Self.FK__Document__User_I__25518C17" FromRole="User" ToRole="Document" />
@@ -2989,7 +2989,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__AuditTrai__User___0E6E26BF">
+        <Association Name="FK__AuditTrai__User___0F624AF8">
           <End Role="User" Type="Self.User" Multiplicity="0..1" />
           <End Role="AuditTrail" Type="Self.AuditTrail" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4145,7 +4145,7 @@
             <End Role="Session" EntitySet="Sessions" />
             <End Role="AuditTrail" EntitySet="AuditTrails" />
           </AssociationSet>
-          <AssociationSet Name="FK__AuditTrai__User___0E6E26BF" Association="Self.FK__AuditTrai__User___0E6E26BF">
+          <AssociationSet Name="FK__AuditTrai__User___0F624AF8" Association="Self.FK__AuditTrai__User___0F624AF8">
             <End Role="User" EntitySet="Users" />
             <End Role="AuditTrail" EntitySet="AuditTrails" />
           </AssociationSet>
