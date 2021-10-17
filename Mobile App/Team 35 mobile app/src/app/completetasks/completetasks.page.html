@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Complete Task
+      <a class="help" href="https://scotty-crypto.github.io/523Clientsubsystem.html#MobileComplete " target="_blank">Help?</a>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <form (ngSubmit)="complete($event)" style="text-align: center;">
+
+    <p><b>{{Description}}</b></p>
+    <p style="font-size: small;">Task Type: {{TaskTypeName}}</p>
+    <p style="color: green; font-size: small;">Status: {{TaskStatus}}</p>
+    <p style="font-size: small;">Practitioner: {{Practitioner}}</p>
+    <p style="color: red; font-size: small;">Due Date: {{DueDate | date}}</p>
+
+
+  <ion-item>
+    <ion-label position="stacked">Submit Task</ion-label>
+    <ion-input placeholder="Submit Task..." type="text" placeholder="Submit Task..." name="Task" ></ion-input>
+  </ion-item>
+  <br><br><br><br><br><br><br><br><br><br><br><br><br>
+  <ion-button type="submit" expand="block" color="success">Submit</ion-button>
+
+  <ion-fab vertical="bottom" horizontal="start" slot="fixed">
+    <ion-fab-button color="danger" routerLink="/home">
+      Logout
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="success" routerLink="/viewtasks">
+      Tasks
+    </ion-fab-button>
+  </ion-fab>
+
+</form>
+</ion-content>

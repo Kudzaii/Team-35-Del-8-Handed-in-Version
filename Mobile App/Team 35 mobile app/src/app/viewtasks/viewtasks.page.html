@@ -1,0 +1,44 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Tasks Assigned
+      <a class="help" href="https://scotty-crypto.github.io/523Clientsubsystem.html#MobileTasks" target="_blank">Help?</a>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <div #data>
+  <ion-item-sliding *ngFor="let item of DataSource">
+
+    <p style="padding-left: 5%;"><b>Task: {{item.Description}}</b><br></p>
+    &nbsp;&nbsp;&nbsp; <b>Due Date: <u style="color: red;">{{item.DueDate | date}}</u></b><br>
+    <ion-item>
+      <ion-label style="color: green;"> {{item.TaskStatus}}</ion-label>
+      <ion-label style="color: grey; font-size: x-small;"><i>Slide left to complete...</i>
+      </ion-label><br>
+    </ion-item>
+    <ion-item-options>
+
+      <ion-item-option color="light">
+        <ion-button size="small" color="success" (click)="completetask(item.Task_ID)">
+          <ion-icon name="checkbox-outline" ></ion-icon>
+        </ion-button>
+      </ion-item-option>
+    </ion-item-options>
+  </ion-item-sliding>
+</div>
+
+<ion-fab vertical="bottom" horizontal="start" slot="fixed">
+  <ion-fab-button color="danger" routerLink="/home">
+    Logout
+  </ion-fab-button>
+</ion-fab>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="success" routerLink="/viewschedule">
+      Schedule
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>

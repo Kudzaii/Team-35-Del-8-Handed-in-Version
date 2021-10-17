@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      FICS
+      <a class="help" href="https://scotty-crypto.github.io/521Accesssubsystem.html#MobileLogin " target="_blank">Help?</a>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <form (ngSubmit)="login($event)" style="text-align: center;">
+  <ion-item>
+    <ion-label position="stacked">Username</ion-label>
+    <ion-input placeholder="Username" class="hint" type="text" placeholder="Username" name="Username"></ion-input>
+    <div class="hide">Use Your Email As Your Username</div>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Password</ion-label>
+    <ion-input placeholder="Password" type="password" placeholder="Password" name="Password"></ion-input>
+  </ion-item>
+
+  <ion-button type="submit" expand="block" color="success">
+    <ion-icon name="finger-print"></ion-icon>
+    &nbsp;Login
+  </ion-button>
+
+  
+  <br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="light" routerLink="/reset">
+      <ion-icon name="help-circle"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</form>
+</ion-content>
