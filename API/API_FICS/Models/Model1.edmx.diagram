@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="5b73b51453034dae895d795876dda66a" Name="Diagram1">
+      <Diagram DiagramId="b8d78068fada4d75b23ffa50fcc3cf5b" Name="Diagram1">
         <EntityTypeShape EntityType="FICSModel.AddRemove" Width="1.5" PointX="15.75" PointY="15.625" IsExpanded="true" />
         <EntityTypeShape EntityType="FICSModel.AuditTrail" Width="1.5" PointX="21" PointY="23.375" IsExpanded="true" />
         <EntityTypeShape EntityType="FICSModel.Availability" Width="1.5" PointX="5.25" PointY="25.75" IsExpanded="true" />
@@ -65,7 +65,7 @@
         <AssociationConnector Association="FICSModel.FK__AuditTrai__Clien__0C85DE4D" ManuallyRouted="false" />
         <AssociationConnector Association="FICSModel.FK__AuditTrai__Sale___0D7A0286" ManuallyRouted="false" />
         <AssociationConnector Association="FICSModel.FK__AuditTrai__Sessi__0E6E26BF" ManuallyRouted="false" />
-        <AssociationConnector Association="FICSModel.FK__AuditTrai__User___0F624AF8" ManuallyRouted="false" />
+        <AssociationConnector Association="FICSModel.FK__AuditTrai__User___0E6E26BF" ManuallyRouted="false" />
         <AssociationConnector Association="FICSModel.FK__Availabil__Clien__10566F31" ManuallyRouted="false" />
         <AssociationConnector Association="FICSModel.FK__Availabil__Date___114A936A" ManuallyRouted="false" />
         <AssociationConnector Association="FICSModel.FK__Availabil__Pract__123EB7A3" ManuallyRouted="false" />
