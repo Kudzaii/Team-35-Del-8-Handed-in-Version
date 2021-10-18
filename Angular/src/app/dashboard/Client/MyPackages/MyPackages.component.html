@@ -1,0 +1,53 @@
+
+
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-2 bg">
+        <h1 class="h1 title">
+          <div class="btn-group"  (click)=" goBack()">
+              <button  class="btn btn-light bui">Back</button>
+          </div>
+        </h1>
+      </div>
+      <div class="col-8 bg">
+        <h1 class="h1 title" style="color: rgb(120, 178, 255)" align="center">
+          <span>YOUR PACKAGES</span> 
+        </h1>
+      </div>
+
+      <div class="col-2 bg">
+          <div class="hint">
+            <button type="button" class="btn"><i class="fa fa-question" style="color: #297bff"></i></button>
+          </div>
+            <div class="hide">Details Of Your Purchased Packages</div>
+                                                      
+          <button type="button" class="btn"><a class="help" href="https://scotty-crypto.github.io/523Clientsubsystem.html#ClientPackage" target="_blank">| Help</a></button>
+      </div>
+    </div>
+      <hr class="hr1">
+  </div>
+  <br>
+  <br>
+
+<div class="row">
+  <div class="col-6 col-md-4" *ngFor="let package of Packages; let i = index" style="padding-bottom: 2%;">
+    <div class="grid">
+      <div class="grid__item">
+        <div class="card" >
+          <img class="card__img"
+            src="http://waterbearlearning.com/wp-content/uploads/2019/04/water_bear_learning_instructional_design1.jpg"
+            alt="Snowy Mountains" />
+          <div class="card__content">
+            <h1 class="card__header">{{ package.Name }}</h1>
+            <mat-icon>receipt</mat-icon>
+            <p class="card__text">
+                    <strong>Price: R{{ package.Price }} </strong>
+            </p>
+            <br>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <button type="button" class="btn card__btn btn-lg btn-block" *ngIf="show < Packages.length" (click)="increaseShow()">View More... </button> -->
+</div>

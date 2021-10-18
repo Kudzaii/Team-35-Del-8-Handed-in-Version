@@ -1,0 +1,63 @@
+
+<div class="app">
+
+  <div class="table-card">
+
+    <div class="container-fluid">
+    <div class="row">
+      <div class="col-2 bg">
+        <h1 class="h1 title">
+          <div class="btn-group">
+              <button  class="btn btn-light bui" >Back</button>
+          </div>
+        </h1>
+      </div>
+      <div class="col-8 bg">
+        <h1 class="h1 title"  align ="center">
+          Package Types
+        </h1>
+      </div>
+
+      <div class="col-2 bg">
+          <div class="hint">
+            <button type="button" class="btn"><i class="fa fa-question" style="color: #297bff"></i></button>
+          </div>
+            <div class="hide">Add, Update Or Delete Package Types</div>
+      
+          <button type="button" class="btn"><a class="help" href="https://scotty-crypto.github.io/522Adminsubsystem.html#packageTypes " target="_blank">| Help</a></button>
+      </div>
+    </div>
+    <hr class="hr1">
+  </div>
+    <div class="form-group">
+      <input type="text" class="form-control mb-4" placeholder="Search" [(ngModel)]="query" id="listSearch">
+    </div>
+    <div class="btn-group" >
+      <button  (click)="AddType()" style="color:white" class="btn-gradient blue mini">Add Package Type</button>
+    </div>
+    <table class="table">
+      <thead>
+        <tr>
+
+          <td>Package Type Description</td>
+          <td></td>
+
+        </tr>
+      <tbody>
+          <tr *ngFor="let type of PackageTypes | filter: query">
+            <td>{{type.Name}}</td>
+
+            <td>
+
+              <button  (click)="Maintain(type.Name,type.PackageType_ID)"  class="btn-gradient blue mini" style="color:white">Maintain</button>
+            </td>
+            <td>
+              <button>
+                <i class="fa fa-trash" style="font-size: 1.73em;" (click)="delete(type.PackageType_ID)"></i>
+              </button>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

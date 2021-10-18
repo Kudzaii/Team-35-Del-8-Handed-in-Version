@@ -1,0 +1,49 @@
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-2 bg">
+        <h1 class="h1 title">
+          <div class="btn-group"  (click)=" goBack()">
+              <button  class="btn btn-light bui" >Back</button>
+          </div>
+        </h1>
+      </div>
+      <div class="col-8 bg">
+        <h1 class="h1 title"  align="center">
+          Assign Users
+        </h1>
+      </div>
+
+      <div class="col-2 bg">
+          <div class="hint">
+            <button type="button" class="btn"><i class="fa fa-question" style="color: #297bff"></i></button>
+          </div>
+            <div class="hide">Click The Users Tab Below To Assign Users</div>
+      
+          <button type="button" class="btn"><a class="help" href="https://scotty-crypto.github.io/522Adminsubsystem.html#AssignTo " target="_blank">| Help</a></button>
+      </div>
+    </div>
+    <hr class="hr1">
+  </div>
+
+
+<div class="tab_container" style="padding-bottom: 20%;">
+	<input id="tab1" type="radio" name="tabs" checked routerLinkActive="active"   routerLink="./assigned-users" (click)="Change(1)">
+	<label for="tab1"><span>Assigned Users</span></label>
+
+	<input id="tab2" type="radio" name="tabs" routerLinkActive="active" routerLink="./practitioner-to-client" (click)="Change(2)">
+	<label for="tab2"><span> Practitioner to Client</span></label>
+
+  <input id="tab3" type="radio" name="tabs" routerLinkActive="active"  routerLink="./trainer-to-trainee" (click)="Change(3)">
+	<label for="tab3"><span> Trainer to Trainee</span></label>
+
+
+
+	<section id={{content}} class="tab-content" style="padding-bottom: 20%;">
+
+		<router-outlet></router-outlet>
+	</section>
+
+
+
+
+</div>

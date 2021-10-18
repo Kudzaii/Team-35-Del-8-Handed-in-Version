@@ -1,0 +1,48 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+
+
+  </div>
+</div>
+
+<div class="card container" style="width: 100%;">
+
+  <div class="card-body">
+    <h1 class="display-4">The FICS Corp Presents:</h1>
+    <h3>Users Report</h3>
+
+    <form [formGroup]="form" (ngSubmit)="touched()">
+      <div class="form-group">
+        <label for="role">User Roles</label>
+        <select
+          class="select-css"
+          #mySelect
+          formControlName="role"
+          (change)="touched()" >
+          <option *ngFor="let roles of UserRoles" [value]="roles.UserRole_ID">
+            {{ roles.Name }}
+          </option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Date</label>
+        <input
+          type="date"
+          formControlName="date"
+          #date
+          class="form-control"
+          id="exampleInputEmail1"
+          aria-describedby="emailHelp"
+          (change)="getReportResults(date.value)"
+          placeholder="Enter email"
+          [disabled] = dropdown
+        />
+      </div>
+
+    </form>
+
+
+    <echarts [initOpts]="initOpts" [options]="option"></echarts>
+  </div>
+</div>
+

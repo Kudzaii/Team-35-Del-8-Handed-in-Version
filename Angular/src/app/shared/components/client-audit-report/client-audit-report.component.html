@@ -1,0 +1,107 @@
+<head>
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Droid+Sans"
+  />
+</head>
+
+<div class="container-fluid">
+  <div class="big-card col-md-12">
+    <div class="row">
+      <div class="big-card col-md-2">
+        <a href="https://en.wikipedia.org/wiki/Steve_Jobs"
+          ><img
+            id="title-pic"
+            class="img-responsive"
+            src="https://icons-for-free.com/iconfiles/png/512/avatar+human+male+man+men+people+person+profile+user+users-1320196163635839021.png"
+        /></a>
+      </div>
+      <div class="col-md-10">
+        <h2>The FICS Corp Presents:</h2>
+        <h1 id="title" class="vcenter">Client Audit Report</h1>
+      </div>
+    </div>
+    <div class="card" style="background-color: #00b7ff; margin-top: 15px" *ngIf="isAdmin">
+      <h4>Administrator Drop down</h4>
+      <mat-form-field appearance="fill">
+        <mat-label>clients</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let client of Clients" [value]="client.Client_ID"  (click)="getReport(client.Client_ID)">
+            {{client.Name}} {{client.Surname}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+    </div>
+    <div class="card" style="background-color: #d6d6d6; margin-top: 15px">
+      <h2 style="color: #0e0e0e">Client Name: <strong>{{ReportData.ClientName}}</strong></h2>
+      <h2 style="color: #030303">Practitioner: <strong>{{ReportData.Practitioner}}</strong></h2>
+
+      <h2 style="color: #000000">
+        Date Registered: <strong>{{ReportData.DateRegistered | date}}</strong>
+      </h2>
+      <h2 style="color: #000000">
+        You are a  {{ReportData.Result}}
+      </h2>
+      <p>.</p>
+    </div>
+    <div class="card fill" style="background-color: #d6d6d6; margin-top: 15px" *ngIf='isSelected' >
+      <h2 style="color: #000000">
+        <strong>Visual result</strong>
+      </h2>
+      <img src={{IMAGE}} alt="Cinque Terre" width="1000" height="500">
+      <div class="overlay">
+        <div class="text"> You are a  {{ReportData.Result}}</div>
+      </div>
+    </div>
+    <div class="card" style="background-color: #d6d6d6; margin-top: 15px">
+
+      <h2 style="color: #000000">
+       <strong>Results</strong>
+      </h2>
+
+      <div class="row">
+        <div class="col">
+          <div class="card">
+            <h3 style="color: #ff5151">Above the line</h3>
+            <h3>Cactus &amp; Sunflower</h3>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <h3 style="color: #ff5151">Below the line</h3>
+            <h3>Fern &amp; Impatients</h3>
+          </div>
+        </div>
+      </div>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">FERN</th>
+            <th scope="col">CACTUS</th>
+            <th scope="col">IMPATIENTS</th>
+            <th scope="col">SUNFLOWER</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">ABOVE THE LINE</th>
+            <td>Deep Thinker Thorough Honest Logical</td>
+            <td>Driven Punctual Dependable Organised</td>
+            <td>Sensitive Caring/Kind Thoughtful Empathetic</td>
+            <td>Innovative Fun Creative Energetic</td>
+          </tr>
+          <tr>
+            <th scope="row">ABOVE THELINE</th>
+            <td>Unapproachable Procrastinator Anti-social Tired</td>
+            <td>Autocratic Harsh with words Unfriendly Workaholic</td>
+            <td>Needy High Maintenance Used by people Hurts easily</td>
+            <td>Argumentative Rule Breaker Arrogant Confrontational</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

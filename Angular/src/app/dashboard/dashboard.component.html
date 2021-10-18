@@ -1,0 +1,31 @@
+
+<app-pre-loader *ngIf="isLoaded" ></app-pre-loader>
+
+
+
+  <div class="cards   no-gutters">
+
+  <div class="container-fluid  no-gutters" style="align-self: center; align-items: center;">
+
+    <div *ngFor="let dashboard of DashboardSettings" style="display:inline;">
+    <div class="card" style="position: relative;" [routerLink]="[dashboard.RouterLink]" >
+      <div class="card-img" style="background-image:url({{dashboard.ImageLink}});">
+        <div class="overlay">
+          <div class="overlay-content">
+            <a [routerLink]="[dashboard.RouterLink]"routerLinkActive="active">{{dashboard.Button_Name}}</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-content"  [ngStyle]="{'background-color':dashboard.color}">
+        <a href="#!">
+          <small><mat-icon>{{dashboard.icon}}</mat-icon></small>
+          <h2>{{dashboard.Header_Name}}</h2>
+          <!-- <p>Lorem ipsum dolor sit amet consectetur, lorem ipsum dolor</p> -->
+        </a>
+      </div>
+    </div>
+
+    </div>
+</div>
+</div>

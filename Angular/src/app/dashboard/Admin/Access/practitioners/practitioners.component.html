@@ -1,0 +1,34 @@
+<div class="app">
+
+  <div class="table-card">
+    <h1 class="h1 title">
+      <span>Practitioner Access</span>
+    </h1>
+    <div class="form-group">
+      <input type="text" class="form-control mb-4" placeholder="Search" [(ngModel)]="query" id="listSearch">
+    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <td id="tour-table">Title</td>
+          <td>Name</td>
+          <td>Surname</td>
+          <td>Email Address</td>
+          <td></td>
+
+        </tr>
+      <tbody>
+          <tr *ngFor="let practitioner of practitioners | Accessfilter: query">
+            <td>{{practitioner.Title}}</td>
+            <td>{{practitioner.Name}}</td>
+            <td>{{practitioner.Surname}}</td>
+            <td>{{practitioner.Email_Address}}</td>
+            <td>
+              <input type="button"  (click)="DisablePractitioner(practitioner.Practitioner_ID)"  class="btn-gradient red" value="Disable" >
+            </td>
+            </tr>
+
+      </tbody>
+    </table>
+  </div>
+</div>

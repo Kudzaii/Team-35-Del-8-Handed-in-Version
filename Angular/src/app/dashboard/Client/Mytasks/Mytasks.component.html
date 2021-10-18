@@ -1,0 +1,81 @@
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-2 bg">
+        <h1 class="h1 title">
+          <div class="btn-group"  (click)=" goBack()">
+              <button  class="btn btn-light bui">Back</button>
+          </div>
+        </h1>
+      </div>
+      <div class="col-8 bg">
+        <h1 class="h1 title" style="color: rgb(120, 178, 255)" align="center">
+          My Tasks
+        </h1>
+      </div>
+
+      <div class="col-2 bg">
+          <div class="hint">
+            <button type="button" class="btn"><i class="fa fa-question" style="color: #297bff"></i></button>
+          </div>
+            <div class="hide">Your Tasks Can Be Completed By Selecting The Complete Task Button</div>
+      
+          <button type="button" class="btn"><a class="help" href="https://scotty-crypto.github.io/523Clientsubsystem.html#ClientTask " target="_blank">| Help</a></button>
+      </div>
+    </div>
+  </div>
+
+<div class="app">
+
+  <div class="table-card">
+    <h1 class="h1 title">
+      <span>My Tasks</span>
+    </h1>
+    <table class="table">
+      <thead>
+        <tr>
+          <td id="tour-table">Description</td>
+          <td>Due Date</td>
+          <td>Practitioner</td>
+          <td>Task type</td>
+          <td>Action</td>
+        </tr>
+      <tbody>
+          <tr *ngFor="let Task of Tasks">
+            <td >{{Task.Description}}</td>
+            <td >{{Task.DueDate |date }}</td>
+            <td >{{Task.Practitioner  }}</td>
+            <td >{{Task.TaskType  }}</td>
+            <td>
+              <a (click)="CompleteTask(Task.Task_ID,Task.TaskType)" class="btn-gradient blue mini">Complete Task</a>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <br>
+  <br>
+  <div class="table-card FeedbackTable" style="padding-top: 5%;" *ngIf="this.isExisting">
+    <h1 class="h1 title">
+      <span> Feedback From Practitioner</span>
+    </h1>
+    <table class="table FeedbackTable">
+      <thead>
+        <tr>
+          <td id="tour-table"> Task Description</td>
+          <td>Practitioner</td>
+          <td>Client Task</td>
+          <td>Feedback</td>
+        </tr>
+      <tbody>
+          <tr *ngFor="let Task of Feedbacks">
+            <td >{{Task.Description}}</td>
+            <td >{{Task.Practitioner  }}</td>
+            <td >{{Task.TaskDescription  }}</td>
+            <td >{{Task.Feedback  }}</td>
+          </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>

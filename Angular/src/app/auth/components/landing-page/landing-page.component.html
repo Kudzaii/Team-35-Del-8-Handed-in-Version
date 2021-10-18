@@ -1,0 +1,155 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="A layout example from PureCSS.io that shows off a responsive product landing page.">
+
+    <title> 399 Landing Page | Winter '14</title>
+
+<link rel="stylesheet" href="https://yui.yahooapis.com/pure/0.4.2/pure-min.css">
+
+
+</head>
+<body>
+
+
+
+<div class="header">
+    <div class="home-menu pure-menu pure-menu-open pure-menu-horizontal pure-menu-fixed">
+        <a class="pure-menu-heading" href="">Your Site</a>
+
+        <ul>
+            <li class="pure-menu-selected"><a href="#">Home</a></li>
+            <li><a href="#">Tour</a></li>
+            <li><a href="#">Sign Up</a></li>
+        </ul>
+    </div>
+</div>
+
+
+
+<div class="splash-container">
+    <div class="splash">
+        <h1 class="splash-head">WELCOME TO THE FICS CORP</h1>
+        <!-- <p class="splash-subhead">
+            Lorem ipsum dolor sit
+        </p> -->
+        <p>
+            <a (click)="scroll(target)" class="pure-button pure-button-primary">Get Started</a>
+        </p>
+    </div>
+</div>
+
+
+
+<div class="content-wrapper" #target>
+    <div class="content">
+      <div class="form">
+        <div class="form-panel one" style="padding-top: 5%;">
+          <div class="form-group">
+            <button   [routerLink]="['../login']" routerLinkActive="active" >Login</button>
+          </div>
+          <div class="form-group">
+            <button   (click)="scroll(target1)" >Join us!</button>
+          </div>
+        </div>
+
+        <div class="alert alert-light alert-dismissible fade show" role="alert">
+          <button type="button" onclick="window.location='https://tsingarum.wixsite.com/website'" class="btn btn-light" style="color:#297bff">Learn more about us!</button>
+          <div class="hint">
+            <button type="button" style="color:#297bff" class="btn btn-light"><i class="fa fa-question" style="color: #297bff"></i></button>
+          </div>
+            <div class="hide">Join Us Allows You To Register And Login Is For Those With Existing Accounts.</div>
+      
+      
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="ribbon l-box-lrg pure-g">
+      <h2 class="content-head content-head-ribbon">About Our Product</h2>
+
+                      <video  controls autoplay="false" (canplay)="pauseVideo(videoplayer)"
+                      #videoPlayer width="100%" height="480" control>
+                    <source src="{{videoSource}}" type="video/mp4">
+                    Your Browser Does Not Support The Video Tag.
+                    </video>
+
+        <div class="pure-u-1 pure-u-med-1-2 pure-u-lrg-3-5">
+
+
+
+        </div>
+    </div>
+
+    <div class="content" #target1>
+        <!-- <h2 class="content-head is-center">Dolore magna aliqua. Uis aute irure.</h2> -->
+
+        <div class="form-panel one" >
+          <div class="form-header">
+            <h1>Join As</h1>
+            </div>
+
+            <div class="form-group">
+
+              <button   [routerLink]="['../register/1']" routerLinkActive="active" >CLIENT</button>
+            </div>
+
+
+            <div class="form-group">
+
+              <button
+              [routerLink]="['../register/2']"
+              routerLinkActive="active"
+              style="background-color: white; color: #297bff;">PRACTITIONER</button>
+            </div>
+
+
+
+            <div class="form-group">
+
+              <button
+              [routerLink]="['../register/3']"
+              routerLinkActive="active"
+              >TRAINER</button>
+            </div>
+            <div class="form-group">
+
+              <button  [routerLink]="['../register/4']"
+              routerLinkActive="active"
+              style="background-color: white; color: #297bff;">TRAINEE</button>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="footer l-box is-center">
+        Contact Ficscorp29@gmail.com For Any Queries About Us!
+    </div>
+
+</div>
+
+<script src="https://yui.yahooapis.com/3.14.1/build/yui/yui-min.js"></script>
+<script>
+YUI().use('node-base', 'node-event-delegate', function (Y) {
+    // This just makes sure that the href="#" attached to the <a> elements
+    // don't scroll you back up the page.
+    Y.one('body').delegate('click', function (e) {
+        e.preventDefault();
+    }, 'a[href="#"]');
+});
+</script>
+
+
+
+
+
+</body>
+</html>
+
+

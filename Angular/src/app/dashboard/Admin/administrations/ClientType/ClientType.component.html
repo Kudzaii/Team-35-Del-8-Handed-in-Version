@@ -1,0 +1,62 @@
+<div class="app">
+
+
+
+
+    <div class="container-fluid">
+    <div class="row">
+      <div class="col-2 bg">
+        <h1 class="h1 title">
+          <div class="btn-group">
+              <button  class="btn btn-light bui" >Back</button>
+          </div>
+        </h1>
+      </div>
+      <div class="col-8 bg">
+        <h1 class="h1 title"  align="center">
+          Client Types
+        </h1>
+      </div>
+
+      <div class="col-2 bg">
+          <div class="hint">
+            <button type="button" class="btn"><i class="fa fa-question" style="color: #297bff"></i></button>
+          </div>
+            <div class="hide">Add, Update Or Delete Client Types</div>
+      
+          <button type="button" class="btn"><a class="help" href="https://scotty-crypto.github.io/522Adminsubsystem.html#clientTypes " target="_blank">| Help</a></button>
+      </div>
+    </div>
+    <hr class="hr1">
+  </div>
+    <div class="form-group">
+      <input type="text" class="form-control mb-4" placeholder="Search" [(ngModel)]="query" id="listSearch">
+    </div>
+    <div>
+      <button  (click)="AddClientType()"  class="btn-gradient blue mini" >Add Client Type</button>
+    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <td id="tour-table">Title</td>
+          <td></td>
+          <td></td>
+
+        </tr>
+      <tbody>
+          <tr *ngFor="let type of clientTypes| filter: query">
+            <td>{{type.ClientType_Name}}</td>
+
+            <td>
+              <button mat-flat-button color="primary" (click)="Maintain(type.ClientType_Name,type.ClientType_ID)"  class="btn" >Maintain</button>
+            </td>
+            <td>
+              <button>
+                <i class="fa fa-trash" style="font-size: 1.73em;" (click)="delete(type.ClientType_ID)"></i>
+              </button>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+  </div>
+  

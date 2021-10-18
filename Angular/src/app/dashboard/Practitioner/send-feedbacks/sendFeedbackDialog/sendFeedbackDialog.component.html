@@ -1,0 +1,21 @@
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)">
+  <!-- First Row -->
+  <div class="Grid Grid--gutters Grid--cols-1 u-textCenter">
+    <div class="Grid-cell">
+      <div >
+        <div class="card">
+          <h1 class="card-title" style="font-size:20px">Type Your Feedback</h1>
+          <div class="card-body">
+            <div class="input-group">
+              <textarea class="form-control"  formControlName="feedback"
+              placeholder="Ex. pat ssss dd" aria-label="With textarea"></textarea>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <button type="submit" class="btn-gradient blue">Submit</button>
+</form>

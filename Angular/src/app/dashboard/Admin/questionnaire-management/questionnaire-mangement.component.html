@@ -1,0 +1,67 @@
+<div class="app top">
+
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-2 bg">
+        <h1 class="h1 title">
+          <div class="btn-group"  (click)=" goBack()">
+              <button  class="btn btn-light bui" >Back</button>
+          </div>
+        </h1>
+      </div>
+      <div class="col-8 bg">
+        <h1 class="h1 title"  align="center">
+          Questionnaire Bank
+        </h1>
+        <div class="form-group">
+          <input type="text" class="form-control mb-4" placeholder="Search" [(ngModel)]="query" id="listSearch">
+        </div>
+      </div>
+
+      
+
+      <div class="col-2 bg">
+          <div class="hint">
+            <button type="button" class="btn"><i class="fa fa-question" style="color: #297bff"></i></button>
+          </div>
+            <div class="hide">Maintain Questions</div>
+      
+          <button type="button" class="btn"><a class="help" href="https://scotty-crypto.github.io/522Adminsubsystem.html#QuestionsBank " target="_blank">| Help</a></button>
+      </div>
+    </div>
+    <hr class="hr1">
+  </div>
+
+  <div class="table-card">
+
+    <div>
+      <button  (click)="AddType()" style="color:white" class="btn-gradient blue mini" >Add Question Title</button>
+    </div>
+    <table class="table ">
+
+      <thead>
+        <tr>
+          <td></td>
+          <td>Question Description</td>
+          <td></td>
+          <td></td>
+        </tr>
+      <tbody>
+        <tr *ngFor="let question of QuestionsBank | Gfilter: query">
+          <td>{{question.QuestionTitle_ID}}</td>
+          <td>{{question.Description}}</td>
+          <td>
+            <button (click)="Maintain(question.QuestionTitle_ID,question.Description)"  class="btn-gradient blue mini hint" style="color:white" >Maintain</button>
+              <div class="hipe">Maintain this title</div>
+          </td>
+            
+          <td>
+            <button   class="btn-gradient red mini hint"  style="color:white" [routerLink]="['../questionnaire-management/', question.QuestionTitle_ID]">View Details</button>
+              <div class="hipe">View sub questions</div>
+            </td>
+            
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

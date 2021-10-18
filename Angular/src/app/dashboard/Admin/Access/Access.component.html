@@ -1,0 +1,51 @@
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-2 bg">
+        <h1 class="h1 title">
+          <div class="btn-group"  (click)=" goBack()">
+              <button  class="btn btn-light bui" >Back</button>
+          </div>
+        </h1>
+      </div>
+      <div class="col-8 bg">
+        <h1 class="h1 title"  align="center">
+          Access Management
+        </h1>
+      </div>
+
+      <div class="col-2 bg">
+          <div class="hint">
+            <button type="button" class="btn"><i class="fa fa-question" style="color: #297bff"></i></button>
+          </div>
+            <div class="hide">Click The Users Tab Below To View Access</div>
+      
+          <button type="button" class="btn"><a class="help" href="https://scotty-crypto.github.io/522Adminsubsystem.html#Access " target="_blank">| Help</a></button>
+      </div>
+    </div>
+    <hr class="hr1">
+  </div>
+
+
+<div class="tab_container" style="padding-bottom: 20%;">
+<input id="tab1" type="radio" name="tabs" checked routerLinkActive="active"   routerLink="./practitioners" (click)="Change(1)">
+<label for="tab1"><i class="fa fa-pencil-square-o"></i><span>Practitioners </span></label>
+
+<input id="tab2" type="radio" name="tabs" routerLinkActive="active" routerLink="./trainers" (click)="Change(2)">
+<label for="tab2"><i class="fa fa-pencil-square-o"></i><span> Trainers </span></label>
+
+<input id="tab3" type="radio" name="tabs" routerLinkActive="active"  routerLink="./trainees" (click)="Change(3)">
+<label for="tab3"><i class="fa fa-pencil-square-o"></i><span> Trainees</span></label>
+
+<input id="tab4" type="radio" name="tabs" routerLinkActive="active"  routerLink="./clients" (click)="Change(4)">
+<label for="tab4"><i class="fa fa-pencil-square-o"></i><span> Clients</span></label>
+
+
+<section id={{content}} class="tab-content" style="padding-bottom: 20%;">
+
+  <router-outlet></router-outlet>
+</section>
+
+
+
+
+</div>

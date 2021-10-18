@@ -1,0 +1,126 @@
+
+<header class="container" style="width: 100%;max-width:100%">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-2 bg">
+        <h1 class="h1 title">
+          <div class="btn-group"  (click)=" goBack()">
+              <button  class="btn btn-light bui">Back</button>
+          </div>
+        </h1>
+      </div>
+      <div class="col-8 bg">
+        <h1 style="color:blue" align="center">Assign Task To {{message}}</h1>
+      </div>
+
+      <div class="col-2 bg">
+          <div class="hint">
+            <button type="button" class="btn"><i class="fa fa-question" style="color: #297bff"></i></button>
+          </div>
+            <div class="hide">Write Out The Homework Instructions Below</div>
+      
+          <button type="button" class="btn"><a class="help" href="https://scotty-crypto.github.io/525Practitionersubsystem.html#PSendTask " target="_blank">| Help</a></button>
+      </div>
+    </div>
+    <hr class="hr1">
+  </div>
+  <div class="alert alert-danger" role="alert">
+    [NB] You Are Only Allowed To Send One Task At A Time
+  </div>
+
+<br>
+
+<main>
+  <div class="col">
+    <a class="card card-5 stacked--up-left">
+      <code class="title">PDF/Picture Task</code>
+      <div class="content">
+        <h4> Select A PDF/Picture</h4>
+        <div class="input-group">
+          <div class="custom-file">
+            <input type="file" class="custom-file-input" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04">
+            <label class="custom-file-label" for="inputGroupFile04">Choose A File</label>
+          </div>
+
+        </div>
+      </div>
+      <br><br><br><br>
+    </a>
+  </div>
+  <div class="col">
+    <a class="card card-6 stacked--up-right">
+      <code class="title">Written Task</code>
+      <div class="content">
+        <h4> Please Type The Task Below</h4>
+        <div class="form-group">
+          <textarea class="form-control" id="exampleFormControlTextarea1" [(ngModel)]="Task.Description" rows="3"></textarea>
+
+        </div>
+      </div>
+    </a>
+  </div>
+</main>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h2>Due Date</h2>
+        <mat-form-field appearance="fill"  style="background-color:  rgb(1, 153, 255);">
+          <mat-label>Choose A Date</mat-label>
+          <input matInput  [min]="minDate"  (dateInput)="getDate($event)" (dateChange)="getDate($event)" [matDatepicker]="picker">
+          <mat-datepicker-toggle matSuffix  [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker  > </mat-datepicker>
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+
+
+
+  <button type="button" (click)="Submit()" class="btn  length-increase btn-primary btn-lg btn-block" style="width: 100%;max-width:100%">Submit</button>
+
+<!-- Cards  -->
+<hr class="my-4">
+<div class="container jumbotron jumbotron-fluid" style="width: 100%;max-width:100%">
+
+
+  <div class="row">
+    <h1 style=" font-family: 'Montserrat', sans-serif; color:cornflowerblue">Tasks Already Assigned To {{message}}</h1>
+    <div class="col-md-9">
+      <div class="CriticalActions">
+          <div class="d-flex"> <!--CardGroup -->
+            <div class="commitment-task-card" *ngFor="let task of Tasks"  [ngClass]="task.Status=='Completed' ? 'commitment-task-card complete' : 'commitment-task-card'" >
+              <div class="commitment-task-card-header">
+                <h4 class="commitment-task-card-title">
+                  <span class="commitment-task-type">Task Type {{task.TaskType}}</span>
+
+                </h4>
+                <h4 class="commitment-task-due-date">Start: {{task.StartDate}}</h4>
+                <h4 class="commitment-task-due-date">Due: {{task.DueDate| date}}</h4>
+              </div>
+              <div class="commitment-task-card-body">
+                <div class="alert alert-success" role="alert">
+                  <span class="badge badge-warning" style="color:blue">Feedback From User:</span>
+                  {{task.Feedback}}
+                </div>
+              </div>
+              <div class="commitment-task-card-body">
+
+                <div class="alert alert-success" role="alert">
+                  <span class="badge badge-warning" style="color:blue">Description:</span>
+                  {{task.Description}}
+                </div>
+              </div>
+              <div class="commitment-task-card-footer">
+                <a href="#" class="btn btn-link commitment-help-link">Need Help?</a>
+
+                <a href="#" *ngIf="task.Status=='Completed'" class="btn btn-default btn-xs">Complete</a>
+              </div>
+            </div>
+          </div> <!--CardGroup -->
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</header>

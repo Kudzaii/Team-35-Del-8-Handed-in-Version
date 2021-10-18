@@ -1,0 +1,47 @@
+<h1 class="h1 title" style="color: white" align="center">
+    <div class="hint">
+      <button type="button" class="btn"><i class="fa fa-question" style="color: #041c42"></i></button>
+    </div>
+      <div class="hide">Select The Purchase Button To Select A Package And Enable The Next Button At The Bottom Of The Page</div>
+  <span>SELECT A PACKAGE</span>
+</h1>
+
+
+<div class="row">
+  <div class="col-6 col-md-4" *ngFor="let package of Packages | slice:0:show; let i = index" style="padding-bottom: 2%;">
+    <div class="grid">
+      <div class="grid__item">
+        <div class="card" >
+          <img class="card__img"
+            src="http://waterbearlearning.com/wp-content/uploads/2019/04/water_bear_learning_instructional_design1.jpg"
+            alt="Snowy Mountains" />
+          <div class="card__content">
+            <h1 class="card__header" [ngStyle]="{ color: PackageID == package.Package_ID ? 'green' : 'blue' }">{{ package.Name }}</h1>
+            <mat-icon>receipt</mat-icon>
+            <div>
+                    <p class="card__text">Price: R{{ package.Price }} </p>
+                    <p class="card__text">Quantity: {{ package.Quantity }} </p>
+                    <p class="card__text">Purchase date: {{ package.Purchase_Date | date }} </p>
+            </div>
+            <button class="card__btn" (click)="ChoosePackage(package.Package_ID, i)" >Purchase <span>&rarr;</span></button>
+            <br>
+            <mat-chip-list class="mat-chip-list-stacked" aria-label="Color selection"
+            *ngIf="MoveToNext && PackageID == package.Package_ID">
+            <mat-chip color="primary" [ngStyle]="{ color: PackageID == package.Package_ID ? 'yellow' : 'white' }"> Selected Package </mat-chip>
+          </mat-chip-list>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button type="button" class="btn card__btn btn-lg btn-block" *ngIf="show < Packages.length" (click)="increaseShow()">View More... </button>
+</div>
+
+<br>
+<button type="button" mat-flat-button color="warn" matStepperPrevious>
+  Back
+</button>
+&nbsp;
+<button type="button" mat-flat-button color="primary" matStepperNext *ngIf="this.MoveToNext" (click)="step2Submitted()">
+  Next
+</button>

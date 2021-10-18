@@ -1,0 +1,74 @@
+@import 'src/app/shared/layouts/dropdown.scss';
+@import './RegisterPP.scss';
+  
+  .mat-card {
+    background: rgba(196, 196, 196, 0.568);
+}
+.mat-hint {
+    color: rgba(255, 6, 6, 0.568);
+}
+.mat-card2 {
+    background: rgba(255, 255, 255, 0.774);
+}
+.example-full-width {
+    width: 100%;
+    color: black;
+
+  }
+  .example-card {
+    max-width: 400px;
+  }
+
+  .example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  }
+
+  .wrapper{
+      padding-top: 5%;
+      width: 90%;
+  }
+  body {
+    background-color: green;
+  }
+
+
+  .choose-file {
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    width: 0.1px;
+    z-index: -1;
+  }
+
+  /* Style both input field and label */
+  .choose-file + .upload-file {
+    background-color: #007B7C;
+    box-sizing: border-box;
+    color: #fff;
+    display: block;
+    font-family: Sans-serif;
+    font-size: 1rem;
+    font-weight: 300;
+    padding: 1rem 0;
+    text-align: center;
+    text-transform: uppercase;
+    width: 250px;
+  }
+
+  .choose-file:focus + .upload-file,
+  .choose-file + .upload-file:hover {
+    background-color: #007B7C;
+  }
+
+
+  label.upload-file::before {
+    content: "Choose file";
+  }
+
+  /* This appears after a file is chosen. */
+  .choose-file:valid + .upload-file::before {
+    content: "1 file chosen";
+  }
+

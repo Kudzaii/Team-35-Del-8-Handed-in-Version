@@ -1,0 +1,29 @@
+<div  id="personal-details" [formGroup]="regForm">
+
+  <mat-card formGroupName="PurchaseDetails">
+
+
+
+
+  </mat-card>
+
+  <mat-card formGroupName="PurchaseDetails">
+    <mat-card-title>Quantity
+        <div class="hint">
+            <button type="button" class="btn"><i class="fa fa-question" style="color: #297bff"></i></button>
+          </div>
+            <div class="hide">How many times do you as an individual wish to complete this package?</div>
+    </mat-card-title>
+    <mat-card-content>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label> Type Your Quantity</mat-label>
+        <input matInput formControlName="Quantity"type="number" >
+      </mat-form-field>
+
+    </mat-card-content>
+  </mat-card>
+  <button type="button" class="btn btn-primary btn-lg btn-block" (click)='checkout(amount)'>Pay <i class="fa fa-money" aria-hidden="true"></i></button>
+
+</div>
+<br/>
+<button type="button" [disabled]="!regForm.valid"  mat-flat-button color="primary" matStepperNext (click)="step1Submitted()">Next</button>

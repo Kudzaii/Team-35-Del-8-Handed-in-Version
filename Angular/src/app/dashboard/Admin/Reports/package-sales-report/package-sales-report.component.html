@@ -1,0 +1,50 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container"></div>
+</div>
+
+<div class="card container" style="width: 100%">
+  <div class="card-body">
+    <h1 class="display-4">The FICS Corp Presents:</h1>
+    <h3>Bookings Per Package Report</h3>
+
+    <div class="d-flex justify-content-center" style="padding-bottom:25px;">
+    <form [formGroup]="form" (ngSubmit)="touched()">
+      <div class="form-group">
+        <label for="exampleInputEmail1">From</label>
+        <input
+          type="date"
+          formControlName="date"
+          #date
+          class="form-control"
+          id="exampleInputEmail1"
+          aria-describedby="emailHelp"
+          (change)="getReportResults(date.value)"
+          placeholder="Enter email"
+          [disabled]="dropdown"/>
+      </div>
+    </form>
+    </div>
+    <div *ngIf="isClicked">
+      ...
+      <div class="table-card">
+        <table class="table">
+          <thead>
+            <tr>
+              <td id="tour-table">Package Name</td>
+              <td>Number of Packages Bought</td>
+            </tr>
+          <tbody>
+              <tr *ngFor="let package of UserRoles">
+                <td>{{package.name}}</td>
+                <td>{{package.value}}</td>
+              </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+

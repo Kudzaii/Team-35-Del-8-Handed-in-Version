@@ -1,0 +1,123 @@
+@import "src/app/shared/utils/table.scss";
+/********************************/
+// Cards
+/********************************/
+.container {
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+  }
+  .CriticalActions {
+    margin: 0 -15px 15px;
+    padding: 15px;
+    background-color: #ffffff;
+  }
+  .commitment-task-cards {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .commitment-task-card {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 0%;
+    background-color: #fff;
+    box-shadow: 0 6px 12px -5px #1b374f;
+  }
+  .commitment-task-card.complete {
+    border-left: 4px solid #347ec0;
+    background-color: #d2e6f6;
+  }
+  .commitment-task-card.complete .btn-default {
+    background-color: #a9cdec;
+    border-color: #80b2e0;
+  }
+  .commitment-task-card:not(:last-child) {
+    margin-right: 15px;
+  }
+  .commitment-task-card-header {
+    border-bottom: 1px solid #e1e3e5;
+    padding: 0 15px 8px;
+  }
+  .commitment-task-card-title {
+    margin-bottom: 0;
+    font-weight: 700;
+  }
+  .commitment-task-due-date {
+    font-size: 20px;
+    color: #ef5425;
+    padding: 4px 0 0;
+    margin-bottom: 0;
+  }
+  .commitment-task-type {
+    display: block;
+    color: #92a83b;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+  }
+  .commitment-task-card-body {
+    padding: 15px;
+    flex: 1 1 auto;
+  }
+
+  .commitment-task-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 15px;
+  }
+
+  .commitment-help-link {
+    padding: 3px;
+    color: #6a737b;
+    font-size: .8em;
+  }
+  .commitment-help-link:hover {
+    text-decoration: none;
+  }
+
+  .d-flex {
+    display :flex;
+  }
+
+  .hide {
+    display: none;
+  }
+  .hint {
+    display: inline;
+  }
+
+  .help {
+    display: inline;
+    float: right;
+  }
+      
+  .hint:hover + .hide {
+    display: inline;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: #297bff;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    top: 20%;
+    font-size: 17px;
+  }
+
+  .bui {
+    background-color: #297bff;
+    color: #fff;
+    font-size: large;
+    padding: 10px 24px;
+  }
+
+  .hr1 {
+    border: 0;
+    height: 4px;
+    background: #095484;
+    background-image: linear-gradient(to right, #ccc, #092c64, #ccc);
+  }

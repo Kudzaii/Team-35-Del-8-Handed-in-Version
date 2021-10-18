@@ -1,0 +1,27 @@
+<mat-card class="example-result-card" style="background-color:rgb(0, 136, 255)">
+  <mat-card-content>
+    <h2>Change Time limit</h2>
+    <br>
+    <br>
+    <div class="example-label-container" >
+      <label id="example-name-label" class="example-name-label">Max Minutes</label>
+      <span class="badge badge-secondary">
+      <label class="example-value-label" style="font-size: large;">{{value}}</label>
+    </span>
+    </div>
+
+  <mat-slider
+  class="example-margin"
+  [max]="100"
+  [min]="1"
+  [step]="3"
+  [thumbLabel]="true"
+  [tickInterval]="10"
+  [(ngModel)]="value"
+  [vertical]="false"
+  aria-labelledby="example-name-label">
+</mat-slider>
+<br>
+<button href="#" class="btn yellow mini" (click)="SetTimer()">Set Time</button>
+</mat-card-content>
+</mat-card>

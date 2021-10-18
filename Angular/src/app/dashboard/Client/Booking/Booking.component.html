@@ -1,0 +1,129 @@
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-10 bg">
+        <h1 class="h1 title">
+          <div class="btn-group"  (click)=" goBack()">
+              <button  class="btn btn-light bui">Back</button>
+          </div>
+        </h1>
+      </div>
+      <div class="col-8 bg">
+        <h1 class="h1 title" style="color: rgb(120, 178, 255)" align="center">
+          Make Booking
+        </h1>
+      </div>
+
+      <div class="col-2 bg">
+          <div class="hint">
+            <button type="button" class="btn"><i class="fa fa-question" style="color: #297bff"></i></button>
+          </div>
+
+
+            <div class="hide">Dates your practitioner is available for sessions is highlighted in orange on the calendar</div>
+
+
+
+          <button type="button" class="btn"><a class="help" href="https://scotty-crypto.github.io/523Clientsubsystem.html#ClientBooking " target="_blank">| Help</a></button>
+      </div>
+    </div>
+
+    <hr class="hr1">
+  </div>
+
+
+
+
+<div class="wrapper">
+  <div class="Grid Grid--full u-textCenter">
+
+    <div class="Grid-cell">     <mat-card><h1>BOOK SLOTS</h1></mat-card>
+    </div>
+  </div>
+
+</div>
+<br>
+
+<div class="Grid Grid--gutters Grid--cols-2 u-textCenter">
+  <div class="Grid-cell">
+      <div class="example-full-width" appearance="fill">
+        <mat-card class="demo-inline-calendar-card">
+          <mat-card-title>
+              <div class="hint">
+            <button type="button" class="btn"><i class="fa fa-question" style="color: #297bff"></i></button>
+          </div>
+            <div class="hide">Select A Date To View The Available Sessions</div>
+
+          </mat-card-title>
+          <br>
+          <mat-calendar [dateClass]="dateClass()"   [minDate]="minDate" (selectedChange)="getDateAvailability($event)" style="background-color: rgb(1, 134, 230);"></mat-calendar>
+        </mat-card>
+      </div>
+
+  </div>
+  <div class="Grid-cell">
+
+      <div class="example-full-width" appearance="fill">
+        <mat-card class="demo-inline-calendar-card">
+          <mat-card-title>
+           Current Booking
+              <div class="hint">
+                  <button type="button" class="btn"><i class="fa fa-question" style="color: #297bff"></i></button>
+                </div>
+                  <div class="hide">All times provided are set to SAST, (UCT +2)</div>
+          </mat-card-title>
+          <br>
+
+
+        </mat-card>
+        <hr>
+        <mat-card class="demo-inline-calendar-card">
+          <mat-card-title>
+            Available Slots
+
+            <div class="hint">
+            <button type="button" class="btn"><i class="fa fa-question" style="color: #297bff"></i></button>
+          </div>
+            <div class="hide">Select One Time Slot At A Time. Times Are Set To SAST (UTC+2)</div>
+
+          </mat-card-title>
+          <div *ngFor="let slot of AvailableSlots">
+            <mat-card  style="cursor: pointer !important;" (click)="ChooseSlot(slot.Availability_ID,slot)" >
+
+              <strong>  Practitioner: {{slot.Practitioner}}</strong> |
+                Date: {{slot.Date | date}}  |
+                <mat-chip color="warn"  class="mat-chip-list-stacked">  Time: {{ TimeChange(slot.Time)[0] | slice:0:5 }} - {{ TimeChange(slot.Time)[1] | slice:0:6 }}</mat-chip>
+            </mat-card>
+          </div>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+  <br>
+  <mat-card class="demo-inline-calendar-card">
+    <mat-card-title>
+     Your Packages
+    </mat-card-title>
+  <div class="demo-inline-calendar-card">
+    <select [(ngModel)]="package" class="select-css">
+      <option *ngFor="let package of Packages" [value]="package.Package_ID" (click)="ChoosePackage(package.Package_ID)" >{{ package.Name }}</option>
+    </select>
+  </div>
+  </mat-card>
+  <br>
+  <mat-card class="example-full-width" style="background-color: rgb(0, 166, 255); width: 100%; color:yellow" *ngIf="CurrentlyChosen">
+    CHOSEN SLOT
+    Date: {{CurrentlyChosen.Date | date}}  |
+      <mat-chip color="warn"  class="mat-chip-list-stacked">  Time: {{ TimeChange(CurrentlyChosen.Time)[0] | slice:0:5 }} - {{ TimeChange(CurrentlyChosen.Time)[1] | slice:0:6 }}</mat-chip> |
+      Practitioner: {{CurrentlyChosen.Practitioner}}
+  </mat-card>
+  <br>
+  <mat-card class="example-full-width" style="background-color: white; width: 100%;">
+    <div class="Grid Grid--gutters Grid--cols-2 u-textCenter">
+      <div class="Grid-cell">
+        <button mat-flat-button color="primary" (click)="BookSlot()">Confirm Booking</button>
+      </div>
+      <div class="Grid-cell">
+         <button mat-flat-button color="warn" [routerLink]="['../../dashboard']" routerLinkActive="active">Cancel Booking</button>
+      </div>
+    </div>
+  </mat-card>

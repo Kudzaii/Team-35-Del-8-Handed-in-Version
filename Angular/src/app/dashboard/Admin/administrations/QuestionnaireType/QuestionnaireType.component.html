@@ -1,0 +1,62 @@
+
+<div class="app">
+
+  <div class="table-card">
+
+    <div class="container-fluid">
+    <div class="row">
+      <div class="col-2 bg">
+        <h1 class="h1 title">
+          <div class="btn-group">
+              <button  class="btn btn-light bui" >Back</button>
+          </div>
+        </h1>
+      </div>
+      <div class="col-8 bg">
+        <h1 class="h1 title"  align="center">
+          Questionnaire Types
+        </h1>
+      </div>
+
+      <div class="col-2 bg">
+          <div class="hint">
+            <button type="button" class="btn"><i class="fa fa-question" style="color: #297bff"></i></button>
+          </div>
+            <div class="hide">Add, update or delete questionnaire types</div>
+      
+          <button type="button" class="btn"><a class="help" href="https://scotty-crypto.github.io/522Adminsubsystem.html#questionnaireTypes " target="_blank">| Help</a></button>
+      </div>
+    </div>
+    <hr class="hr1">
+  </div>
+    <div class="form-group">
+      <input type="text" class="form-control mb-4" placeholder="Search" [(ngModel)]="query" id="listSearch">
+    </div>
+
+    <div>
+      <button  (click)="AddType()"   class="btn-gradient blue mini">Add  Questionnaire Type</button>
+    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <td> Questionnaire Type Description</td>
+          <td>Action</td>
+
+        </tr>
+      <tbody>
+          <tr *ngFor="let type of  QuestionnaireTypes | filter: query">
+            <td>{{type.Description}}</td>
+
+            <td>
+              <button  class="btn-gradient blue mini" (click)="Maintain(type.Description, type.QuestionnaireType_ID)"  >Maintain</button>
+            </td>
+            <td>
+              <button>
+                <i class="fa fa-trash" style="font-size: 1.73em;" (click)="delete(type.QuestionnaireType_ID)"></i>
+              </button>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

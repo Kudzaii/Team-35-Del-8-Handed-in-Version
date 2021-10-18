@@ -1,0 +1,51 @@
+<!-- Picture upload -->
+
+<ng-container
+  *ngIf="data.taskType == 'Photo Upload' || data.taskType == 'Daily Activity'"
+>
+  <input
+    style="display: none"
+    type="file"
+    (change)="onFileChanged($event)"
+    #fileInput
+  />
+
+  <mat-card>
+    <button matInput class="btn-gradient red mini" (click)="fileInput.click()">
+      Select File
+    </button>
+    <br />
+    <button matInput class="btn-gradient blue mini" (click)="onSubmitUpload()">
+      Upload!
+    </button>
+  </mat-card>
+</ng-container>
+
+<!-- Daily activity and general activity -->
+<!-- <ng-container *ngIf="data.taskType == 'General Activity'"> -->
+
+<ng-container >
+
+
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)">
+  <!-- First Row -->
+  <div class="Grid Grid--gutters Grid--cols-1 u-textCenter">
+    <div class="Grid-cell">
+      <div >
+        <div class="card">
+          <h1 class="card-title" style="font-size:20px">Complete Your Task</h1>
+          <div class="card-body">
+            <div class="input-group">
+              <textarea class="form-control"  formControlName="Description"
+              placeholder="Ex. pat ssss dd" aria-label="With textarea"></textarea>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <button type="submit" class="btn-gradient blue">Submit</button>
+</form>
+</ng-container>

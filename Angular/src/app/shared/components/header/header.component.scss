@@ -1,0 +1,284 @@
+/*
+
+ Tour Overlay Styles
+
+*/
+
+.tour-overlay {
+  background: #666;
+  opacity: 0.5;
+  z-index: 9996;
+  min-height: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.tour-stop {
+  position: relative;
+  z-index: 9998;
+  outline: 10px solid white;
+}
+
+.tour-stop-bg {
+  background: white;
+  position: fixed;
+  z-index: 9997;
+}
+
+.tour-message {
+  position: fixed;
+  z-index: 9997;
+  top: 0;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 13px rgba(0, 0, 0, 0.26);
+}
+
+.tour-message .title {
+  font-size: 1.75em;
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.tour-message__controls {
+  font-size: 1.5em;
+}
+
+/*
+
+ Inconsequential Styles
+
+*/
+
+body {
+  margin: 0;
+}
+.row {
+  display: flex;
+  flex: 1 1 0;
+  align-items: center;
+}
+.col {
+  flex: 1 1 0;
+}
+
+button {
+  border: none;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+  color: inherit;
+}
+
+.icon {
+  padding: 20px;
+}
+
+.h1 {
+  font-size: 2em;
+  margin: 0;
+  color: #297bff;
+}
+
+/*
+
+ App
+
+*/
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/*
+
+ Header
+
+*/
+
+.header {
+  background: #fff;
+  flex: 0 0 40px;
+  box-shadow: 0px 4px 10px #de5c4130;
+}
+
+.logo {
+  font-size: 1.25em;
+  font-weight: bold;
+  color: #297bff;
+  display: inline-block;
+}
+
+.controls {
+  display: flex;
+  justify-content: flex-end;
+  color: #b7b7b7;
+}
+
+.controls button:hover {
+  color: #297bff;
+}
+
+.user-profile {
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+}
+
+.user-profile img {
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  margin-left: 10px;
+}
+
+/*
+
+ Body
+
+*/
+
+.body {
+  display: flex;
+  flex: 1 1 auto;
+}
+
+/*
+
+ Sidebar
+
+*/
+.sidebar {
+  flex: 0 0 20%;
+}
+
+.sidebar-nav {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.sidebar-nav button {
+  display: flex;
+  width: 100%;
+  padding: 20px;
+  text-align: left;
+  color: #717171;
+}
+
+.sidebar-nav button:hover {
+  color: #fdd75a;
+}
+
+.sidebar-nav button span {
+  flex: 1 1 0;
+}
+
+.sidebar-nav button i {
+  flex: 0 0 20px;
+}
+
+.sidebar-nav .cta {
+  padding: 10px 20px;
+}
+
+button.primary {
+  display: block;
+  padding: 20px;
+  background: #03577e;
+  color: rgb(255, 255, 255);
+  border-radius: 10px;
+  text-align: center;
+}
+
+button.primary:hover {
+  color: white;
+  background: #297bff;
+}
+
+/*
+
+ Main View
+
+*/
+
+.main {
+  flex: 0 0 80%;
+  background: #eee;
+}
+
+.main__content {
+  padding: 40px;
+}
+
+.title {
+  margin-bottom: 1em;
+}
+
+.card {
+  background: #297bff;
+  padding: 20px;
+  color: white;
+  border-radius: 10px;
+}
+
+.card__subtitle {
+  margin: 1em 0 1em 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.card__title {
+  margin: 0;
+  font-size: 2.5em;
+  margin-bottom: 1em;
+}
+
+.card__extra {
+  margin: 0;
+}
+
+.table-card {
+  background: white;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.dashcards {
+  margin-bottom: 40px;
+  display: flex;
+  margin-left: -10px;
+  margin-right: -10px;
+}
+
+.dashcards .col {
+  padding: 0 10px;
+}
+
+.table {
+  width: 100%;
+  border-spacing: 0;
+}
+
+.table td {
+  padding: 20px 0;
+}
+
+.table thead td {
+  font-weight: bold;
+  border-bottom: 1px solid #999;
+  border-top: 1px solid #999;
+  color: #297bff;
+}
+
+.table tbody td {
+  border-bottom: 1px solid #ccc;
+  color: #777;
+}

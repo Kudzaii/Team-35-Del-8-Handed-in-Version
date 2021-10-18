@@ -1,0 +1,182 @@
+<!--<h1 class="h1 title">
+  <div class="btn-group"  (click)=" goBack()">
+      <button  class="btn btn-light bui"><i class="fa fa-chevron-left" aria-hidden="true"></i>Back</button>
+  </div>
+</h1>-->
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-2 bg">
+        <h1 class="h1 title">
+          <div class="btn-group"  (click)=" goBack()">
+              <button  class="btn btn-light bui">Back</button>
+          </div>
+        </h1>
+      </div>
+      <div class="col-8 bg">
+        <h1 class="h1 title" style="color: rgb(120, 178, 255)" align="center">
+
+        </h1>
+      </div>
+
+      <div class="col-2 bg">
+          <div class="hint">
+            <button type="button" class="btn"><i class="fa fa-question" style="color: #297bff"></i></button>
+          </div>
+            <div class="hide">Edit Your Profile Below</div>
+
+            <button type="button" class="btn"><a class="help" href="https://scotty-crypto.github.io/523Clientsubsystem.html#ClientProfile " target="_blank">| Help</a></button>
+      </div>
+    </div>
+  </div>
+
+
+<app-pre-loader *ngIf="isLoaded"></app-pre-loader>
+<ng-container *ngIf="!isLoaded">
+
+
+  <div class="wrapper">
+    <div class="Grid Grid--full u-textCenter">
+
+      <div class="Grid-cell">
+        <mat-card>
+          <h1>My Profile</h1>
+        </mat-card>
+      </div>
+    </div>
+
+  </div>
+  <br>
+
+  <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)">
+    <div class="detail-update">
+
+      <div class="left">
+
+        <div class="profile-pic">
+          <img [src]=profilePicture?.Url>
+        </div>
+
+
+        <div class="email">
+
+          <h2> Change Your Email</h2>
+          <small>Name</small>
+          <BR>
+
+          <!-- {{info.Name}}<br><br> -->
+
+          <label> Your new email address</label>
+
+          <!-- <input class="cat_button" type="submit" value="Save Email" id="catupdatedetailsformbutton" /> -->
+
+        </div>
+
+        <div class="email">
+
+          <h2>Marketing</h2>
+          <small>Receive marketing emails from DW Creative Design Studio and be the first to hear about new products and
+            special offers.</small> <BR>
+          <input type="radio" name="CAT_Custom_13726380_724071" id="CAT_Custom_13726380_724071_0" value="Opt In" />Opt
+          In<br />
+          <input type="radio" name="CAT_Custom_13726380_724071" id="CAT_Custom_13726380_724071_1" value="Opt Out" />Opt
+          Out
+
+
+
+
+          <input class="cat_button" (click)="openDetail(UserCVDetails?.Url)" type="button" value="View CV" id="catupdatedetailsformbutton" />
+        </div>
+
+      </div>
+
+
+      <div class="right">
+        <div class="details">
+          <h2> Your Details</h2>
+          <table>
+
+            <tr>
+              <td class="heading">Title:</td>
+              <td class="info"><input type="text" name="LastName" id="LastName" formControlName="Title"
+                  class="cat_textbox" maxlength="255" /></td>
+            </tr>
+            <tr>
+              <td class="heading">First Name:</td>
+              <td class="info"><input type="text" name="FirstName" id="FirstName" formControlName="Name"
+                  class="cat_textbox" maxlength="255" /></td>
+            </tr>
+            <tr>
+              <td class="heading">Last Name:</td>
+              <td class="info"><input type="text" name="LastName" id="LastName" formControlName="Surname"
+                  class="cat_textbox" maxlength="255" /></td>
+            </tr>
+
+            <tr>
+              <td class="heading">Phone Number:</td>
+              <td class="info"><input type="text" name="HomePhone" id="HomePhone" formControlName="Contact_Number"
+                  class="cat_textbox" maxlength="255" /></td>
+            </tr>
+            <tr>
+              <td class="heading">Email:</td>
+              <td class="info"> <input type="text" name="Company" id="Company" formControlName="Email_Address"
+                  class="cat_textbox" maxlength="255" /></td>
+            </tr>
+            <tr>
+              <td class="heading">ID Number:</td>
+              <td class="info"><input type="text" id="DOB" name="DOB" formControlName="ID_Number" class="cat_textbox" />
+              </td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="details">
+          <h2> Registered Address</h2>
+          <table>
+            <tr>
+              <td class="heading">Gender:</td>
+              <!-- <td class="info"><input type="text" name="FullName" id="FullName" value="" class="cat_textbox" maxlength="255" /></td> -->
+              <td class="info">
+                <select class="select-css cat_textbox" formControlName="Gender">
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                  <option value="Other">Other</option>
+                  <option value="Not Say">Prefer TO Not Say</option>
+                </select>
+              </td>
+            </tr>
+
+            <tr *ngIf="showOthers">
+              <td class="heading">Passport Number</td>
+              <td class="info"><input type="text" name="HomeAddress" id="HomeAddress" formControlName="Passport_Number"
+                  class="cat_textbox" maxlength="500" /></td>
+            </tr>
+
+            <tr *ngIf="showOthers">
+              <td class="heading">country:</td>
+              <td class="info">
+                <select class="select-css cat_textbox" formControlName="Country">
+                  <option *ngFor="let country of countries" [value]="country.country">{{country.country}}</option>
+                </select>
+              </td>
+            </tr>
+
+            <!--<tr *ngIf="showOthers" >
+              <td class="heading">Client Type:</td>
+              <td class="info">
+                <select class="select-css cat_textbox" formControlName="Client Type">
+                  <option *ngFor="let clientType of clientTypes" [value]="clientType.clientType">{{clientType.clientType}}</option>
+                </select>
+              </td>
+            </tr>-->
+
+          </table>
+          <input class="cat_button" type="submit" value="Save Changes" id="catupdatedetailsformbutton" />
+        </div>
+
+      </div>
+
+    </div>
+
+  </form>
+
+</ng-container>

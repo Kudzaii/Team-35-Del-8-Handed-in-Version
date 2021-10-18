@@ -1,0 +1,170 @@
+<app-pre-loader *ngIf="isLoaded"></app-pre-loader>
+
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-2 bg">
+        <h1 class="h1 title">
+          <div class="btn-group"  (click)=" goBack()">
+              <button  class="btn btn-light bui" >Back</button>
+          </div>
+        </h1>
+      </div>
+      <div class="col-8 bg">
+        <h1 class="h1 title"  align="center">
+          Assign Questionnaire
+        </h1>
+      </div>
+
+      <div class="col-2 bg">
+          <div class="hint">
+            <button type="button" class="btn"><i class="fa fa-question" style="color: #297bff"></i></button>
+          </div>
+            <div class="hide">Select Client Or Trainer Block To Navigate Between The Two Users</div>
+      
+          <button type="button" class="btn"><a class="help" href="https://scotty-crypto.github.io/522Adminsubsystem.html#AssignQuestionnaire " target="_blank">| Help</a></button>
+      </div>
+    </div>
+    <hr class="hr1">
+  </div>
+
+<div class="container Grid Grid--full u" style="padding-top: 3%; background-color:transparent">
+
+
+<div style="width: 90%; align-self: center; text-align: center; ">
+
+
+
+<!-- <div class="dashcards" [@myInsertRemoveTrigger]="Steps[0]===true && !isLoaded" *ngIf="Steps[0]===true && !isLoaded"> -->
+<div class="dashcards" [@myInsertRemoveTrigger]="Steps[0]===true && !isLoaded" *ngIf="Steps[0]===true && !isLoaded">
+
+  <div class="col" [ngClass]="isClients? 'blue' : 'white'">
+    <div class="card" style="background-color: rgb(255, 255, 255);"  >
+      <i class="fas fa-home"></i>
+      <h2 class="card__title">Client</h2>
+      <section class="card__extra"  >
+        <mat-slide-toggle
+            class="example-margin"
+            [checked]="isClients" color="Primary" (change)="Toggle()"></mat-slide-toggle>
+      </section>
+
+    </div>
+  </div>
+  <div class="col" [ngClass]="!isClients? 'blue' : 'white'">
+    <div class="card" style="background-color: rgb(255, 255, 255);" >
+      <i class="fas fa-home"></i>
+
+      <h2 class="card__title">Trainee</h2>
+      <section class="card__extra"  >
+        <mat-slide-toggle
+            class="example-margin"
+            [checked]="!isClients" color="Primary" (change)="Toggle()"></mat-slide-toggle>
+      </section>
+    </div>
+  </div>
+</div>
+
+
+<div [@myInsertRemoveTrigger]="Steps[0]===true && !isLoaded" *ngIf="Steps[0]===true && !isLoaded">
+<div class="blog-card">
+  <div class="meta">
+    <div class="photo" style="background-image: url(https://storage.googleapis.com/chydlx/codepen/blog-cards/image-1.jpg)"></div>
+
+  </div>
+  <div class="description" >
+    <h1>Choose Assigning {{Name}}</h1>
+    <h2>step 1 of 3</h2>
+    <p> </p>
+  <!-- start -->
+  <div style="padding-left:40%">
+    <div appearance="fill">
+      <select  class="select-css" #t  [(ngModel)]="Client" (change)="NextStep(1,$event)" >
+        <option *ngFor="let client of ClientList" [ngValue]="client"  >
+          {{ client.Name }} {{ client.Surname }}
+        </option>
+        </select>
+
+    </div>
+  </div>
+  </div>
+</div>
+</div>
+
+<br>
+
+<br>
+
+<div [@myInsertRemoveTrigger]="Steps[1]===true && !isLoaded" *ngIf="Steps[1]===true && !isLoaded">
+  <div class="blog-card" style="padding-bottom: 33%;z-index: -1">
+
+    <div class="description" >
+      <h1> Choose Desired Questionnaire Questions</h1>
+      <h2>step 2 of 3</h2>
+      <p> </p>
+    <!-- start -->
+
+          <ng-multiselect-dropdown
+          style="width: 50%; z-index: +1"
+          [placeholder]="'custom placeholder'"
+          [settings]="dropdownSettings"
+          [data]="dropdownList"
+
+          (onSelect)="onItemSelect($event)"
+          (onSelectAll)="onSelectAll($event)"
+          (onDeSelect)="onDeSelect($event)"
+          (onDropDownClose)="onDropDownClose()">
+
+        </ng-multiselect-dropdown>
+
+
+
+    </div>
+
+  >
+
+  </div>
+  </div>
+  <br>
+  <div class="card" style="width:100%; background-color:white; color:blue" *ngIf="QuestionsSelected">
+    <div class="card-header">
+
+      <li class="author">sample questions</li>
+    </div>
+
+    <mat-tab-group  style="background-color:rgb(75, 183, 255);color:white">
+      <mat-tab    *ngFor="let question of previewListonQuestions" label={{question.QuestionTitle}}>
+        <div class="alert alert-primary"  *ngFor="let preview of question.Questions">
+          {{preview.Question}}
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+
+
+  </div>
+<br>
+  <mat-card *ngIf="Steps[2]===true && !isLoaded" style="background-color:  rgb(0, 145, 255); align-content: center">
+    <mat-progress-bar mode="buffer" *ngIf="isLoader" style="background-color: aliceblue;"></mat-progress-bar>
+    <div class="blog-card" style="padding-bottom:30%;z-index: -1">
+      <div class="meta">
+        <ul class="details">
+          <li class="author">step 4 of 4<a href="#"></a></li>
+        </ul>
+      </div>
+      <div class="description" style="position: absolute;" >
+        <h1> Assign Questionnaire To {{Client.Name}} {{Client.Surname}}</h1>
+        <h2>step 3 of 3</h2>
+        <p> </p>
+      <!-- start -->
+      <div class="Grid Grid--full u-textCenter">
+        <div class="Grid-cell">
+          <a class="btn-gradient blue large" (click)="AssignClient()">Assign Questionnaires</a>
+        </div>
+      </div>
+      </div>
+
+      </div>
+
+    </mat-card>
+
+  </div>
+
+</div>

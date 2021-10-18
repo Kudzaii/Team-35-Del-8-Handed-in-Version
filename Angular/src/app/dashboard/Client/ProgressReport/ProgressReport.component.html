@@ -1,0 +1,37 @@
+<h1 class="h1 title">
+  <div class="btn-group"  (click)=" goBack()">
+      <button  class="btn btn-light bui"><i class="fa fa-chevron-left" aria-hidden="true"></i>Back</button>
+  </div>
+</h1>
+<div class="card">
+  <header>
+    <h1>Your Progress Report</h1>
+    <h2></h2>
+    <img src="https://galileoenrichment.com/wp-content/uploads/2020/03/man.png" class="avatar" />
+  </header>
+  <article>
+    <h2>Description:</h2>
+    <br>
+    <mat-card style="background-color: whitesmoke; color: red;">
+        {{ReportData.Description}}
+    </mat-card>
+  </article>
+<br>
+  <footer>
+    <h3>Feedback</h3>
+    <br>
+    <mat-card style="background-color: whitesmoke; color: red;">
+      {{ReportData.Feedback}}
+    </mat-card>
+    <hr>
+    <p class="cf">
+      <small>
+      <a class="align-left share" href="#"><i class="fa fa-fw fa-share"></i> Share</a>
+      <a href="#" class="align-right alert">Report <i class="fa fa-fw fa-exclamation"></i></a>
+      </small>
+    </p>
+  </footer>
+</div> <!--end card-->
+
+
+

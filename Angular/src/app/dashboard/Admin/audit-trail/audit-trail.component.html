@@ -1,0 +1,59 @@
+<div class="app">
+
+
+
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-2 bg">
+        <h1 class="h1 title">
+          <div class="btn-group"  (click)=" goBack()">
+              <button  class="btn btn-light bui" >Back</button>
+          </div>
+        </h1>
+      </div>
+      <div class="col-8 bg">
+        <h1 class="h1 title"  align="center">
+          Audit Trail
+        </h1>
+      </div>
+
+      <div class="col-2 bg">
+          <div class="hint">
+            <button type="button" class="btn"><i class="fa fa-question" style="color: #297bff"></i></button>
+          </div>
+            <div class="hide">Monitor Actions On The System</div>
+      
+          <button type="button" class="btn"><a class="help" href="https://scotty-crypto.github.io/522Adminsubsystem.html#AuditLog " target="_blank">| Help</a></button>
+      </div>
+    </div>
+    <hr class="hr1">
+  </div>
+  <div class="form-group">
+    <input type="text" class="form-control mb-4" placeholder="Search" [(ngModel)]="query" id="listSearch">
+  </div>
+  <div>
+    <button  (click)="Export()"  class="btn btn-primary" >Export to Excel<img src="https://img.icons8.com/color/48/000000/export-excel.png"/></button>
+  </div>
+  <table class="table" id="excel-table">
+    <thead>
+      <tr>
+        <td>User ID</td>
+        <td>Date</td>
+        <td>Time</td>
+        <td>Description</td>
+        <td>Log History</td>
+
+      </tr>
+    <tbody>
+        <tr *ngFor="let audit of AuditLog | filterAudit: query">
+          <td>{{audit.User_ID}}</td>
+          <td>{{audit.Date_Log |date}}</td>
+          <td>{{audit.time}}</td>
+          <td>{{audit.Description}}</td>
+          <td>{{audit.Log_History}}</td>
+        </tr>
+    </tbody>
+  </table>
+  <!-- <pagination-controls (pageChange)="p = $event"></pagination-controls> -->
+</div>

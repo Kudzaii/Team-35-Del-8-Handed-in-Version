@@ -1,0 +1,92 @@
+
+
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container"></div>
+</div>
+
+<div class="card container" style="width: 100%">
+  <div class="card-body">
+    <h1 class="display-4">The FICS Corp Presents:</h1>
+    <h3>Trainee Performance Report</h3>
+
+    <div class="d-flex justify-content-center" style="padding-bottom:25px;">
+    <form [formGroup]="form" (ngSubmit)="Generate(form.value)">
+      <div class="form-group">
+        <label for="role">User Roles</label>
+        <select
+          class="select-css"
+          #mySelect
+          formControlName="traineeID" >
+          <option *ngFor="let trainee of Trainees" [value]="trainee.Trainee_ID">
+            {{ trainee.Name }}   {{ trainee.Surname }}
+          </option>
+        </select>
+      </div>
+      <button  class="btn-gradient red block" type="submit">Generate</button>
+    </form>
+    </div>
+    <div class="d-flex justify-content-center" *ngIf="isClicked">
+      ...
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <h1 class="display-4">Fluid jumbotron</h1>
+          <div class="container">
+            <div class="row lead">
+              <div class="col">
+               Trainee Name:
+              </div>
+              <div class="col">
+                {{Trainee.TraineeName}}
+               </div>
+            </div>
+            <div class="row lead">
+              <div class="col">
+                Trainer Name:
+              </div>
+              <div class="col">
+                {{Trainee.Trainer}}
+               </div>
+            </div>
+            <div class="row lead">
+              <div class="col">
+              Assignment Assigned:
+              </div>
+              <div class="col">
+                {{Trainee.AssignmentsAssigned}}
+               </div>
+            </div>
+            <div class="row lead">
+              <div class="col">
+                Assignments Completed:
+              </div>
+              <div class="col">
+                {{Trainee.AssignmentsCompleted}}
+               </div>
+            </div>
+            <div class="row lead">
+              <div class="col">
+                Assignment sSubmitted:
+              </div>
+              <div class="col">
+                {{Trainee.AssignmentsSubmitted}}
+               </div>
+            </div>
+            <div class="row lead">
+              <div class="col">
+                <div class="card">
+                  <h3>Conclusions</h3>
+                  {{Trainee.Conclusion1}} <br>
+                  {{Trainee.Conclusion2}} <br>
+                </div>
+
+              </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

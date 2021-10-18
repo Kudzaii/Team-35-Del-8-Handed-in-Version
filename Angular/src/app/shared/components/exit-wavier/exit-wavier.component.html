@@ -1,0 +1,42 @@
+
+<div class="alert alert-success" role="success">
+  Please Email Your Practitioner And Request For The Exit Waiver. Once You Have Filled It In Please Upload It Below.
+</div>
+
+
+<script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<div class="file-upload">
+
+
+  <div class="image-upload-wrap">
+    <input class="file-upload-input" type='file'  (change)="selectFile($event)" />
+    <div class="drag-text">
+      <h3 *ngIf="fileName=='';else Else">Drag and drop a file or select add Image</h3>
+      <ng-template #Else>
+       <h3> {{fileName}}</h3>
+      </ng-template>
+    </div>
+  </div>
+  <br>
+  <button
+  class="btn btn-success btn-sm"
+  [disabled]="!selectedFiles"
+  (click)="upload()"
+>
+  Upload
+</button>
+
+
+  <div *ngIf="currentFileUpload" class="progress mt-2">
+    <div
+      class="progress-bar progress-bar-info"
+      role="progressbar"
+      attr.aria-valuenow="{{ percentage }}"
+      aria-valuemin="0"
+      aria-valuemax="100"
+      [ngStyle]="{ width: percentage + '%' }"
+    >
+      {{ percentage }}%
+    </div>
+  </div>
+</div>

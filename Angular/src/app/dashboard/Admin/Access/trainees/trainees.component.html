@@ -1,0 +1,32 @@
+<div class="app">
+  <div class="table-card">
+    <h1 class="h1 title">
+      <span>Trainee Access</span>
+    </h1>
+    <div class="form-group">
+      <input type="text" class="form-control mb-4" placeholder="Search" [(ngModel)]="query" id="listSearch">
+    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <td id="tour-table">Title</td>
+          <td>Name</td>
+          <td>Surname</td>
+          <td>Email Address</td>
+          <td></td>
+
+        </tr>
+      <tbody>
+          <tr *ngFor="let trainee of trainees | Accessfilter: query">
+            <td>{{trainee.Title}}</td>
+            <td>{{trainee.Name}}</td>
+            <td>{{trainee.Surname}}</td>
+            <td>{{trainee.Email_Address}}</td>
+            <td>
+              <input type="button"   (click)="DisableTrainee(trainee.Trainee_ID)"  class="btn-gradient red" value="Disable" >
+            </td>
+          </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

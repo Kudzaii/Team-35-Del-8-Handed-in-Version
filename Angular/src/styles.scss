@@ -1,0 +1,120 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+@import "./app/shared/layouts/grid.scss";
+@import "./app/shared/layouts/buttons.scss";
+@import "./app/shared/layouts/multi-select.scss";
+@import "./app/shared/layouts/modal.scss";
+
+/* Add application styles & imports to this file! */
+@import "../src/app/shared/layouts/main.min.css";
+
+@import "~ngx-ui-switch/ui-switch.component.scss";
+.not-empty-select.mat-selected {
+  color: green !important;
+
+  background-color: azure;
+}
+.mat-select-value {
+  color: rgb(0, 208, 255);
+}
+
+.mat-select-panel {
+  background-color: rgb(95, 173, 255);
+  color: #2196f3;
+}
+
+mat-dialog-container {
+  background-color: rgb(255, 255, 255) !important;
+}
+
+.blue-snackbar {
+  background: #2196f3;
+  color: white;
+}
+
+.special-date {
+    background-color: rgb(248, 171, 140);
+    border-radius: 30px;
+  }
+
+  fc-event-main-frame {
+    background-color:lightblue !important;
+    color: blue;
+    border: none;
+    outline:none;
+  }
+
+  .fc-event-main {
+    border: none;
+    outline:none;
+    background-color:lightblue !important;
+  }
+
+  div.fc-timegrid-event-harness {
+    border: none;
+    outline:none;
+    background-color:lightblue !important;
+
+  }
+
+  a.fc-timegrid-event {
+    border: none;
+    outline:none;
+    background-color:lightblue !important;
+
+  }
+
+  .fc-event-time {
+    border: none;
+    outline:none;
+    background-color:lightblue !important;
+  }
+
+
+.fc-event-main-frame {
+  background-color: lightblue !important;
+  color: blue;
+  border: none;
+  outline: none;
+}
+
+.fc-event-main {
+  border: none;
+  outline: none;
+  background-color: lightblue !important;
+}
+
+div.fc-timegrid-event-harness {
+  border: none;
+  outline: none;
+  background-color: lightblue !important;
+}
+
+a.fc-timegrid-event {
+  border: none;
+  outline: none;
+  background-color: lightblue !important;
+}
+
+.fc-event-time {
+  border: none;
+  outline: none;
+  background-color: lightblue !important;
+}
+
+.help {
+  width: 30px;
+  height: 30px;
+  margin-left: auto;
+  float: right;
+
+}
+

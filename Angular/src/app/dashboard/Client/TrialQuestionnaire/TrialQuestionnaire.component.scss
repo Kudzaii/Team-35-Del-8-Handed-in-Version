@@ -1,0 +1,251 @@
+
+@import "src/app/shared/utils/table.scss";
+
+.cards-list {
+    z-index: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+
+  .card {
+    margin: 30px auto;
+    width: 300px;
+    height: 300px;
+    border-radius: 40px;
+  box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+    cursor: pointer;
+    transition: 0.4s;
+  }
+
+  .card .card_image {
+    width: inherit;
+    height: inherit;
+    border-radius: 40px;
+  }
+
+  .card .card_image img {
+    width: inherit;
+    height: inherit;
+    border-radius: 40px;
+    object-fit: cover;
+  }
+
+  .card .card_title {
+    text-align: center;
+    border-radius: 0px 0px 40px 40px;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+    margin-top: -80px;
+    height: 40px;
+  }
+
+  .card:hover {
+    transform: scale(0.9, 0.9);
+    box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25),
+      -5px -5px 30px 15px rgba(0,0,0,0.22);
+  }
+
+  .title-white {
+    color: white;
+  }
+
+  .title-black {
+    color: black;
+  }
+
+  @media all and (max-width: 500px) {
+    .card-list {
+      /* On small screens, we are no longer using row direction but column */
+      flex-direction: column;
+    }
+    .column {
+      width: 100%;
+    }
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+  
+  .column {
+    float: left;
+    width: 33.33%;
+    padding: 5px;
+  }
+  
+  /* Clearfix (clear floats) */
+  .row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+  .hide {
+    display: none;
+  }
+  .hint {
+    display: inline;
+  }
+
+  .container {
+    position: relative;
+    width: 100%;
+  }
+  
+  .container img {
+    width: 100%;
+    height: auto;
+  }
+
+  .below {
+    position:absolute; 
+    margin-left:-50px;
+    left:50%;
+    width:100px;
+    bottom:0px;
+  }
+
+  .pick:hover {
+    background-color: rgb(85, 134, 85);
+  }
+
+  .container .pick {
+    position: absolute;
+
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: rgb(95, 153, 119);
+    color: white;
+    font-size: 16px;
+    padding: 12px 24px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+  }
+
+  .help {
+    display: inline;
+    float: right;
+  }
+      
+  .hint:hover + .hide {
+    display: inline;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: #297bff;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    top: 30%;
+    font-size: 17px;
+  }
+
+  .bui {
+    background-color: #297bff;
+    color: #fff;
+    font-size: large;
+    padding: 10px 24px;
+  }
+
+  .hr1 {
+    border: 0;
+    height: 4px;
+    background: #095484;
+    background-image: linear-gradient(to right, #ccc, #092c64, #ccc);
+  }
+
+  
+
+  body {
+    padding: 50px 100px;
+    font-family: sans-serif;
+    font-size: 2em;
+    color: #333;
+    background: #f7f7f7;
+  }
+
+  h1 {
+  color: #0074D9;
+  }
+
+  ul,
+  li {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  ul {
+    margin: 2em 0;
+  }
+
+  li {
+    margin: 1em;
+    margin-left: 3em;
+  }
+
+  li:before {
+    content: '\f006';
+    font-family: 'FontAwesome';
+    float: left;
+    margin-left: -1.5em;
+    color: #0074D9;
+  }
+
+  .link {
+    font-size: 0.45em;
+  }
+  .p1 {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 200%;
+  }
+
+
+  .example-full-width {
+    width: 100%;
+    color: black;
+
+  }
+
+  .hide {
+    display: none;
+  }
+  .hint {
+    display: inline;
+  }
+
+  .help {
+    display: inline;
+    float: center;
+  }
+      
+  .hint:hover + .hide {
+    display: inline;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: #297bff;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    top: 20%;
+    font-size: 17px;
+  }
+
+  .bui {
+    background-color: #297bff;
+    color: #fff;
+    font-size: large;
+    padding: 10px 24px;
+  }

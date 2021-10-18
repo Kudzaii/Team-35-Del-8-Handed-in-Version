@@ -1,0 +1,70 @@
+<div class="app">
+
+
+
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-2 bg">
+        <h1 class="h1 title">
+          <div class="btn-group"  (click)=" goBack()">
+              <button  class="btn btn-light bui" >Back</button>
+          </div>
+        </h1>
+      </div>
+      <div class="col-8 bg">
+        <h1 class="h1 title"  align="center">
+          Exit Waivers
+        </h1>
+      </div>
+
+      <div class="col-2 bg">
+          <div class="hint">
+            <button type="button" class="btn"><i class="fa fa-question" style="color: #297bff"></i></button>
+          </div>
+            <div class="hide">List With All Uploaded Exit Waivers From Clients</div>
+      
+          <button type="button" class="btn"><a class="help" href="https://scotty-crypto.github.io/522Adminsubsystem.html#AExitWaiver " target="_blank">| Help</a></button>
+      </div>
+    </div>
+    <hr class="hr1">
+  </div>
+  <div class="form-group">
+    <div class="searchbox">
+      <button class="btn-menu">
+        <img src="https://img.icons8.com/cute-clipart/24/000000/top-menu.png">
+      </button>
+      <input id="search" type="text" placeholder="Search..." name="search" class="search" [(ngModel)]="searchText"
+        #searchbar>
+    </div>
+  </div>
+  <br>
+  <table class="table" id="excel-table">
+    <thead>
+      <tr>
+        <td scope="col"> Date of upload</td>
+        <td scope="col"> Document type</td>
+        <td scope="col"> Document</td>
+        <td scope="col">Actions </td>
+
+      </tr>
+    <tbody>
+      <tr *ngFor="let file of fileUploads| cpDocFilter: searchText">
+        <td data-label="physical address">{{file.Date | date}}</td>
+        <td data-label="Description">{{file.type}}</td>
+
+        <td data-label="Category"><a href="{{file.Url}}">{{file.Name}}</a></td>
+        <td data-label="Plan">
+          <!-- <button class="slide" (click)="DeleteDocument(file.id,file.Url,file.Name)"mat-raised-button matTooltip="Press to delete document" matTooltipPosition='above' >Remove</button> -->
+        </td>
+      </tr>
+      <tr *ngIf="fileUploads.length==0">
+        <td>No Files available</td>
+        <td>No Files available</td>
+        <td>No Files available</td>
+        <td>No Files available</td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>

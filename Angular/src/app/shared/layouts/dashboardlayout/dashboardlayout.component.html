@@ -1,0 +1,119 @@
+<app-header></app-header>
+
+
+<div class="app">
+  <div class="header">
+    <div class="row">
+      <div class="col">
+        <div class="icon">
+          <div class="logo" id="tour-logo">
+            <i class="fas fa-bus"></i>
+            FICS <b class="red">| {{RoleName}}</b>
+
+            <a></a>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="controls">
+          <button class="icon">
+
+          </button>
+          <button class="icon">
+
+          </button>
+          <button [routerLink]="['Profile']" routerLinkActive="active" class="user-profile" id="tour-user">
+
+            <img [src]=profilePicture?.Url>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="body">
+    <div class="sidebar">
+      <ul class="sidebar-nav">
+        <li class="cta">
+          <button [routerLink]="['../dashboard']" routerLinkActive="active" class="user-profile" class="warning" id="tour-user" >
+            <span>Dashboard</span>
+
+              <mat-icon>dashboard</mat-icon>
+
+          </button>
+        </li>
+        <li  class="cta">
+          <button [routerLink]="['Profile']" routerLinkActive="active" id="tour-elements"  style="color: rgb(255, 255, 255);"
+            *ngIf="RoleName!='Administrator'" class="primary" id="start-tour">
+            <span>Profile</span>
+
+              <mat-icon> person_pin</mat-icon>
+
+          </button>
+        </li>
+        <li class="cta" *ngIf="RoleName=='Administrator'">
+          <button class="primary" id="start-tour" style="color: rgb(255, 255, 255);" (click)="Timer()">
+            <span> Set Timer  </span>
+
+              <mat-icon>av_timer</mat-icon>
+
+          </button>
+        </li>
+        <li  class="cta" *ngIf="RoleName!='Administrator'">
+          <button [routerLink]="['Trial_Questionnaire']" routerLinkActive="active" class="primary" id="start-tour"
+          style="color: rgb(255, 255, 255);">
+            <span> Trial Questionnaire</span>
+
+            <mat-icon> present_to_all</mat-icon>
+
+          </button>
+        </li>
+        <li class="cta" *ngIf="RoleName=='Client'">
+          <button class="primary" [routerLink]="['Client_Audit_Report']" id="start-tour"  style="color: rgb(255, 255, 255);">
+            <span>  My Audit Report</span>
+
+              <mat-icon>library_books</mat-icon>
+
+          </button>
+        </li>
+
+        <li class="cta">
+          <button class="primary" [routerLink]="['reset-password']" id="start-tour"  style="color: rgb(255, 255, 255);">
+            <span> Reset Password</span>
+
+              <mat-icon>library_books</mat-icon>
+
+          </button>
+        </li>
+        <li class="cta">
+          <button class="primary" style="background-color: rgb(255, 149, 149); color: white;" (click)="Logout()">
+            <span> Log Out </span>
+
+              <mat-icon>power_settings_new</mat-icon>
+
+
+          </button>
+        </li>
+        <li class="cta" *ngIf="RoleName=='Client'">
+          <button class="primary" [routerLink]="['Exit-wavier']" id="start-tour"   style="background-color: rgb(255, 0, 0); color: white;">
+            <span> Exit Wavier</span>
+
+              <mat-icon>library_books</mat-icon>
+
+          </button>
+        </li>
+        <li class="cta">
+          <a class="btn primary button" id="start-tour" style="background-color: rgb(20, 185, 61); color: white;" href="https://scotty-crypto.github.io/5UserFunctionalityFICSManagement.html#SystemOverview" target="_blank">
+          <span> Help</span>
+
+              <mat-icon>live_help</mat-icon>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="main container-fluid">
+      <div class="container-fluid" style="padding-top: 5%;">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>

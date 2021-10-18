@@ -1,0 +1,39 @@
+<div class="app">
+  <h1 class="h1 title">
+    <span></span>
+  </h1>
+  <div class="table-card">
+    <div class="app">
+      <h1 class="h1 title">
+        <span>Client Access</span>
+      </h1>
+      <div class="form-group">
+        <input type="text" class="form-control mb-4" placeholder="Search" [(ngModel)]="query" id="listSearch">
+      </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <td id="tour-table">Title</td>
+          <td>Name</td>
+          <td>Surname</td>
+          <td>Email Address</td>
+          <td></td>
+
+        </tr>
+      <tbody>
+          <tr *ngFor="let client of clients  | Accessfilter: query">
+            <td>{{client.Title}}</td>
+            <td>{{client.Name}}</td>
+            <td>{{client.Surname}}</td>
+            <td>{{client.Email_Address}}</td>
+            <td>
+              <input type="button"  *ngIf="client.ClientStatus_ID==1;else second"  (click)="DisableClient(client.Client_ID)" class="btn-gradient red" value="Disable" >
+              <ng-template #second>
+              <input type="button"    class="btn-gradient blue" value="Disabled" >
+              </ng-template>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

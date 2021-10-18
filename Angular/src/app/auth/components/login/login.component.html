@@ -1,0 +1,40 @@
+
+
+
+<div class="form">
+  <div class="form-toggle"></div>
+  <div class="form-panel one">
+      <div class="form-header">
+          <h1>Account Login</h1>
+          
+      </div>
+      <!-- <h5 class="h1 title">
+        <div class="form-header" class="btn-group"  (click)=" goBack()">
+             <button  class="btn btn-light" ><i class="fa fa-chevron-left" aria-hidden="true"></i></button>
+        </div>
+        <span> Account Login </span>
+      </h5> -->
+      <div class="form-content">
+          <form  #myForm="ngForm"  (ngSubmit)="onSubmit(myForm.value)" *ngIf="!Spinner">
+              <div class="form-group"><label for="username">Username</label>
+                <input class="hint" type="text" id="username" ngModel name="Username" required="required" />
+                    <div class="hide">Use Your Email As Your Username</div>
+              </div>
+              <div class="form-group"><label for="password">Password</label><input type="password" id="password"  ngModel name="Password" required="required" /></div>
+              <div class="form-group"><label class="form-remember"><input type="checkbox" />Remember Me</label><a class="form-recovery"[routerLink]="['../forgot-password']">Forgot Password?</a></div>
+              <div class="form-group"><button type="submit"  [disabled]="!myForm.valid">Log In</button></div>
+          </form>
+
+      </div>
+
+      <mat-progress-bar mode="indeterminate" *ngIf="Spinner"></mat-progress-bar>
+      <div style="padding-top: 5%;">
+        <h3 > <a [routerLink]="['../Welcome']" routerLinkActive="active">DON'T HAVE AN ACCOUNT? REGISTER HERE</a></h3>
+      </div>
+      <button type="button" class="btn"><a class="help" href="https://scotty-crypto.github.io/521Accesssubsystem.html#Login " target="_blank">Help?</a></button>
+  </div>
+  <div class="form-panel two"></div>
+
+</div>
+
+

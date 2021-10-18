@@ -1,0 +1,20 @@
+
+<div mat-dialog-title class="dialog-title">
+  <h2>Title</h2>
+  <button mat-icon-button aria-label="close dialog" mat-dialog-close>
+    <mat-icon>close</mat-icon>
+  </button>
+</div>
+
+
+
+
+  <div class="container" >
+    <pdf-viewer [src]="src"
+                [original-size]="false"
+    ></pdf-viewer>
+</div>
+<br>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()" color="warn">Close</button>
+</div>

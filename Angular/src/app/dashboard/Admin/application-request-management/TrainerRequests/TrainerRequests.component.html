@@ -1,0 +1,39 @@
+<div class="app">
+  <h1 class="h1 title">
+    <span></span>
+  </h1>
+
+  <div class="table-card">
+    <h1 class="h1 title">
+      <span>Trainer Requests</span>
+    </h1>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <td id="tour-table">Title</td>
+          <td>Name</td>
+          <td>Surname</td>
+          <td>Email Address</td>
+          <td>Action</td>
+          <td>Action</td>
+        </tr>
+      <tbody>
+        <tr *ngFor="let trainer of trainers">
+          <td>{{trainer.Title}}</td>
+          <td>{{trainer.Name}}</td>
+          <td>{{trainer.Surname}}</td>
+          <td>{{trainer.Email_Address}}</td>
+          <td>
+            <input type="button" (click)="AcceptOrReject(trainer,1)" class="btn-gradient blue" value="Accept">
+
+          </td>
+          <td>
+            <input type="button" (click)="AcceptOrReject(trainer,0)" class="btn-gradient red" value="Reject">
+
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

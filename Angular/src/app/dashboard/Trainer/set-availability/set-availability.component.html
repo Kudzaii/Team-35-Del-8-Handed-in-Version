@@ -1,0 +1,102 @@
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-2 bg">
+        <h1 class="h1 title">
+          <div class="btn-group"  (click)=" goBack()">
+              <button  class="btn btn-light bui">Back</button>
+          </div>
+        </h1>
+      </div>
+      <div class="col-8 bg">
+        <h1 class="h1 title" style="color: rgb(120, 178, 255)" align="center">
+          Set Availability
+        </h1>
+      </div>
+
+      <div class="col-2 bg">
+          <div class="hint">
+            <button type="button" class="btn"><i class="fa fa-question" style="color: #297bff"></i></button>
+          </div>
+            <div class="hide">Set Your Available Sessions</div>
+      
+          <button type="button" class="btn"><a class="help" href="https://scotty-crypto.github.io/524Trainersubsystem.html#TrainerAvailability " target="_blank">| Help</a></button>
+      </div>
+    </div>
+    <hr class="hr1">
+  </div>
+<div class="wrapper">
+  <div class="Grid Grid--full u-textCenter">
+
+    <div class="Grid-cell">     <mat-card><h1>SET AVAILABILITY TIME</h1></mat-card> </div>
+  </div>
+
+</div>
+<br>
+
+<div class="Grid Grid--gutters Grid--cols-2 u-textCenter">
+  <div class="Grid-cell">
+      <div class="example-full-width" appearance="fill">
+        <mat-card class="demo-inline-calendar-card">
+          <mat-card-title>
+            Select A Date
+              <div class="hint">
+            <button type="button" class="btn"><i class="fa fa-question" style="color: #297bff"></i></button>
+          </div>
+            <div class="hide">Select The The Date You Wish To Set Your Availability For</div>
+          </mat-card-title>
+          <br>
+          <mat-calendar  [minDate]="minDate" (selectedChange)="getDateAvailableDate($event)" style="background-color: rgb(1, 134, 230);"></mat-calendar>
+        </mat-card>
+      </div>
+
+  </div>
+  <div class="Grid-cell">
+
+      <div class="example-full-width" appearance="fill">
+
+
+        <mat-card class="demo-inline-calendar-card" >
+          <mat-card-title>
+            Choose Your Availability  Time
+              <div class="hint">
+            <button type="button" class="btn"><i class="fa fa-question" style="color: #297bff"></i></button>
+          </div>
+            <div class="hide">Select Your Hourly Time Slot</div>
+          </mat-card-title>
+          <br>
+          <mat-card-title>
+            South Africa Standard Time (UTC+2)
+          </mat-card-title>
+
+          <div *ngIf="isDateChosen">
+          <div  *ngFor="let slots of TimeSlots | slice:0:show; let i = index" >
+                <mat-card  [ngClass]="slots.isChosen? 'blue' : 'white'" (click)="ChooseSession(slots.TimeSlot_ID,i)" >
+                  {{slots.StartTime}} - {{slots.EndTime}}
+
+              </mat-card>
+              <br>
+          </div>
+          <button type="button" class="btn btn-warning" *ngIf="show < TimeSlots.length" (click)="increaseShow()">View More... </button>
+        </div>
+
+        </mat-card>
+      </div>
+    </div>
+  </div>
+  <br>
+
+  <br>
+  <mat-card class="example-full-width" style="background-color: white; width: 100%;">
+    <div class="alert alert-danger" role="alert" *ngIf="!isComplete">
+      <kbd>Error!</kbd>
+          <samp> Please Assign A Time For The Date</samp>
+    </div>
+    <div class="Grid Grid--gutters Grid--cols-2 u-textCenter">
+      <div class="Grid-cell">
+        <button mat-flat-button color="primary" (click)="SetTimes()">Confirm</button>
+      </div>
+      <div class="Grid-cell">
+         <button mat-flat-button color="warn"  [routerLink]="['../../dashboard']" routerLinkActive="active">Cancel</button>
+      </div>
+    </div>
+  </mat-card>

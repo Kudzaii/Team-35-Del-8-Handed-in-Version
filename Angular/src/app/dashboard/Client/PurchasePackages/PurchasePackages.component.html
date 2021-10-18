@@ -1,0 +1,33 @@
+<h3 class="h2 title">
+  <div class="btn-group"  (click)=" goBack()">
+       <button  class=" bui btn btn-light" ><i class="fa fa-chevron-left" aria-hidden="true"></i>Back</button>
+  </div>
+ <!-- <span> Back</span>-->
+ <div class="help">
+    <button type="button" class="btn"><a class="help" href="https://scotty-crypto.github.io/523Clientsubsystem.html#ClientPurchase " target="_blank"> Help?</a></button>
+ </div>
+</h3>
+<div id="registration" class="conatiner col-md-12" style="width: 90%; align-self: center;">
+  <form id="regForm" [formGroup]="PurchaseForm">
+    <mat-horizontal-stepper #stepper  class="conatiner" >
+      <mat-step formGroupName="ChoosePackageDetails"
+        [stepControl]="PurchaseForm.get('ChoosePackageDetails')">
+        <ng-template matStepLabel style="color: blue;">Package Selections</ng-template>
+        <app-ViewPackages [regForm]="PurchaseForm"></app-ViewPackages>
+      </mat-step>
+      <mat-step formGroupName="PurchaseDetails"
+      [stepControl]="PurchaseForm.get('PurchaseDetails')">
+        <ng-template matStepLabel class="lbl">Purchase Confirmation</ng-template>
+        <app-FinalPurchase [regForm]="PurchaseForm"></app-FinalPurchase>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel class="lbl">Done</ng-template>
+        <p>You Are Now Done.</p>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button >Reset</button>
+        </div>
+      </mat-step>
+    </mat-horizontal-stepper>
+  </form>
+</div>

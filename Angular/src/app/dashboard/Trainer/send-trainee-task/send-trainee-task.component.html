@@ -1,0 +1,60 @@
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-2 bg">
+        <h1 class="h1 title">
+          <div class="btn-group"  (click)=" goBack()">
+              <button  class="btn btn-light bui">Back</button>
+          </div>
+        </h1>
+      </div>
+      <div class="col-8 bg">
+        <h1 class="h1 title" style="color: rgb(120, 178, 255)" align="center">
+          Send Tasks
+        </h1>
+      </div>
+
+      <div class="col-2 bg">
+          <div class="hint">
+            <button type="button" class="btn"><i class="fa fa-question" style="color: #297bff"></i></button>
+          </div>
+            <div class="hide">Select The Assign Task Buttons To Assign Tasks To Your Trainee</div>
+      
+          <button type="button" class="btn"><a class="help" href="https://scotty-crypto.github.io/524Trainersubsystem.html#TSendTask " target="_blank">| Help</a></button>
+      </div>
+    </div>
+    <hr class="hr1">
+  </div>
+
+<div class="app">
+
+
+  <div class="table-card">
+    <h1 class="h1 title">
+      <span> Your Trainees</span>
+    </h1>
+    <table class="table">
+      <thead>
+        <tr>
+          <td id="tour-table">Title</td>
+          <td>Name</td>
+          <td>Surname</td>
+          <td>Contact Number</td>
+          <td>Email Address</td>
+          <td></td>
+
+        </tr>
+      <tbody>
+          <tr *ngFor="let client of trainees">
+            <td>{{client.Title}}</td>
+            <td>{{client.Name}}</td>
+            <td>{{client.Surname}}</td>
+            <td>{{client.Contact_Number}}</td>
+            <td>{{client.Email_Address}}</td>
+            <td>
+              <button mat-flat-button color="primary" (click)="Transfer(client.Name,client.Surname)"   [routerLink]="['../Assign-trainee-task/',client.Trainee_ID]" routerLinkActive="active"class="btn" >Assign Task</button>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

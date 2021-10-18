@@ -1,0 +1,8 @@
+<h1 mat-dialog-title>Are You Sure You Want To Update Your Details?</h1>
+<div mat-dialog-content>
+  <mat-progress-bar mode="indeterminate" *ngIf="Spinner"></mat-progress-bar>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()" color="warn">No Thanks</button>
+  <button mat-button  (click)="Update()" color="primary" cdkFocusInitial>Yes</button>
+</div>

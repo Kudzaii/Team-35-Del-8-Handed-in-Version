@@ -1,0 +1,65 @@
+
+// @import 'src/app/shared/layouts/table.scss';
+@import "src/app/shared/utils/table.scss";
+//NEW SEARCH FOR THE TABLE
+@import url('https://fonts.googleapis.com/css?family=Lexend+Deca|Dosis&display=swap');
+
+button {
+	& img {
+		transition: transform .25s;
+	}
+	&:hover{
+		& > img {
+			  transform:scale(1.2);
+		}
+	}
+	&:focus {
+		outline: none;
+	}
+}
+
+input {
+	font-family: 'Lexend Deca', sans-serif;;
+	&::placeholder{
+		font-family: 'Lexend Deca', sans-serif;
+	}
+	&:focus{
+		outline: none;
+	}
+}
+
+.searchbox{
+		height: 60px;
+		width: 800px;
+    max-width: 100%;
+    background: white;
+    border-radius: 10px;
+    position: relative;
+    color:#007B7C;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    top: 10%;
+		display: flex;
+	border: 5px;
+	border-color: coral;
+
+	& > .btn-menu {
+		padding: 16px;
+		background: transparent;
+		border: none;
+		cursor: pointer;
+	}
+
+	& > .search{
+		border: 5px;
+		width: 100%;
+	}
+
+	& > .btn-search {
+		padding: 16px;
+		background: transparent;
+		border: none;
+		cursor: pointer;
+	}
+}

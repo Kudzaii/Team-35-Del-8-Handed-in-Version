@@ -1,0 +1,45 @@
+<header class="container">
+  <h1 style="color:blue">Assign Trainer To The Trainee</h1>
+
+</header>
+
+<main>
+  <header class="container" *ngIf="isSelected[0] && isSelected[1] && isClosed">
+    <a class="btn-gradient blue block" (click)="AssignTrainerToTraineer()">Assign Trainer</a>
+
+  </header>
+
+  <div class="col">
+    <a class="card card-1 stacked--up-left">
+      <h2 class="title">Trainers</h2>
+      <div class="content">
+        <h4> Select a Trainer</h4>
+        <ng-multiselect-dropdown style="width: 40%; z-index: +1" [placeholder]="'trainers'"
+          [settings]="dropdownSettingsTrainer" [data]="TrainerList" (onSelect)="onItemSelectTrainer($event)"
+          (onDropDownClose)="onDropDownClose()">
+
+        </ng-multiselect-dropdown>
+      </div>
+    </a>
+  </div>
+
+  <div class="col">
+    <a class="card card-1 stacked--up-right">
+      <h2 class="title">Trainees</h2>
+      <div class="content">
+        <h4> Select a Trainee</h4>
+        <ng-multiselect-dropdown style="width: 40%; z-index: +1" [placeholder]="'trainees'" [settings]="dropdownSettingsTrainee"
+          [data]="TraineesList" (onSelect)="onItemSelectTrainee($event)" (onDropDownClose)="onDropDownClose(2)">
+
+        </ng-multiselect-dropdown>
+      </div>
+    </a>
+  </div>
+
+
+  
+
+
+
+
+</main>

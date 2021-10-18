@@ -1,0 +1,61 @@
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-2 bg">
+        <h1 class="h1 title">
+          <div class="btn-group"  (click)=" goBack()">
+              <button  class="btn btn-light bui">Back</button>
+          </div>
+        </h1>
+      </div>
+      <div class="col-8 bg">
+        <h1 class="h1 title" style="color: rgb(120, 178, 255)" align="center">
+          My Schedule
+        </h1>
+      </div>
+
+      <div class="col-2 bg">
+          <div class="hint">
+            <button type="button" class="btn"><i class="fa fa-question" style="color: #297bff"></i></button>
+          </div>
+            <div class="hide">An Overview Of Your Schedule</div>
+      
+          <button type="button" class="btn"><a class="help" href="https://scotty-crypto.github.io/525Practitionersubsystem.html#PracSlots " target="_blank">| Help</a></button>
+      </div>
+    </div>
+    <hr class="hr1">
+  </div>
+
+
+<div class="app">
+
+
+  <div class="table-card">
+    <h1 class="h1 title">
+      <i class="far fa-calendar-alt"></i>
+      <span> My Schedule</span>
+    </h1>
+    <table class="table">
+      <thead>
+        <tr>
+          <td>Date</td>
+          <td>Start Time</td>
+          <td>End Time</td>
+          <td>Client booked</td>
+          <td>Email Address</td>
+          <td></td>
+        </tr>
+      <tbody>
+          <tr *ngFor="let slot of MySlots">
+            <td>{{slot.Date | date }}</td>
+            <td>{{slot.StartTime}}</td>
+            <td>{{slot.EndTime}}</td>
+            <td>{{slot.Client}}</td>
+            <td>{{slot.Email}}</td>
+            <td><a class="btn-gradient red small" (click)="Transfer(slot)">Reschedule</a></td>
+          </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
