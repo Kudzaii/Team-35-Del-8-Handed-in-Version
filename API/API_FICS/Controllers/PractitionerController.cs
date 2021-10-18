@@ -303,6 +303,7 @@ namespace API_FICS.Controllers
                     obj.StartTime = timeslot.StartTime;
                     obj.EndTime = timeslot.EndTime;
                     obj.Date = date.Date1;
+                    obj.Email = client != null ? client.Email_Address : "None";
                     obj.Client = client != null ? client.Name + " " + client.Surname : "None";
                     objects.Add(obj);
 

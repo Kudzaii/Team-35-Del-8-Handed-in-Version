@@ -466,7 +466,11 @@ namespace API_FICS.Controllers
                          "<h5 class='card - header display-4'>Practitoner assigned</h5>" +
                         "    <div class='card-body'>" +
                         "      <h4 class='card-title'></h4>" +
-                        "      <p class='card-text'> Hi " + obj.Name + " " + obj.Surname + " Please log in the system to check your practitioner</p>" +
+                        "      <p class='card-text'> Hi " + obj.Name + " " + obj.Surname + ".<br /> You have been assigned to a practitioner. Pleaase log into your account to start your journey with us. " +
+                        "You Will receive a questionnaire from your practitioner in the coming days. " +
+                        "Please remember to purchase a package before booking your sessions. " +
+                        "<br /> Kind Regards <br /> The FICS Corp Team</p>" +
+
                         "      <a href=# class='card-link'>Card link</a>" +
                         "      <a href=# class='card-link'>Another link</a>" +
                         "    </div>" +
