@@ -1,5 +1,5 @@
 import { Component, NgModule, OnInit, TemplateRef } from '@angular/core';
-import { Question } from 'src/app/models/Question';
+//import { Question } from 'src/app/models/Question';
 import { ClientService } from '../services/client.service';
 import { Location } from '@angular/common'
 import { BsModalService } from 'ngx-bootstrap/modal';
@@ -12,12 +12,12 @@ import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 })
 export class TrialQuestionnaireComponent implements OnInit {
 
-  Questions: Array<Question>
+  //Questions: Array<Question>
   modalRef: BsModalRef | null;
   modalRef2: BsModalRef;
    constructor(private clientService: ClientService,private location: Location, private modalService: BsModalService) { }
 
-  ngOnInit() {
+  /*ngOnInit() {
     this.getQuestionsTrialQuestions()
   }
 
@@ -28,7 +28,7 @@ export class TrialQuestionnaireComponent implements OnInit {
       let Pack = Object.keys(res).map(index => {this.Questions = res[index];});
     })
 
-  }
+  }*/
   goBack(): void {
     this.location.back();
   }
