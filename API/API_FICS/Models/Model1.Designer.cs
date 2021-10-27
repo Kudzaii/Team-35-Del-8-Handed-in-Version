@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\HP\Dropbox\My PC (DESKTOP-964MEKQ)\Desktop\FICS Upload\Team-35-Del-8-Handed-in-Version\API\API_FICS\Models\Model1.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\HP\Dropbox\My PC (DESKTOP-964MEKQ)\Desktop\Team-35-Del-8-Handed-in-Version\API\API_FICS\Models\Model1.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

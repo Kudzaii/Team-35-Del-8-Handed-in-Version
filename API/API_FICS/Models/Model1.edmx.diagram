@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="6cf41bffd1fe464ca790915ef8bd18d7" Name="Diagram1">
+      <Diagram DiagramId="ff167df8932741e3af242fc91120440c" Name="Diagram1">
         <EntityTypeShape EntityType="FICSModel.AddRemove" Width="1.5" PointX="15.75" PointY="15.625" IsExpanded="true" />
         <EntityTypeShape EntityType="FICSModel.AuditTrail" Width="1.5" PointX="21" PointY="23.375" IsExpanded="true" />
         <EntityTypeShape EntityType="FICSModel.Availability" Width="1.5" PointX="5.25" PointY="25.75" IsExpanded="true" />
