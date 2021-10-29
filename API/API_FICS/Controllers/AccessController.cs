@@ -432,9 +432,9 @@ namespace API_FICS.Controllers
                         "  <div class='card'>" +
                         "<h5 class='card - header display-4'>Welcome to the FICS System</h5>" +
                         "    <div class='card-body'>" +
-                        "      <p class='card-text'>" + obj.Name + " " + obj.Surname + "</p>" +
-                        "      <a href=# class='card-link'>Card link</a>" +
-                        "      <a href=# class='card-link'>Another link</a>" +
+                        "      <p class='card-text'> Hi" + obj.Name + " " + obj.Surname + ". You will be notified when you have been assigned a Practitioner and can begin your journey with us.</p>" +
+                        //"      <a href=# class='card-link'>Card link</a>" +
+                        //"      <a href=# class='card-link'>Another link</a>" +
                         "    </div>" +
                         " </div>" +
                         "</div>" +
@@ -445,7 +445,7 @@ namespace API_FICS.Controllers
             else if (id == 2)
             {
                 //Assign Practitioner to Client
-                Email.Subject = " You have been Assigned a Practitioner";
+                Email.Subject = " You Have Been Assigned A Practitioner";
                 Email.Body = "<!DOCTYPE html>" +
                 "<html>" +
                 "<head>" +
@@ -466,7 +466,7 @@ namespace API_FICS.Controllers
                          "<h5 class='card - header display-4'>Practitoner assigned</h5>" +
                         "    <div class='card-body'>" +
                         "      <h4 class='card-title'></h4>" +
-                        "      <p class='card-text'> Hi " + obj.Name + " " + obj.Surname + ".<br /> You have been assigned to a practitioner. Pleaase log into your account to start your journey with us. " +
+                        "      <p class='card-text'> Hi " + obj.Name + " " + obj.Surname + ".<br /> You have been assigned to a practitioner. Please log into your account to start your journey with us. " +
                         "You Will receive a questionnaire from your practitioner in the coming days. " +
                         "Please remember to purchase a package before booking your sessions. " +
                         "<br /> Kind Regards <br /> The FICS Corp Team</p>" +
