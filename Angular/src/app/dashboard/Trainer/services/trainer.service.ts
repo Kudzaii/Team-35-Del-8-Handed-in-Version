@@ -59,31 +59,12 @@ export class TrainerService {
     .get<any[]>(`${rootURL}TraineesAssignedToTrainer/${this.auth.loginId}`)
     .pipe(share());
   }
-
-  getTimeSlots():Observable<any[]> {
-    return this.http
-    .get<any[]>(`${environment.baseUrl}/Practitioner/getTimeSlots`)
-    .pipe(share());
-  }
-
-  SetTrainerAvailability(dates:any,_checker,details?): Observable<any>{
-    let subscription : Observable<any>
-    const httpOptions = {
-      headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
-    };
-    if(!_checker)
-    {
-      subscription = this.http.post(`${rootURL}/SetTrainerAvailability/`,dates, httpOptions);
-    } else {
-
-
-      subscription = this.http.post(`${rootURL}/RescheduleTrainerAvailability/`,dates[0], httpOptions);
-    }
-    return subscription;
-  }
 }
+<<<<<<< HEAD
 
 
 
 
 
+=======
+>>>>>>> parent of 1edefaf (Merge branch 'main' of https://github.com/Kudzaii/Team-35-Del-8-Handed-in-Version)
