@@ -60,11 +60,3 @@ export class TrainerService {
     .pipe(share());
   }
 }
-<<<<<<< HEAD
-
-
-
-
-
-=======
->>>>>>> parent of 1edefaf (Merge branch 'main' of https://github.com/Kudzaii/Team-35-Del-8-Handed-in-Version)

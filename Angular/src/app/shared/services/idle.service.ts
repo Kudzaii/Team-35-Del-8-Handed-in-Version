@@ -66,7 +66,7 @@ export class IdleService {
       let timerInterval;
       Swal.fire({
         title: ' You have gone idle!',
-        html: 'The page will redirect you to the login page in <b></b> seconds.',
+        html: 'The page will redirect you to the login page in <b></b> minutes.',
         timer: time,
         timerProgressBar: true,
         didOpen: () => {

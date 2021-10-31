@@ -93,29 +93,13 @@
 <div class="table">
   <tr >
     <td>
-      <button class="btn pick " (click)="openModal(template)" value="Show Popup"><img src="assets/DogA.jpg" alt="Dog A" id="1" style="width:70%"></button>
+      <button class="btn pick " id="btnShow1" value="Show Popup"><img src="assets/DogA.jpg" alt="Dog A" id="1" style="width:70%"></button>
         <div id="dialog1" style="display: none" align="center">
           <div>
             Purchase A Package And Book A Session With Your Practitioner To Find Out What That Means.
           </div><br />
           <span><img src="https://static.wixstatic.com/media/e6591e_3a5449fe774a4993a1166b1d33e233f7~mv2_d_1880_1253_s_2.jpg/v1/fill/w_1000,h_666,al_c,q_90,usm_0.66_1.00_0.01/e6591e_3a5449fe774a4993a1166b1d33e233f7~mv2_d_1880_1253_s_2.jpg" alt="Girl in a jacket" width="300" height="280" /></span>
       </div>
-
-      <ng-template #template>
-        <div class="modal-header">
-          <h4 class="modal-title pull-left">First modal</h4>
-          <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          This is a first modal<br />
-          <button type="button" class="btn btn-primary" (click)="openModal2(templateNested)">Open second modal</button>
-          <button type="button" class="btn btn-primary" (click)="closeModal(1)">Close self</button>
-          <button type="button" class="btn btn-primary" (click)="closeModal()">Close all modal</button>
-        </div>
-      </ng-template>
-
     </td>
 
     <td>
