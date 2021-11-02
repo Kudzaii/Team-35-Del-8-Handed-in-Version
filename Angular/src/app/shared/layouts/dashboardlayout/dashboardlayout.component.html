@@ -9,7 +9,7 @@
           <div class="logo" id="tour-logo">
             <i class="fas fa-bus"></i>
             FICS <b class="red">| {{RoleName}}</b>
-
+            
             <a></a>
           </div>
         </div>
@@ -23,7 +23,7 @@
 
           </button>
           <button [routerLink]="['Profile']" routerLinkActive="active" class="user-profile" id="tour-user">
-
+            <p align = "right" >Hi {{RoleName}} </p>
             <img [src]=profilePicture?.Url>
           </button>
         </div>
