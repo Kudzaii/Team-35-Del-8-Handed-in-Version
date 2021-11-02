@@ -7,9 +7,9 @@
           </div>
         </h1>
       </div>
-      <div class="col-8 bg">
+      <div class="col-12 bg">
         <h1 class="h1 title" style="color: rgb(120, 178, 255)" align="center">
-          Make Booking
+          Make Your Booking Below:
         </h1>
       </div>
 
@@ -19,7 +19,7 @@
           </div>
 
 
-            <div class="hide">Dates your practitioner is available for sessions is highlighted in orange on the calendar</div>
+            <div class="hide">Dates Your Practitioner Is Available For Sessions Is Highlighted In Orange On The Calendar</div>
 
 
 
@@ -42,12 +42,24 @@
 
 </div>
 <br>
+<mat-card class="Grid Grid--full u-textCenter">
+  <mat-card-title>
+   Your Packages
+  </mat-card-title>
+<div class="Grid Grid--full u-textCenter">
+  <select [(ngModel)]="package" class="select-css">
+    <option *ngFor="let package of Packages" [value]="package.Package_ID" (click)="ChoosePackage(package.Package_ID)" >{{ package.Name }}</option>
+  </select>
+</div>
+</mat-card>
+<br>
 
 <div class="Grid Grid--gutters Grid--cols-2 u-textCenter">
   <div class="Grid-cell">
       <div class="example-full-width" appearance="fill">
         <mat-card class="demo-inline-calendar-card">
           <mat-card-title>
+              Book Your Date Below:
               <div class="hint">
             <button type="button" class="btn"><i class="fa fa-question" style="color: #297bff"></i></button>
           </div>
@@ -58,8 +70,9 @@
           <mat-calendar [dateClass]="dateClass()"   [minDate]="minDate" (selectedChange)="getDateAvailability($event)" style="background-color: rgb(1, 134, 230);"></mat-calendar>
         </mat-card>
       </div>
-
+      
   </div>
+  
   <div class="Grid-cell">
 
       <div class="example-full-width" appearance="fill">
@@ -69,7 +82,7 @@
               <div class="hint">
                   <button type="button" class="btn"><i class="fa fa-question" style="color: #297bff"></i></button>
                 </div>
-                  <div class="hide">All times provided are set to SAST, (UCT +2)</div>
+                  <div class="hide">All Times Provided Are Set To SAST, (UCT +2)</div>
           </mat-card-title>
           <br>
 
@@ -99,16 +112,6 @@
     </div>
   </div>
   <br>
-  <mat-card class="demo-inline-calendar-card">
-    <mat-card-title>
-     Your Packages
-    </mat-card-title>
-  <div class="demo-inline-calendar-card">
-    <select [(ngModel)]="package" class="select-css">
-      <option *ngFor="let package of Packages" [value]="package.Package_ID" (click)="ChoosePackage(package.Package_ID)" >{{ package.Name }}</option>
-    </select>
-  </div>
-  </mat-card>
   <br>
   <mat-card class="example-full-width" style="background-color: rgb(0, 166, 255); width: 100%; color:yellow" *ngIf="CurrentlyChosen">
     CHOSEN SLOT

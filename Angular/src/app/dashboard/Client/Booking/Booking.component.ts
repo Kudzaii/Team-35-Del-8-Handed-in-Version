@@ -145,10 +145,10 @@ export class BookingComponent implements OnInit {
       Swal.fire({
         icon: 'error',
         title: 'Booking Cannot Be Made.',
-        text: 'There Are No Practitioners Assigned To You. A Practitionerer Will Be Assigned To You Soon!,Thank You',
+        text: 'There Are No Practitioners Assigned To You. A Practitionerer Will Be Assigned To You Soon!Thank You',
         showCancelButton: false,
         confirmButtonColor: '#3085d6',
-        confirmButtonText: 'Ok!',
+        confirmButtonText: 'OK!',
         footer: '<a href="">Why Do I Have This Issue?</a>'
       }).then((result) => {
         if (result.isConfirmed) {
