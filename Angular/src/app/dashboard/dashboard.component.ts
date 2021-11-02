@@ -238,6 +238,16 @@ const dashboards_settings_practitioner = [
     color: 'rgb(15, 147, 255);',
   },
   {
+    NumberOfObject: 2,
+    Header_Name: 'My Sessions',
+    Button_Name: 'Sessions',
+    ImageLink:
+      'https://kgdshgoixg1vrh3sdpjwgidf-wpengine.netdna-ssl.com/wp-content/uploads/2020/10/first-therapy-session-sunday-edit-scaled.jpg',
+    RouterLink: 'Sessions',
+    icon: 'format_line_spacing',
+    color: 'rgb(15, 147, 255);',
+  },
+  {
     NumberOfObject: 1,
     Header_Name: 'Profile',
     Button_Name: 'Maintain Profile',

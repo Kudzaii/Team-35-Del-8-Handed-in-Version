@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';;
 import { TraineeService } from '../services/trainee.service';
 import { TaskDialogComponent } from './taskDialog/taskDialog.component';
 import { Location } from '@angular/common'
+import { FileUpload } from 'src/app/models/fileupload';
 @Component({
   selector: 'app-mytasks',
   templateUrl: './mytasks.component.html',
@@ -13,6 +14,13 @@ export class MytasksComponent implements OnInit {
   Tasks: any;
   Feedbacks:Array<any>
   isExisting:boolean = false;
+  url = '';
+    // ProfilePictureUpload
+  currentPPUpload: FileUpload;
+  selectedPPFiles: FileList;
+  //CV
+  selectedTFiles: FileList;
+  currentCVUpload: FileUpload;
 
   constructor(private traineeService: TraineeService, public dialog: MatDialog,private location: Location) {}
 
@@ -54,5 +62,17 @@ refresh(){
   goBack(): void {
     this.location.back();
   } 
-
-}
+  selectFile2(event) {
+    this.selectedTFiles = event.target.files;
+    }
+    uploads() {
+      const filePP = this.selectedPPFiles.item(0);
+      this.currentPPUpload = new FileUpload(filePP);
+      this.selectedPPFiles = undefined;
+      //CV
+        const file = this.selectedTFiles.item(0);
+        this.selectedTFiles = undefined;
+        this.currentCVUpload = new FileUpload(file);
+        return
+      }
+  }

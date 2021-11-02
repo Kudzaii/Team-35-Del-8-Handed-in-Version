@@ -40,6 +40,7 @@
           <td>Surname</td>
           <td>Contact Number</td>
           <td>Email Address</td>
+          <!-- <td>Upload Task</td> -->
           <td></td>
 
         </tr>
@@ -50,6 +51,24 @@
             <td>{{client.Surname}}</td>
             <td>{{client.Contact_Number}}</td>
             <td>{{client.Email_Address}}</td>
+            <!-- <td><td>      <div class="Grid Grid--full u-textCenter">
+              <div class="Grid-cell">
+                <div class="Demo content-1of1">
+                  <h2>Upload Your Task</h2>
+                  <div *ngIf="currentCVUpload" class="progress" style="width: 50%;">
+                    <!-- <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar"
+                      attr.aria-valuenow="{{progress.percentage}}" aria-valuemin="0" aria-valuemax="100"
+                      [ngStyle]="{width:progress2.percentage+'%'}">
+                      {{progress2.percentage}}%
+                    </div> 
+                  </div>
+                  <label class="btn btn-primary" style="background-color: #5f81f2;"> <input type="file" accept=".pdf,.doc"
+                      (change)="selectFile2($event)">
+                  </label>
+      
+                </div>
+              </div>
+            </div></td> -->
             <td>
               <a class="btn-gradient red small" (click)="Transfer(client.Name,client.Surname)"  [routerLink]="['../Assign-client-task/',client.Client_ID]" routerLinkActive="active" >Assign Task</a>
             </td>

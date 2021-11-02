@@ -4,6 +4,7 @@ import { ClientService } from '../services/client.service';
 import { TaskDialogComponent } from './taskDialog/taskDialog.component';
 import { Location } from '@angular/common';
 import Swal from 'sweetalert2';
+import { FileUpload } from 'src/app/models/fileupload';
 @Component({
   selector: 'app-Mytasks',
   templateUrl: './Mytasks.component.html',
@@ -13,6 +14,13 @@ export class MytasksComponent implements OnInit {
   Tasks: any;
   Feedbacks:Array<any>
   isExisting:boolean = false;
+  url = '';
+    // ProfilePictureUpload
+  currentPPUpload: FileUpload;
+  selectedPPFiles: FileList;
+  //CV
+  selectedTFiles: FileList;
+  currentCVUpload: FileUpload;
 
   constructor(private clientservice: ClientService, public dialog: MatDialog, private location: Location) {}
 
@@ -71,5 +79,18 @@ goBack(): void {
   this.location.back();
 }
 
-
+selectFile2(event) {
+  this.selectedTFiles = event.target.files;
+  }
+  uploads() {
+    const filePP = this.selectedPPFiles.item(0);
+    this.currentPPUpload = new FileUpload(filePP);
+    this.selectedPPFiles = undefined;
+    //CV
+      const file = this.selectedTFiles.item(0);
+      this.selectedTFiles = undefined;
+      this.currentCVUpload = new FileUpload(file);
+      return
+    }
 }
+
