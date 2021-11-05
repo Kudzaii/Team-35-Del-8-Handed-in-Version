@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, PatternValidator, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Client } from 'src/app/models/Client';
 import { FileUpload } from 'src/app/models/fileupload';
@@ -82,7 +82,7 @@ export class RegisterComponent implements OnInit {
         Title: [null, Validators.required],
         Name: [null, Validators.required],
         Surname: [null, Validators.required],
-        Contact_Number: [null, [Validators.required]],
+        Contact_Number: [null, [Validators.required], PatternValidator, [Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
         ID_Number: [null, Validators.required],
         Email_Address: [
           null,

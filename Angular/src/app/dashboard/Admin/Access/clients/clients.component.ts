@@ -66,4 +66,10 @@ export class ClientsComponent implements OnInit {
 
   }
 
+  onSubmit(Email) {
+    let Email_Address = {
+      Email_Address:Email.Username
+    }
+  }
+
 }

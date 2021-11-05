@@ -71,7 +71,7 @@ export class TypeService {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
     };
 
-    return this.http.post(`${rootURL}/removeQuestionnaireType/${id}`, httpOptions);
+    return this.http.post(`${rootURL}/deleteQuestionnaireType/${id}`, httpOptions);
   }
 
   /**

@@ -34,9 +34,8 @@ export class PractitionerRequestsComponent implements OnInit {
     Swal.fire({
       title: tempString,
       showDenyButton: true,
-      showCancelButton: true,
-      confirmButtonText: 'Save',
-      denyButtonText: `Don't Save`,
+      confirmButtonText: 'Yes',
+      denyButtonText: `No`,
     }).then((result) => {
       /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {

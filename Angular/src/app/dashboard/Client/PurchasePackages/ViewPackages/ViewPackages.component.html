@@ -17,11 +17,9 @@
             alt="Snowy Mountains" />
           <div class="card__content">
             <h1 class="card__header" [ngStyle]="{ color: PackageID == package.Package_ID ? 'green' : 'blue' }">{{ package.Name }}</h1>
-            <mat-icon>receipt</mat-icon>
+            
             <div>
                     <p class="card__text">Price: R{{ package.Price }} </p>
-                    <p class="card__text">Quantity: {{ package.Quantity }} </p>
-                    <p class="card__text">Purchase date: {{ package.Purchase_Date | date }} </p>
             </div>
             <button class="card__btn" (click)="ChoosePackage(package.Package_ID, i)" >Purchase <span>&rarr;</span></button>
             <br>

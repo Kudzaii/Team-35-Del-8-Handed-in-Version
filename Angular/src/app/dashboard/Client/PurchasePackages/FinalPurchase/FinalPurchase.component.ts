@@ -36,7 +36,6 @@ export class FinalPurchaseComponent implements OnInit {
   Swal.fire({
     title: tempString,
     showDenyButton: true,
-    showCancelButton: true,
     confirmButtonText: 'Yes',
     denyButtonText: `No`,
   }).then((result) => {

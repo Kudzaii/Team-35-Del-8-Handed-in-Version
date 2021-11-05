@@ -33,7 +33,7 @@
         <div class="Demo content-1of2">
           <mat-form-field class="example-full-width" appearance="fill">
             <mat-label style="color: black;">Name</mat-label>
-            <input type="text" matInput formControlName="Name" maxLength="20" placeholder="Ex. pat">
+            <input type="text" matInput formControlName="Name" maxLength="20" placeholder="Ex. John">
             <mat-hint *ngIf="!formGroup.controls['Name'].valid && formGroup.controls['Name'].touched">
               Name cannot be left empty
             </mat-hint>
@@ -59,7 +59,7 @@
         <div class="Demo content-1of2">
           <mat-form-field class="example-full-width" appearance="fill">
             <mat-label style="color: black;">Surname</mat-label>
-            <input type="text" matInput formControlName="Surname" maxLength="20" placeholder="Ex. xample">
+            <input type="text" matInput formControlName="Surname" maxLength="20" placeholder="Ex. Doe">
             <mat-hint *ngIf="!formGroup.controls['Surname'].valid && formGroup.controls['Surname'].touched">
               Surname cannot be left empty
             </mat-hint>
@@ -86,7 +86,7 @@
           <div class="example-full-width" appearance="fill">
             <mat-label style="color: black;">Title</mat-label>
 
-            <select class="select-css" matInput formControlName="Title" class="select-css">
+            <select class="select-css" matInput formControlName="Title" class="select-css" [ngClass]="{ 'is-invalid': submitted && f.Title.errors }">
               <option value="Mr">Mr</option>
               <option value="Ms">Ms</option>
               <option value="Mrs">Mrs</option>
@@ -94,6 +94,10 @@
               <option value="Prof">Prof</option>
 
             </select>
+
+            <div *ngIf="submitted && f.Title.errors" class="invalid-feedback">
+                <div *ngIf="f.Title.errors.required">Title is required</div>
+            </div>
 
           </div>
         </div>

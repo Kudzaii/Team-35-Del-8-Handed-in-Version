@@ -432,9 +432,9 @@ namespace API_FICS.Controllers
                         "  <div class='card'>" +
                         "<h5 class='card - header display-4'>Welcome to the FICS System</h5>" +
                         "    <div class='card-body'>" +
-                        "      <p class='card-text'> Hi" + obj.Name + " " + obj.Surname + ". You will be notified when you have been assigned a Practitioner and can begin your journey with us.</p>" +
-                        //"      <a href=# class='card-link'>Card link</a>" +
-                        //"      <a href=# class='card-link'>Another link</a>" +
+                        "      <p class='card-text'> Hi" + obj.Name + " " + obj.Surname + ". You will be notified when you have been assigned a Practitioner and can begin your journey with us. </p>" +
+                        "      <p class='card-text'> For now, you can login using your email address as a username and buy a package that interests, while you wait for your assigned practitioner" +
+                        "<br /> Kind Regards <br /> The FICS Corp Team</p>" +
                         "    </div>" +
                         " </div>" +
                         "</div>" +
@@ -467,12 +467,9 @@ namespace API_FICS.Controllers
                         "    <div class='card-body'>" +
                         "      <h4 class='card-title'></h4>" +
                         "      <p class='card-text'> Hi " + obj.Name + " " + obj.Surname + ".<br /> You have been assigned to a practitioner. Please log into your account to start your journey with us. " +
-                        "You Will receive a questionnaire from your practitioner in the coming days. " +
+                        "You will receive a questionnaire from your practitioner in the coming days. " +
                         "Please remember to purchase a package before booking your sessions. " +
                         "<br /> Kind Regards <br /> The FICS Corp Team</p>" +
-
-                        "      <a href=# class='card-link'>Card link</a>" +
-                        "      <a href=# class='card-link'>Another link</a>" +
                         "    </div>" +
                         " </div>" +
                         "</div>" +
@@ -501,12 +498,44 @@ namespace API_FICS.Controllers
 
                         "<div class='container jumbotron'>" +
                         "  <div class='card'>" +
-                         "<h5 class='card - header display-4'>Practitoner assigned</h5>" +
+                         "<h5 class='card - header display-4'>Package bought</h5>" +
                         "    <div class='card-body'>" +
                         "      <h4 class='card-title'></h4>" +
                         "      <p class='card-text'> Package " + obj.Name + " " + " has been  successfuly added to your profile</p>" +
-                        "      <a href=# class='card-link'>Card link</a>" +
-                        "      <a href=# class='card-link'>Another link</a>" +
+                  
+                        "    </div>" +
+                        " </div>" +
+                        "</div>" +
+
+                        "</body>" +
+                        "</html>";
+            }
+            else if (id == 4)
+            {
+                //Disable user
+                Email.Subject = " Your FICS Account has been disabled";
+                Email.Body = "<!DOCTYPE html>" +
+                "<html>" +
+                "<head>" +
+                "  <title></title>" +
+                "  <meta charset='utf-8'>" +
+                "  <meta name='viewport' content='width = device - width, initial - scale = 1'>" +
+                        "  <link rel='stylesheet' href = 'https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css'>" +
+                        "  <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>" +
+                        "  <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js'></script>" +
+                          "<script src='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js'></script>" +
+                        "</head>" +
+                        "<body>" +
+
+                        "<div class='container'>" +
+
+                        "<div class='container jumbotron'>" +
+                        "  <div class='card'>" +
+                         "<h5 class='card - header display-4'>Account disabled</h5>" +
+                        "    <div class='card-body'>" +
+                        "      <h4 class='card-title'></h4>" +
+                        "      <p class='card-text'> Hi " + obj.Name + " " + obj.Surname + ".<br /> Due to a request made by you upon signing the Exit Waiver. Your account has been disabled. Thank you for your time with FICS CORP" +
+                        "<br /> Kind Regards <br /> The FICS Corp Team</p>" +
                         "    </div>" +
                         " </div>" +
                         "</div>" +
