@@ -120,7 +120,7 @@ export class FinalPurchaseComponent implements OnInit {
     this.clientService.PurchasePackage(pack).subscribe(res=>{
 
       console.log(res)
-        this.SimpleModalService.addModal(AlertComponent, { message: 'Payment via stripe successfull!' }, { closeOnEscape: true});
+        this.SimpleModalService.addModal(AlertComponent, { message: 'Payment via stripe successful!' }, { closeOnEscape: true});
 
     })
 

@@ -37,6 +37,7 @@
           <td>Due Date</td>
           <td>Practitioner</td>
           <td>Task type</td>
+          <td>Upload Task</td>
           <td>Action</td>
         </tr>
       <tbody>
@@ -45,6 +46,24 @@
             <td >{{Task.DueDate |date }}</td>
             <td >{{Task.Practitioner  }}</td>
             <td >{{Task.TaskType  }}</td>
+            <td>      <div class="Grid Grid--full u-textCenter">
+              <div class="Grid-cell">
+                <div class="Demo content-1of1">
+                  <h2>Upload Your Task</h2>
+                  <div *ngIf="currentCVUpload" class="progress" style="width: 50%;">
+                    <!-- <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar"
+                      attr.aria-valuenow="{{progress.percentage}}" aria-valuemin="0" aria-valuemax="100"
+                      [ngStyle]="{width:progress2.percentage+'%'}">
+                      {{progress2.percentage}}%
+                    </div> -->
+                  </div>
+                  <label class="btn btn-primary" style="background-color: #5f81f2;"> <input type="file" accept=".pdf,.doc"
+                      (change)="selectFile2($event)">
+                  </label>
+      
+                </div>
+              </div>
+            </div></td>
             <td>
               <a (click)="CompleteTask(Task.Task_ID,Task.TaskType)" class="btn-gradient blue mini">Complete Task</a>
             </td>

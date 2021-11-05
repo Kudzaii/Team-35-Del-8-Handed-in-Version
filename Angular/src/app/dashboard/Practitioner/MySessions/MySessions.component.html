@@ -1,0 +1,46 @@
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-2 bg">
+        <h1 class="h1 title">
+          <div class="btn-group"  (click)=" goBack()">
+              <button  class="btn btn-light bui">Back</button>
+          </div>
+        </h1>
+      </div>
+      <div class="col-8 bg">
+        <h1 class="h1 title" style="color: rgb(120, 178, 255)" align="center">
+          <span>Your Schedule</span>
+        </h1>
+      </div>
+
+      <div class="col-2 bg">
+          <div class="hint">
+            <button type="button" class="btn"><i class="fa fa-question" style="color: #297bff"></i></button>
+          </div>
+            <div class="hide">An Overview Of Your Schedule</div>
+
+          <button type="button" class="btn"><a class="help" href="https://scotty-crypto.github.io/523Clientsubsystem.html#ClientSessions " target="_blank">| Help</a></button>
+      </div>
+    </div>
+      <hr class="hr1">
+  </div>
+
+
+<div class="app">
+
+  <div class="table-card">
+
+
+
+
+
+  <full-calendar id='calendar' [options]="calendarOptions" (eventClick)="eventClick($event)"
+  (eventDrop)="updateEvent($event)"
+  (eventResize)="updateEvent($event)"
+  (clickButton)="clickButton($event)"
+  (dayClick)="dayClick($event)">
+</full-calendar>
+
+
+</div>
+</div>

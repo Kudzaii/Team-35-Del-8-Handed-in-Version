@@ -5,7 +5,7 @@
 
 <main>
   <header class="container" *ngIf="isSelected[0] && isSelected[1] && isClosed">
-    <a class="btn-gradient blue block" (click)="AssignPractitioner()">Assign</a>
+    <a class="btn-gradient blue  block" (click)="AssignPractitioner()">Assign</a>
 
   </header>
 
@@ -13,8 +13,8 @@
     <a class="card card-1 stacked--up-left">
       <h2 class="title">Practitioners</h2>
       <div class="content">
-        <h4> Select a Practitioner</h4>
-        <ng-multiselect-dropdown style="width: 40%; z-index: +1" [placeholder]="'practitioners'"
+        <h4> Select A Practitioner</h4>
+        <ng-multiselect-dropdown style="width: 40%; z-index: +1" [placeholder]="'Practitioners'"
           [settings]="dropdownSettingsPractitioner" [data]="PractitionerList" (onSelect)="onItemSelectP($event)"
           (onDropDownClose)="onDropDownClose()">
 
@@ -27,8 +27,8 @@
     <a class="card card-1 stacked--up-right">
       <h2 class="title">Clients</h2>
       <div class="content">
-        <h4> Select a client</h4>
-        <ng-multiselect-dropdown style="width: 40%; z-index: +1" [placeholder]="'clients'" [settings]="dropdownSettings"
+        <h4> Select A client</h4>
+        <ng-multiselect-dropdown style="width: 40%; z-index: +1" [placeholder]="'Clients'" [settings]="dropdownSettings"
           [data]="ClientList" (onSelect)="onItemSelectC($event)" (onDropDownClose)="onDropDownClose(2)">
 
         </ng-multiselect-dropdown>

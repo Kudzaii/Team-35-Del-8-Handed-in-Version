@@ -26,7 +26,7 @@ export class PractitionerRequestsComponent implements OnInit {
     }
     else
     {
-      tempString = 'Are You Sure You Want To Reject This Practitioner?';
+      tempString = 'Are You Sure You Want To Reject This Practitioner? If Yes Please Make Sure They Receive An Email As To Why They Have Been Rejected.';
       resultPopupString =  "Successfully Rejected!"
 
     }
