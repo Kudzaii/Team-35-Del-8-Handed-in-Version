@@ -82,6 +82,5 @@ export class QuestionnaireTypeComponent implements OnInit {
       }
     }
     )}
-    
 }
 

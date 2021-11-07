@@ -35,7 +35,7 @@
             <mat-label style="color: black;">Name</mat-label>
             <input type="text" matInput formControlName="Name" maxLength="20" placeholder="Ex. John">
             <mat-hint *ngIf="!formGroup.controls['Name'].valid && formGroup.controls['Name'].touched">
-              Name cannot be left empty
+              Name cannot be left empty and should not contain numbers
             </mat-hint>
           </mat-form-field>
         </div>
@@ -47,8 +47,9 @@
             <input type="text" matInput formControlName="Contact_Number" maxlength="10" placeholder="Ex. 0735346222">
             <mat-hint
               *ngIf="!formGroup.controls['Contact_Number'].valid && formGroup.controls['Contact_Number'].touched">
-              Contact Number cannot be left empty
+              Contact Number cannot be left empty and must only contain numbers
             </mat-hint>
+            
           </mat-form-field>
         </div>
       </div>
@@ -61,7 +62,7 @@
             <mat-label style="color: black;">Surname</mat-label>
             <input type="text" matInput formControlName="Surname" maxLength="20" placeholder="Ex. Doe">
             <mat-hint *ngIf="!formGroup.controls['Surname'].valid && formGroup.controls['Surname'].touched">
-              Surname cannot be left empty
+              Surname cannot be left empty and should not contain numbers
             </mat-hint>
           </mat-form-field>
         </div>
@@ -73,7 +74,7 @@
             <input type="email" matInput formControlName="Email_Address" maxLength="50"
               placeholder="Ex. test@gmail.com ">
             <mat-hint *ngIf="!formGroup.controls['Email_Address'].valid && formGroup.controls['Email_Address'].touched">
-              Enter valid email
+              Enter a valid email
             </mat-hint>
           </mat-form-field>
         </div>
@@ -108,7 +109,7 @@
             <mat-label style="color: black;">ID Number</mat-label>
             <input type="text" matInput formControlName="ID_Number" maxLength="13" placeholder="Ex. 194735346222">
             <mat-hint *ngIf="!formGroup.controls['ID_Number'].valid && formGroup.controls['ID_Number'].touched">
-              ID Number Cannot be left Empty
+              ID Number Cannot be left Empty and must only contain numbers
             </mat-hint>
           </mat-form-field>
         </div>
@@ -205,7 +206,11 @@
 
         <div class="Grid-cell">
           <mat-card class="mat-card">
-            <button mat-raised-button color="accent" style="width:50%" type="submit">Apply</button>
+            <button mat-raised-button color="accent" style="width:50%" type="submit" 
+            
+            [disabled]=
+              "f.Confirm_Password.errors.required        
+              ">Apply</button>
             &nbsp; &nbsp; &nbsp;
             <button mat-raised-button color="warn" type="button" [routerLink]="['../Welcome/..']"
               routerLinkActive="active">CANCEL</button>
@@ -268,9 +273,11 @@
           <div class="Demo content-1of2">
             <mat-form-field class="example-full-width" appearance="fill">
               <mat-label style="color: black;">Name</mat-label>
-              <input type="text" matInput formControlName="Name" maxLength="20" placeholder="Ex. pat">
+              <input type="text" matInput formControlName="Name" name="name" maxLength="20" placeholder="Ex. pat" pattern="[a-zA-Z][a-zA-Z\s]*"
+            required>
+              
               <mat-hint *ngIf="!formGroupOthers.controls['Name'].valid && formGroupOthers.controls['Name'].touched">
-                Name cannot be left empty
+                Name cannot be left empty and should not contain numbers
               </mat-hint>
             </mat-form-field>
           </div>
@@ -279,11 +286,12 @@
           <div class="Demo content-1of2">
             <mat-form-field class="example-full-width" appearance="fill">
               <mat-label style="color: black;">Contact Number</mat-label>
-              <input type="text" matInput formControlName="Contact_Number" maxLength="10" placeholder="Ex. 0735346222">
+              <input type="text" matInput formControlName="Contact_Number" maxLength="10" placeholder="Ex. 0735346222" >
               <mat-hint
                 *ngIf="!formGroupOthers.controls['Contact_Number'].valid && formGroupOthers.controls['Contact_Number'].touched">
-                Contact Number cannot be left empty
+                Contact Number cannot be left empty and should only contain numbers
               </mat-hint>
+
             </mat-form-field>
           </div>
         </div>
@@ -294,10 +302,11 @@
           <div class="Demo content-1of2">
             <mat-form-field class="example-full-width" appearance="fill">
               <mat-label style="color: black;">Surname</mat-label>
-              <input type="text" matInput formControlName="Surname" maxLength="20" placeholder="Ex. hlangs">
+              <input type="text" matInput formControlName="Surname" maxLength="20" placeholder="Ex. hlangs" pattern="[a-zA-Z][a-zA-Z\s]*"
+            required>
               <mat-hint
                 *ngIf="!formGroupOthers.controls['Surname'].valid && formGroupOthers.controls['Surname'].touched">
-                Surname cannot be left empty
+                Surname cannot be left empty and should not contain numbers
               </mat-hint>
             </mat-form-field>
           </div>
@@ -310,7 +319,7 @@
                 placeholder="Ex. test@gmail.com">
               <mat-hint
                 *ngIf="!formGroupOthers.controls['Email_Address'].valid && formGroupOthers.controls['Email_Address'].touched">
-                Enter valid email
+                Enter a valid email
               </mat-hint>
             </mat-form-field>
           </div>
@@ -343,7 +352,7 @@
                 placeholder="Ex. 194735346222">
               <mat-hint
                 *ngIf="!formGroupOthers.controls['ID_Number'].valid && formGroupOthers.controls['ID_Number'].touched">
-                ID Number Cannot be left Empty
+                ID Number Cannot be left Empty and must only contain numbers
               </mat-hint>
             </mat-form-field>
           </div>
@@ -436,7 +445,9 @@
 
           <div class="Grid-cell">
             <mat-card class="mat-card">
-              <button mat-raised-button color="accent" style="width:50%" type="submit">Apply</button>
+              <button mat-raised-button color="accent" style="width:50%" type="submit" [disabled]=
+              "g.Confirm_Password.errors.required        
+              ">Apply</button>
               &nbsp; &nbsp; &nbsp;
               <button mat-raised-button color="warn" type="button" [routerLink]="['../Welcome/..']"
                 routerLinkActive="active">CANCEL</button>

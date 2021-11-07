@@ -77,13 +77,17 @@ export class RegisterComponent implements OnInit {
   createOtherForm() {
     let emailregex: RegExp =
       /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      let numberRegEx: RegExp = /^[0-9][0-9]*$/;
+      let textRegEx: RegExp = /^[a-zA-Z \-\']/;
+      
+
     this.formGroupOthers = this.formBuilder.group(
       {
         Title: [null, Validators.required],
-        Name: [null, Validators.required],
-        Surname: [null, Validators.required],
-        Contact_Number: [null, [Validators.required], PatternValidator, [Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
-        ID_Number: [null, Validators.required],
+        Name: [null, [Validators.required, Validators.pattern(textRegEx)]],
+        Surname: [null, [Validators.required, Validators.pattern(textRegEx)]],
+        Contact_Number: [null, [Validators.required, Validators.pattern(numberRegEx)]],
+        ID_Number: [null, Validators.required, Validators.pattern(numberRegEx)],
         Email_Address: [
           null,
           [Validators.required, Validators.pattern(emailregex)],
@@ -101,18 +105,20 @@ export class RegisterComponent implements OnInit {
   createClientForm() {
     let emailregex: RegExp =
       /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    let numberRegEx: RegExp = /^[0-9][0-9]/;
+    let textRegEx: RegExp = /^[a-zA-Z \-\']/;
     this.formGroup = this.formBuilder.group(
       {
         Title: [null, Validators.required],
-        Name: [null, Validators.required],
-        Surname: [null, Validators.required],
+        Name: [null, [Validators.required, Validators.pattern(textRegEx)]],
+        Surname: [null, [Validators.required, Validators.pattern(textRegEx)]],
         Email_Address: [
           null,
           [Validators.required, Validators.pattern(emailregex)],
         ],
         Passport_Number: [null, [Validators.required, Validators.maxLength(9)]],
-        ID_Number: [null, Validators.required],
-        Contact_Number: [null, [Validators.required, Validators.maxLength(10)]],
+        ID_Number: [null, [Validators.required, Validators.pattern(numberRegEx)]],
+        Contact_Number: [null, [Validators.required, Validators.maxLength(10), Validators.pattern(numberRegEx)]],
         Gender: [null, [Validators.required]],
         Country: [null, [Validators.required]],
         //Client_Type: [null, [Validators.required]],
