@@ -407,7 +407,7 @@ namespace API_FICS.Controllers
                         obj.Description = package.Description;
                         obj.Image = package.Image;
                         obj.Purchase_Date = package.Purchase_Date;
-                        obj.Price = price.Amount;
+                        //obj.Price = price.Amount;
                         obj.Quantity = package.Quantity;
                         list.Add(obj);
                     }

@@ -433,7 +433,7 @@ namespace API_FICS.Controllers
                         "<h5 class='card - header display-4'>Welcome to the FICS System</h5>" +
                         "    <div class='card-body'>" +
                         "      <p class='card-text'> Hi" + obj.Name + " " + obj.Surname + ". You will be notified when you have been assigned a Practitioner and can begin your journey with us. </p>" +
-                        "      <p class='card-text'> For now, you can login using your email address as a username and buy a package that interests, while you wait for your assigned practitioner" +
+                        "      <p class='card-text'> For Now, You Can Login Using Your Email Address As A Username And Purchase A Package That Interests You. You Will Be Assigned A Practitioner Soon." +
                         "<br /> Kind Regards <br /> The FICS Corp Team</p>" +
                         "    </div>" +
                         " </div>" +
