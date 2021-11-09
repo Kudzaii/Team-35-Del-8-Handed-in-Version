@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { TypeService } from '../../services/type.service';
 import { SimpleModalService } from 'ngx-simple-modal';
-import { PromptComponent } from '../../../../shared/utils/modals/prompt/prompt.component';
+import { PromptComponent } from 'src/app/shared/utils/modals/prompt/prompt.component';
 import Swal from 'sweetalert2';
-import { Location } from '@angular/common'
 @Component({
   selector: 'app-ClientType',
   templateUrl: './ClientType.component.html',
@@ -12,7 +11,7 @@ import { Location } from '@angular/common'
 export class ClientTypeComponent implements OnInit {
   clientTypes: Array<any>;
   public query: any = '';
-  constructor(private typeService: TypeService,private SimpleModalService: SimpleModalService, private location: Location) {}
+  constructor(private typeService: TypeService,private SimpleModalService: SimpleModalService) {}
   ngOnInit(){
     this.getClientTypes()
   }
@@ -76,11 +75,6 @@ export class ClientTypeComponent implements OnInit {
       }
     }
     )}
-
-    goBack(): void {
-      this.location.back();
-    }
-
 }
     
 

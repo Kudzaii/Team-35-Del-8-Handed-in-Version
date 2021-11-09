@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { PromptComponent } from '../../../../shared/utils/modals/prompt/prompt.component';
+import { PromptComponent } from 'src/app/shared/utils/modals/prompt/prompt.component';
 import { TypeService } from '../../services/type.service';
-import { PackageService} from '../QuestionnaireType/Package.service';
 import { SimpleModalService } from 'ngx-simple-modal';
 import Swal from 'sweetalert2';
-import { Location } from '@angular/common'
 @Component({
   selector: 'app-QuestionnaireType',
   templateUrl: './QuestionnaireType.component.html',
@@ -12,48 +10,40 @@ import { Location } from '@angular/common'
 })
 export class QuestionnaireTypeComponent implements OnInit {
 
+  QuestionnaireTypes: Array<any>;
   public query: any = '';
-  PackageList = [];
-  PriceList = [];
-  isClosed = false;
-  showBranch:boolean
-  Packages:Array<any> = [];
 
-  constructor(
-    private typeService: PackageService,
-    private SimpleModalService: SimpleModalService, 
-    private packageservice: PackageService,
-    private location: Location
-    ) {}
+
+  constructor(private typeService: TypeService,private SimpleModalService: SimpleModalService) {}
 
 
   ngOnInit() {
-      this.getPackages();
+      this.getQuestionnaireTypes();
+  }
+  getQuestionnaireTypes() {
+    this.typeService.GetTypes(1).subscribe((res) => {
+      this.QuestionnaireTypes = res;
+    });
   }
 
-  getPackages() {
-    this.packageservice.ViewPackageWithPrice().subscribe((packages) => {
-      this.Packages = packages;
-    });
-}
 
-
-  AddPackage() {
+  AddType() {
 
     this.SimpleModalService.addModal(PromptComponent, {
-      title: 'Package',
-      question: 'Add Your Package: ',
+      title: 'Questionnaire Type',
+      question: 'Add Your Questionnaire Type: ',
         message: ''
       })
       .subscribe((message) => {
         // We get modal result
           console.log(message);
-          let pack = {Name:message, Description:message, Quantity:message}
-          this.typeService.AddPackage(pack).subscribe(response=>{
-            this.getPackages()
+          let pack = {Description:message }
+          this.typeService.AddQuestionnaireType(pack).subscribe(response=>{
+            this.getQuestionnaireTypes();
+
 
           },
-          error => {throw new Error('Package not added')})
+          error => {throw new Error('Client Not Added')})
       });
   }
 
@@ -66,11 +56,10 @@ export class QuestionnaireTypeComponent implements OnInit {
       .subscribe((message) => {
         // We get modal result
           console.log(message);
-          let pack = {Name:message, Description:message, Quantity:message, Package_ID: Id }
-          this.typeService.UpdatePackage(pack,Id).subscribe(response=>{
-            this.getPackages();
+          let pack = {Description:message, QuestionBankType_ID: Id }
+          this.typeService.UpdateQuestionnaireType(pack,Id).subscribe(response=>{
+            this.getQuestionnaireTypes();
             this.typeService.success('questionnaire')
-            
           }
           ,error => {throw new Error('Client Not Added '); console.log(error)})
       });
@@ -78,7 +67,7 @@ export class QuestionnaireTypeComponent implements OnInit {
 
   delete(id) {
     Swal.fire({
-      title: 'Are You Sure You Want To Delete This Package?',
+      title: 'Are You Sure You Want To Delete Questionnaire Type?',
       icon: 'info',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -86,16 +75,12 @@ export class QuestionnaireTypeComponent implements OnInit {
       confirmButtonText: 'Yes'
     }).then((result) => {
       if (result.isConfirmed) {
-        this.typeService.Removepackage(id).subscribe(res=>{
+        this.typeService.DeleteQuestionnaireType(id).subscribe(res=>{
           console.log(res);
-          this.getPackages();
+          this.getQuestionnaireTypes();
       })
       }
     }
     )}
-
-    goBack(): void {
-      this.location.back();
-    }
 }
 
