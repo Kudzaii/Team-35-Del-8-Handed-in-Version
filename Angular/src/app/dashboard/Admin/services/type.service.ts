@@ -7,12 +7,12 @@ import {
 } from '@angular/common/http';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { share } from 'rxjs/operators';
-import { AuthService } from 'src/app/auth/auth.service';
+import { AuthService } from '../../../auth/auth.service';
 const rootURL = environment. baseUrl+ '/Admin/';
 
 
 import swal from 'sweetalert2';
-import { environment } from 'src/environments/environment';
+import { environment } from '../../../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -66,12 +66,12 @@ export class TypeService {
     );
   }
 
-  DeleteQuestionnaireType(id: number) {
+
+  RemovequestionnaireType(id) {
     const httpOptions = {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
     };
-
-    return this.http.post(`${rootURL}/deleteQuestionnaireType/${id}`, httpOptions);
+    return this.http.post(`${rootURL}/removeQuestionnaireType/${id}`, httpOptions);
   }
 
   /**
@@ -138,7 +138,12 @@ export class TypeService {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
     };
 
-    return this.http.post(`https://apifics.azurewebsites.net/AddClientType/`, Client, httpOptions);
+   // return this.http.post(`https://apifics.azurewebsites.net/AddClientType/`, Client, httpOptions);
+   return this.http.post(
+    `${rootURL}/AddClientType/`,
+    Client,
+    httpOptions
+  );
   }
 
   UpdateClientType(Client, id: number) {
