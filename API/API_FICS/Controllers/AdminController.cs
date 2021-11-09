@@ -1240,6 +1240,109 @@ namespace API_FICS.Controllers
             }
         }
 
+        [HttpGet] 
+        [Route("api/Admin/GetPackages")]
+        public List<object> GetPackages()
+        {
+            db.Configuration.ProxyCreationEnabled = false;
+            List<object> results = new List<object>();
+            try
+            {
+                List<Package> packages = db.Packages.ToList();
+
+                foreach (var package in packages)
+                {
+                    dynamic obj = new ExpandoObject();
+                    obj.Package_ID = package.Package_ID;
+                    obj.Name = package.Name;
+                    obj.Description = package.Description;
+                    obj.Quantity = package.Quantity;
+                    List<object> packagelists = new List<object>();
+                    List<Price> prices = db.Prices.Where(x => x.Package_ID == package.Package_ID).ToList();
+                    foreach (var price in prices)
+                    {
+                        dynamic obje = new ExpandoObject();
+                        obje.Price_ID = price.Price_ID;
+                        obje.Amount = price.Amount;
+                        packagelists.Add(obje);
+                    }
+                    obj.PackageLists = packagelists;
+                    results.Add(obj);
+                }
+                return results;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        [HttpPost]
+        [Route("api/Admin/AddPackage")]
+        public object AddPackage(Package pc)
+        {
+            db.Configuration.ProxyCreationEnabled = false;
+            dynamic obj = new ExpandoObject();
+            try
+            {
+                Package package = new Package();
+                package = pc;
+                db.Packages.Add(pc);
+                db.SaveChanges();
+                obj = package;
+                return obj;
+
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        [HttpPost]
+        [Route("api/Admin/removePackage/{id}")]
+        public object removePackage(int id)
+        {
+            db.Configuration.ProxyCreationEnabled = false;
+            dynamic obj = new ExpandoObject();
+            try
+            {
+                Package package = db.Packages.Where(re => re.Package_ID == id).FirstOrDefault();
+
+                db.Packages.Remove(package);
+                db.SaveChanges();
+                obj = package;
+                return obj;
+
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        [HttpPost]
+        [Route("api/Admin/MaintainPackage/{id}")]
+        public object MaintainPackage(Package c, int id)
+        {
+            db.Configuration.ProxyCreationEnabled = false;
+            dynamic obj = new ExpandoObject();
+            try
+            {
+                Package package = db.Packages.Where(x => x.Package_ID == id).FirstOrDefault();
+                package.Name = c.Name;
+                package.Description = c.Description;
+                package.Prices = c.Prices;
+                db.SaveChanges();
+                obj = package;
+                return obj;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
         [HttpGet]
         [Route("api/Admin/GetAuditTrail/")]
         public object GetAuditTrail()
