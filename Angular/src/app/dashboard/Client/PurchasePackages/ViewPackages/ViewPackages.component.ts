@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { ClientService } from 'src/app/dashboard/Client/services/client.service';
-import { Package } from 'src/app/models/Package';
+import { ClientService } from '../../../Client/services/client.service';
+import { Package } from '../../../../models/Package';
 import { MatStepper } from '@angular/material/stepper';
 
 @Component({

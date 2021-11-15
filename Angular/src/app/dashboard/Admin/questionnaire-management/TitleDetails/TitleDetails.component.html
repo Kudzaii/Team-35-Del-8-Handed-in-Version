@@ -38,12 +38,22 @@
           <td></td>
           <td>Question Description</td>
           <td></td>
+          <td></td>
         </tr>
       <tbody>
         <tr *ngFor="let question of QuestionsBank">
           <td>{{question.Question_ID}}</td>
           <td>{{question.Question}}</td>
-          <td><button (click)="Maintain(question.Question_ID,question.Question)"  class="btn-gradient blue mini" style="color:white" >Maintain</button></td>
+          <td>
+            <button>
+               <i class="fa fa-pencil" style="font-size: 1.73em;" (click)="Maintain(question.Question_ID,question.Question)"></i>
+            </button>
+          </td>
+          <td>
+            <button>
+                <i class="fa fa-trash" style="font-size: 1.73em;" (click)="delete(question.QuestionTitle_ID)"></i>
+              </button>
+          </td>
         </tr>
       </tbody>
     </table>

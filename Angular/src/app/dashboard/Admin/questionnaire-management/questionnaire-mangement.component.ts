@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { QuestionnaireService } from '../services/Questionnaire.service';
 import { SimpleModalService } from 'ngx-simple-modal';
-import { PromptComponent } from 'src/app/shared/utils/modals/prompt/prompt.component';
+import { PromptComponent } from '../../../shared/utils/modals/prompt/prompt.component';
 import { Location } from '@angular/common';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-questionnaire-mangement',
@@ -65,5 +66,23 @@ export class QuestionnaireManagementComponent implements OnInit {
   goBack(): void {
     this.location.back();
   }
+
+  delete(id) {
+    Swal.fire({
+      title: 'Are You Sure You Want To Delete This Title And Its Questions?',
+      icon: 'info',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.questionnaireService.RemoveQuestionnaireTitle(id).subscribe(res=>{
+          console.log(res);
+          this.getTitles();
+      })
+      }
+    }
+    )}
 
 }

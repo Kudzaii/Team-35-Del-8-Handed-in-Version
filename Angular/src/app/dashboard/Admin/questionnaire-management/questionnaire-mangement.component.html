@@ -45,18 +45,28 @@
           <td>Question Description</td>
           <td></td>
           <td></td>
+          <td></td>
         </tr>
       <tbody>
         <tr *ngFor="let question of QuestionsBank | Gfilter: query">
           <td>{{question.QuestionTitle_ID}}</td>
           <td>{{question.Description}}</td>
           <td>
-            <button (click)="Maintain(question.QuestionTitle_ID,question.Description)"  class="btn-gradient blue mini hint" style="color:white" >Maintain</button>
+            <button >
+               <i class="fa fa-pencil" style="font-size: 1.73em;" (click)="Maintain(question.QuestionTitle_ID,question.Description)"></i>
+            </button>
               <div class="hipe">Maintain this title</div>
+          </td>
+          <td>
+              <button>
+                <i class="fa fa-trash" style="font-size: 1.73em;" (click)="delete(question.QuestionTitle_ID)"></i>
+              </button>
           </td>
             
           <td>
-            <button   class="btn-gradient red mini hint"  style="color:white" [routerLink]="['../questionnaire-management/', question.QuestionTitle_ID]">View Details</button>
+            <button>
+              <i class="fa fa-eye" style="font-size: 1.73em;" [routerLink]="['../questionnaire-management/', question.QuestionTitle_ID]"></i>
+            </button>
               <div class="hipe">View sub questions</div>
             </td>
             

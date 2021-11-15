@@ -2,8 +2,9 @@ import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { SimpleModalService } from 'ngx-simple-modal';
-import { PromptComponent } from 'src/app/shared/utils/modals/prompt/prompt.component';
+import { PromptComponent } from '../../../../shared/utils/modals/prompt/prompt.component';
 import { QuestionnaireService } from '../../services/Questionnaire.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-TitleDetails',
@@ -26,15 +27,15 @@ export class TitleDetailsComponent implements OnInit {
   AddType() {
 
     this.SimpleModalService.addModal(PromptComponent, {
-      title: 'Titles',
-      question: 'Add Your Question titles: ',
+      title: 'Questions',
+      question: 'Add Your Questions: ',
         message: ''
       })
       .subscribe((message) => {
         // We get modal result
           console.log(message);
           let pack = {Description:message }
-          this.questionnaireService.AddQuestionnaireTitle(pack).subscribe(response=>{
+          this.questionnaireService.AddQuestionsToTitle(pack).subscribe(response=>{
             this.getTitles();
 
 
@@ -57,7 +58,7 @@ export class TitleDetailsComponent implements OnInit {
             this.getTitles();
 
           }
-          ,error => {throw new Error('Client not added '); console.log(error)})
+          ,error => {throw new Error('Question not added '); console.log(error)})
       });
   }
 
@@ -71,5 +72,23 @@ export class TitleDetailsComponent implements OnInit {
   goBack(): void {
     this.location.back();
   }
+
+  delete(id) {
+    Swal.fire({
+      title: 'Are You Sure You Want To Delete This Question?',
+      icon: 'info',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.questionnaireService.RemoveQuestion(id).subscribe(res=>{
+          console.log(res);
+          this.getTitles();
+      })
+      }
+    }
+    )}
 
 }

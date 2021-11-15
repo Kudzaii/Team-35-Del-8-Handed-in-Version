@@ -1,10 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { PromptComponent } from '../../../../shared/utils/modals/prompt/prompt.component';
-import { TypeService } from '../../services/type.service';
-import { PackageService} from '../QuestionnaireType/Package.service';
+import { Component, Input, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
+import { ClientService } from '../../../Client/services/client.service';
+import { PackageService } from '../QuestionnaireType/Package.service';
 import { SimpleModalService } from 'ngx-simple-modal';
+import { Package } from '../../../../models/Package';
 import Swal from 'sweetalert2';
 import { Location } from '@angular/common'
+import { PromptComponent } from '../../../../shared/utils/modals/prompt/prompt.component';
+
 @Component({
   selector: 'app-QuestionnaireType',
   templateUrl: './QuestionnaireType.component.html',
@@ -12,30 +15,58 @@ import { Location } from '@angular/common'
 })
 export class QuestionnaireTypeComponent implements OnInit {
 
-  public query: any = '';
-  PackageList = [];
-  PriceList = [];
-  isClosed = false;
-  showBranch:boolean
-  Packages:Array<any> = [];
+  @Input() regForm: FormGroup;
+  formSubmitted: boolean = false;
+    Packages : Array<Package>
+    Pack:any;
+    MoveToNext =  false;
+    PackageID:any;
+    show = 6;
+    public query: any = '';
+    PackageList = [];
+    PriceList = [];
+    isClosed = false;
+    showBranch:boolean
 
-  constructor(
-    private typeService: PackageService,
-    private SimpleModalService: SimpleModalService, 
-    private packageservice: PackageService,
-    private location: Location
-    ) {}
+    constructor(
+      private SimpleModalService: SimpleModalService, 
+      private packageServe: PackageService,
+      private location: Location
+      ) {}
 
+  
 
   ngOnInit() {
-      this.getPackages();
+    this.loadData()
   }
 
-  getPackages() {
-    this.packageservice.ViewPackageWithPrice().subscribe((packages) => {
-      this.Packages = packages;
-    });
-}
+  /**
+   * !this is required before py purchase
+   * todo: we still need to use the payment method
+   * @param Package_ID
+   * @param index
+   */
+
+  ChoosePackage(Package_ID, index){
+
+    this.Packages[index].isChosen = true;
+    this.MoveToNext = this.Packages[index].isChosen;
+    this.PackageID =  Package_ID
+    this.regForm.patchValue({
+      ChoosePackageDetails:{
+      PackageID : Package_ID,
+      Client_ID : this.packageServe.ClientID
+      }
+    })
+    this.loadData();
+  }
+  loadData(){
+    this.packageServe.getPackages().subscribe(res=>{
+
+      this.Pack = Object.keys(res).map(index => {this.Packages = res[index];});
+      console.log( this.Packages)
+    })
+  }
 
 
   AddPackage() {
@@ -49,8 +80,8 @@ export class QuestionnaireTypeComponent implements OnInit {
         // We get modal result
           console.log(message);
           let pack = {Name:message, Description:message, Quantity:message}
-          this.typeService.AddPackage(pack).subscribe(response=>{
-            this.getPackages()
+          this.packageServe.AddPackage(pack).subscribe(response=>{
+            this.loadData()
 
           },
           error => {throw new Error('Package not added')})
@@ -67,9 +98,9 @@ export class QuestionnaireTypeComponent implements OnInit {
         // We get modal result
           console.log(message);
           let pack = {Name:message, Description:message, Quantity:message, Package_ID: Id }
-          this.typeService.UpdatePackage(pack,Id).subscribe(response=>{
-            this.getPackages();
-            this.typeService.success('questionnaire')
+          this.packageServe.UpdatePackage(pack,Id).subscribe(response=>{
+            this.loadData();
+            this.packageServe.success('questionnaire')
             
           }
           ,error => {throw new Error('Client Not Added '); console.log(error)})
@@ -86,9 +117,9 @@ export class QuestionnaireTypeComponent implements OnInit {
       confirmButtonText: 'Yes'
     }).then((result) => {
       if (result.isConfirmed) {
-        this.typeService.Removepackage(id).subscribe(res=>{
+        this.packageServe.Removepackage(id).subscribe(res=>{
           console.log(res);
-          this.getPackages();
+          this.loadData();
       })
       }
     }
@@ -98,4 +129,7 @@ export class QuestionnaireTypeComponent implements OnInit {
       this.location.back();
     }
 }
+
+
+
 

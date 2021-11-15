@@ -3,11 +3,11 @@ import { Inject, Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject, observable, Observable, of} from 'rxjs';
 import { SESSION_STORAGE, StorageService } from 'ngx-webstorage-service'
-import { Client } from 'src/app/models/Client';
-import { Session } from 'src/app/models/Session';
+import { Client } from '../../../models/Client';
+import { Session } from '../../../models/Session';
 import { share } from 'rxjs/operators';
-import { AuthService } from 'src/app/auth/auth.service';
-import { environment } from 'src/environments/environment';
+import { AuthService } from '../../../auth/auth.service';
+import { environment } from '../../../../environments/environment';
 const rootURL = environment. baseUrl+'/Client/'
 
 
@@ -16,7 +16,7 @@ const rootURL = environment. baseUrl+'/Client/'
 })
 export class ClientService {
 
-
+ 
   constructor(public http : HttpClient,public router:Router,@Inject(SESSION_STORAGE) private storage: StorageService, private auth:AuthService) { }
 
   /**

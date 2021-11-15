@@ -1,10 +1,4 @@
-
-<div class="app">
-
-  <div class="table-card">
-
-    <div class="container-fluid">
-    <div class="row">
+<div class="row">
       <div class="col-2 bg">
         <h1 class="h1 title">
           <div class="btn-group">
@@ -14,7 +8,7 @@
       </div>
       <div class="col-8 bg">
         <h1 class="h1 title"  align="center">
-          All My Packages
+          FICS Packages
         </h1>
       </div>
 
@@ -22,47 +16,38 @@
           <div class="hint">
             <button type="button" class="btn"><i class="fa fa-question" style="color: #297bff"></i></button>
           </div>
-            <div class="hide">Add, update or delete packages</div>
+            <div class="hide">Add, Update Or Delete Client Types</div>
       
-          <button type="button" class="btn"><a class="help" href="https://scotty-crypto.github.io/522Adminsubsystem.html#questionnaireTypes " target="_blank">| Help</a></button>
+          <button type="button" class="btn"><a class="help" href="https://scotty-crypto.github.io/522Adminsubsystem.html#clientTypes " target="_blank">| Help</a></button>
       </div>
     </div>
     <hr class="hr1">
-  </div>
-    <div class="form-group">
-      <input type="text" class="form-control mb-4" placeholder="Search" [(ngModel)]="query" id="listSearch">
-    </div>
 
-    <div>
-      <button  (click)="AddPackage()"   class="btn-gradient blue mini">Add  Package</button>
-    </div>
-    <table class="table">
-      <thead>
-        <tr>
-          <td> Name</td>
-          <td>Description</td>
-          <td>Quantity</td>
-          <td>Price</td>
-          <td></td>
-          <td></td>
 
-        </tr>
-      <tbody>
-          <tr *ngFor="let type of  Packages | filter: query">
-            <td>{{type.Name}}</td>
-            <td>{{type.Description}}</td>
-            <td>{{type.Quantity}}</td>
 
-            <td>
-              <button  class="btn-gradient blue mini" (click)="Maintain(type.Name, type.Package_ID)"  >Maintain</button>
-            </td>
-            <td>
-              <button>
-                <i class="fa fa-trash" style="font-size: 1.73em;" (click)="delete(type.Package_ID)"></i>
+<div class="row">
+  <div class="col-6 col-md-4" *ngFor="let package of Packages | slice:0:show; let i = index" style="padding-bottom: 2%;">
+    <div class="grid">
+      <div class="grid__item">
+        <div class="card" >
+          <img class="card__img"
+            src="http://waterbearlearning.com/wp-content/uploads/2019/04/water_bear_learning_instructional_design1.jpg"
+            alt="Snowy Mountains" />
+          <div class="card__content">
+            <h1 class="card__header" [ngStyle]="{ color: PackageID == package.Package_ID ? 'green' : 'blue' }">{{ package.Name }}</h1>
+            
+            <div>
+                    <p class="card__text">Price: R{{ package.Price }} </p>
+                    <p class="card__text">Consists of {{ package.Quantity }} sessions</p>
+            </div>
+            <button class="card__btn" (click)="Maintain(package.Name, package.Package_ID)" >Update<span>&rarr;</span></button>
+            <button>
+                <i class="fa fa-trash" style="font-size: 1.73em;" (click)="delete(package.Package_ID)"></i>
               </button>
-            </td>
-          </tr>
-      </tbody>
-    </table>
+            <br>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

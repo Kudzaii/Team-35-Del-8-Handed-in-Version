@@ -3,12 +3,12 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {  Observable, Subscription} from 'rxjs';
 
-import { Client } from 'src/app/models/Client';
+import { Client } from '../../../models/Client';
 import { share } from 'rxjs/operators';
-import { AuthService } from 'src/app/auth/auth.service';
+import { AuthService } from '../../../auth/auth.service';
 import { ClientService } from '../../Client/services/client.service';
-import { SnackbarService } from 'src/app/shared/services/snackbar.service';
-import { environment } from 'src/environments/environment';
+import { SnackbarService } from '../../../shared/services/snackbar.service';
+import { environment } from '../../../../environments/environment';
 
 const rootURL = environment. baseUrl+'/Admin/'
 
@@ -100,6 +100,16 @@ export class QuestionnaireService {
       .get<any[]>(`${rootURL}/ViewQuestionnaireDetails/`+id)
       .pipe(share());
   }
+
+  AddQuestionsToTitle(Questions: any) {
+    let requests:Observable<any>
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+    };
+    requests =  this.http.post(`${rootURL}/AddQuestionsToTitle/`,Questions, httpOptions).pipe(share())
+    return requests
+  }
+
       /*** ViewQuestionnaireDetails
    *? Maintain Questionnaire Title Details
    */
@@ -111,4 +121,21 @@ export class QuestionnaireService {
     requests =  this.http.post(`${rootURL}/MaintainQuestionnaireTitleDetails/${userID}/`,Questions, httpOptions).pipe(share())
     return requests
   }
+
+  RemoveQuestionnaireTitle(id) {
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+    };
+
+    return this.http.post(`${rootURL}/removeQuestionnaireTitle/${id}`, httpOptions);
+  }
+
+  RemoveQuestion(id) {
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+    };
+
+    return this.http.post(`${rootURL}/removeQuestion/${id}`, httpOptions);
+  }
+
 }

@@ -133,8 +133,8 @@ const dashboards_settings_client = [
   },
   {
     NumberOfObject: 2,
-    Header_Name: 'My Sessions',
-    Button_Name: 'Sessions',
+    Header_Name: 'My Schedule',
+    Button_Name: 'Schedule',
     ImageLink:
       'https://kgdshgoixg1vrh3sdpjwgidf-wpengine.netdna-ssl.com/wp-content/uploads/2020/10/first-therapy-session-sunday-edit-scaled.jpg',
     RouterLink: 'Sessions',

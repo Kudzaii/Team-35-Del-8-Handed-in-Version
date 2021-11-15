@@ -8,9 +8,9 @@ import {
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { share } from 'rxjs/operators';
 import { AuthService } from '../../../../auth/auth.service';
+import { SESSION_STORAGE, StorageService } from 'ngx-webstorage-service'
+import { Package } from '../../../../models/Package';
 const rootURL = environment. baseUrl+ '/Admin/';
-
-
 import swal from 'sweetalert2';
 import { environment } from '../../../../../environments/environment';
 
@@ -18,7 +18,22 @@ import { environment } from '../../../../../environments/environment';
   providedIn: 'root',
 })
 export class PackageService {
-  constructor(public http: HttpClient, private auth: AuthService) {}
+  constructor(public http : HttpClient,public router:Router, private auth:AuthService) { }
+
+
+
+  // Get Packages
+
+  getPackages() {
+    return this.http.get(`${rootURL}/ViewPackages/`).pipe(share());
+  }
+
+   //get Client ID
+   get ClientID()
+   {
+     let id =  this.auth.loginId //ClientID
+     return Number(id);
+   }
 
 
   /**

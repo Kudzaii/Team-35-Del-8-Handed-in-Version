@@ -676,6 +676,53 @@ namespace API_FICS.Controllers
             }
         }
 
+        [HttpPost]
+        [Route("api/Admin/RemoveQuestionnaireTitle/{id}")]
+        public object RemoveQuestionnaireTitle(int id)
+        {
+            db.Configuration.ProxyCreationEnabled = false;
+            dynamic obj = new ExpandoObject();
+            try
+            {
+                QuestionTitle type = db.QuestionTitles.Where(re => re.QuestionTitle_ID == id).FirstOrDefault();
+                QuestionDetail questionnaire = db.QuestionDetails.Where(x => x.Question_ID == id).FirstOrDefault();
+
+                db.QuestionTitles.Remove(type);
+                db.QuestionDetails.Remove(questionnaire);
+                db.SaveChanges();
+                obj = type;
+                return obj;
+
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        [HttpPost]
+        [Route("api/Admin/RemoveQuestion/{id}")]
+        public object RemoveQuestion(int id)
+        {
+            db.Configuration.ProxyCreationEnabled = false;
+            dynamic obj = new ExpandoObject();
+            try
+            {
+                QuestionDetail questionnaire = db.QuestionDetails.Where(x => x.Question_ID == id).FirstOrDefault();
+
+                db.QuestionDetails.Remove(questionnaire);
+                db.SaveChanges();
+                obj = questionnaire;
+                return obj;
+
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+
 
         [HttpPost]
         [Route("api/Admin/MaintainQuestionnaireTitleDetails/{id}")]
@@ -1242,39 +1289,39 @@ namespace API_FICS.Controllers
 
         [HttpGet] 
         [Route("api/Admin/GetPackages")]
-        public List<object> GetPackages()
+        public object GetPackages()
         {
             db.Configuration.ProxyCreationEnabled = false;
-            List<object> results = new List<object>();
+
+            dynamic packages = new ExpandoObject();
             try
             {
-                List<Package> packages = db.Packages.ToList();
+                List<Package> p = db.Packages.ToList();
 
-                foreach (var package in packages)
+                List<object> list = new List<object>();
+                if (packages != null)
                 {
-                    dynamic obj = new ExpandoObject();
-                    obj.Package_ID = package.Package_ID;
-                    obj.Name = package.Name;
-                    obj.Description = package.Description;
-                    obj.Quantity = package.Quantity;
-                    List<object> packagelists = new List<object>();
-                    List<Price> prices = db.Prices.Where(x => x.Package_ID == package.Package_ID).ToList();
-                    foreach (var price in prices)
+                    foreach (var package in p)
                     {
-                        dynamic obje = new ExpandoObject();
-                        obje.Price_ID = price.Price_ID;
-                        obje.Amount = price.Amount;
-                        packagelists.Add(obje);
+                        Price price = db.Prices.Where(x => x.Package_ID == package.Package_ID).FirstOrDefault();
+                        dynamic obj = new ExpandoObject();
+                        obj.Package_ID = package.Package_ID;
+                        obj.Name = package.Name;
+                        obj.Description = package.Description;
+                        obj.Image = package.Image;
+                        //obj.Price = price.Amount;
+                        obj.Quantity = package.Quantity;
+                        list.Add(obj);
                     }
-                    obj.PackageLists = packagelists;
-                    results.Add(obj);
+
+                    packages.Questions = list;
                 }
-                return results;
             }
-            catch (Exception)
+            catch (Exception c)
             {
-                return null;
+                return c;
             }
+            return packages;
         }
 
         [HttpPost]
