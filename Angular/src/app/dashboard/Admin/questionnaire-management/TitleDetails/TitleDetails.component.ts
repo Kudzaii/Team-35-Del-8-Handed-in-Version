@@ -40,7 +40,7 @@ export class TitleDetailsComponent implements OnInit {
 
 
           },
-          error => {throw new Error('Client not added')})
+          error => {throw new Error('Questions not added')})
       });
   }
 

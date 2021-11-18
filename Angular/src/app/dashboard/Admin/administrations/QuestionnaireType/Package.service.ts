@@ -25,7 +25,7 @@ export class PackageService {
   // Get Packages
 
   getPackages() {
-    return this.http.get(`${rootURL}/ViewPackages/`).pipe(share());
+    return this.http.get(`${rootURL}/GetPackages`).pipe(share());
   }
 
    //get Client ID

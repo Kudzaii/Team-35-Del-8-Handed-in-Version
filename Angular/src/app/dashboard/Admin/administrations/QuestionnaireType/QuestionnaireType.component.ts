@@ -7,6 +7,13 @@ import { Package } from '../../../../models/Package';
 import Swal from 'sweetalert2';
 import { Location } from '@angular/common'
 import { PromptComponent } from '../../../../shared/utils/modals/prompt/prompt.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+//import { NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+//import { MyDialogModalComponent } from './modals/my-dialog-modal/my-dialog-modal.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-QuestionnaireType',
@@ -21,17 +28,20 @@ export class QuestionnaireTypeComponent implements OnInit {
     Pack:any;
     MoveToNext =  false;
     PackageID:any;
-    show = 6;
+    show = 20;
     public query: any = '';
     PackageList = [];
     PriceList = [];
     isClosed = false;
     showBranch:boolean
+    dialogValue: string;
+    sendValue: string;
+    
 
     constructor(
       private SimpleModalService: SimpleModalService, 
       private packageServe: PackageService,
-      private location: Location
+      private location: Location      
       ) {}
 
   
@@ -47,19 +57,6 @@ export class QuestionnaireTypeComponent implements OnInit {
    * @param index
    */
 
-  ChoosePackage(Package_ID, index){
-
-    this.Packages[index].isChosen = true;
-    this.MoveToNext = this.Packages[index].isChosen;
-    this.PackageID =  Package_ID
-    this.regForm.patchValue({
-      ChoosePackageDetails:{
-      PackageID : Package_ID,
-      Client_ID : this.packageServe.ClientID
-      }
-    })
-    this.loadData();
-  }
   loadData(){
     this.packageServe.getPackages().subscribe(res=>{
 
@@ -74,7 +71,8 @@ export class QuestionnaireTypeComponent implements OnInit {
     this.SimpleModalService.addModal(PromptComponent, {
       title: 'Package',
       question: 'Add Your Package: ',
-        message: ''
+        message: '',
+      
       })
       .subscribe((message) => {
         // We get modal result
@@ -103,7 +101,7 @@ export class QuestionnaireTypeComponent implements OnInit {
             this.packageServe.success('questionnaire')
             
           }
-          ,error => {throw new Error('Client Not Added '); console.log(error)})
+          ,error => {throw new Error('Package Not Updated '); console.log(error)})
       });
   }
 

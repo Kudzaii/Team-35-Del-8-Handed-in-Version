@@ -18,6 +18,10 @@ import { ConfirmComponent } from './utils/modals/confirm/confirm.component';
 import { ParentDialogModalComponent } from './utils/modals/parent-dialog/parent-dialog.component';
 import { PromptComponent } from './utils/modals/prompt/prompt.component';
 import { SimpleModalModule } from 'ngx-simple-modal';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 import { CustomErrorHandler } from './utils/modals/custom-error/custom-error-handler';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { ResetPasswordComponent } from '../auth/components/reset-password/reset-password.component';
@@ -26,6 +30,7 @@ import {MatChipsModule} from '@angular/material/chips'
 import { ExitWavierComponent } from './components/exit-wavier/exit-wavier.component';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { ViewDocumentDialogComponent } from './components/ViewDocumentDialog/ViewDocumentDialog.component';
+//import { MyDialogModalComponent } from './utils/modals/my-dialog-modal/my-dialog-modal.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +64,11 @@ import { ViewDocumentDialogComponent } from './components/ViewDocumentDialog/Vie
     MaterialModule,
     SimpleModalModule.forRoot({container: "modal-container"}),
     MatChipsModule,
-    PdfViewerModule
+    PdfViewerModule,
+    MatFormFieldModule,
+    MatDialogModule,
+    MatInputModule,
+    MatButtonModule
   ],
   exports: [
     HeaderComponent,
@@ -81,7 +90,9 @@ import { ViewDocumentDialogComponent } from './components/ViewDocumentDialog/Vie
     ConfirmComponent,
     PromptComponent,
     ParentDialogModalComponent,
-    ViewDocumentDialogComponent
+    ViewDocumentDialogComponent,
+    //MyDialogModalComponent
+
   ],
   // providers: [{
   //   provide: ErrorHandler,

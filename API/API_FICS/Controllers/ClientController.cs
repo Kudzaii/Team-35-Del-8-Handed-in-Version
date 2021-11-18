@@ -415,9 +415,10 @@ namespace API_FICS.Controllers
                     packages.Questions = list;
                 }
             }
-            catch (Exception c)
+            catch (Exception e)
             {
-                return c;
+                var message = e.Message;
+                return e;
             }
             return packages;
         }

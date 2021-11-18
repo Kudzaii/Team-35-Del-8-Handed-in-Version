@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row" >
       <div class="col-2 bg">
         <h1 class="h1 title">
           <div class="btn-group">
@@ -23,8 +23,23 @@
     </div>
     <hr class="hr1">
 
+  <div>
+      <button  (click)="AddPackage()"  class="btn-gradient blue mini" >Add Package</button>
+  </div>
+
+  <!--<div>
+      <button  (click)="open(content)"  class="btn-gradient blue mini" >Add Package</button>
+  </div>-->
 
 
+
+
+
+
+
+
+
+<div class="container" style="align-self: center; align-items: center;">
 <div class="row">
   <div class="col-6 col-md-4" *ngFor="let package of Packages | slice:0:show; let i = index" style="padding-bottom: 2%;">
     <div class="grid">
@@ -40,14 +55,13 @@
                     <p class="card__text">Price: R{{ package.Price }} </p>
                     <p class="card__text">Consists of {{ package.Quantity }} sessions</p>
             </div>
-            <button class="card__btn" (click)="Maintain(package.Name, package.Package_ID)" >Update<span>&rarr;</span></button>
-            <button>
-                <i class="fa fa-trash" style="font-size: 1.73em;" (click)="delete(package.Package_ID)"></i>
-              </button>
+            <button class="btn btn-success" (click)="Maintain(package.Name, package.Package_ID)" >Update</button>
+            <button class="btn btn-danger" (click)="delete(package.Package_ID)">Delete</button>
             <br>
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>
 </div>

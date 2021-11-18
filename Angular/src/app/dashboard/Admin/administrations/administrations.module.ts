@@ -4,11 +4,11 @@ import { AdministrationsComponent } from './administrations.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { ReportsRoutingModule } from '../Reports/Reports-routing.module';
-import { SharedModule } from 'src/app/shared/shared.module';
+import { SharedModule } from '../../../shared/shared.module';
 import { Types_landingComponent } from './Types_landing/Types_landing.component';
 import {  AdminsRoutingModule } from './administrations-routing.module';
 import { ClientTypeComponent } from './ClientType/ClientType.component';
-
+//import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import { PackageTypeComponent } from './PackageType/PackageType.component';
 import { QuestionnaireTypeComponent } from './QuestionnaireType/QuestionnaireType.component';
 

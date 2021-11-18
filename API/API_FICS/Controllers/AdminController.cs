@@ -634,8 +634,8 @@ namespace API_FICS.Controllers
         }
 
         [HttpPost]
-        [Route("api/Admin/AddQuestionsToTitle/{details}/{titleID}")]
-        public object AddQuestionsToTitle(string details, int titleID)
+        [Route("api/Admin/AddQuestionsToTitle/{titleID}")]
+        public object AddQuestionsToTitle(int titleID, [FromBody]string details)
         {
             db.Configuration.ProxyCreationEnabled = false;
             dynamic obj = new ExpandoObject();
@@ -716,8 +716,9 @@ namespace API_FICS.Controllers
                 return obj;
 
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                var message = e.Message;
                 return null;
             }
         }
@@ -1317,9 +1318,10 @@ namespace API_FICS.Controllers
                     packages.Questions = list;
                 }
             }
-            catch (Exception c)
+            catch (Exception e)
             {
-                return c;
+                var message = e.Message;
+                return e;
             }
             return packages;
         }

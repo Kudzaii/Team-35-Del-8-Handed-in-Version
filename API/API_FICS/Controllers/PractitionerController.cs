@@ -352,6 +352,7 @@ namespace API_FICS.Controllers
             try
             {
                 List<TimeSlot> timeslots = db.TimeSlots.ToList();
+                List<TimeSlot> limitedtimeslot;
                 return timeslots;
             }
             catch (Exception)

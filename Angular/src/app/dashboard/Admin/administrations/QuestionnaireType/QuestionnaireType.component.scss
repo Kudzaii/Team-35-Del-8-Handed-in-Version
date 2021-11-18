@@ -1,1 +1,7 @@
 @import "src/app/shared/utils/table.scss";
+
+div.container {
+    max-width: 1000px;
+    margin: auto;
+    background:  inherit;
+  }
