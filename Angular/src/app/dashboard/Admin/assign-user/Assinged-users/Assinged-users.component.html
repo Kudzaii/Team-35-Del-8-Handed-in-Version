@@ -10,19 +10,19 @@
         <tr>
           <td id="tour-table">Client Name</td>
           <td>Practitioner Name</td>
-          <td>Action</td>
+          <!--<td>Action</td>-->
         </tr>
       <tbody>
           <tr *ngFor="let user of Users">
             <td>{{user.ClientName}} {{user.ClientSurname}}</td>
             <td>{{user.PractitionerName}} {{user.PractitionerSurname}}</td>
-            <td>
+            <!--<td>
             <button class="btn-gradient red small" (click)="changeBranchToggle()" tooltip="Transfer to another Branch.">Edit</button>
             <select class="form-control"  *ngIf="showBranch"  #mySelect (Change)="AssignPractitioner(mySelect.value, user.Client_ID)">
               <option *ngFor="let prac of PractitionerList"  [value]="prac.Practitioner_ID" >{{prac.Name}} {{prac.Surname}}</option>
             </select>
 
-            </td>
+            </td>-->
           </tr>
       </tbody>
     </table>
