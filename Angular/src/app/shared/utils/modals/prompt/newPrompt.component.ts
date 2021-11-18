@@ -1,10 +1,16 @@
 import { Component } from '@angular/core';
 import { SimpleModalComponent } from 'ngx-simple-modal';
 
-export interface PromptModel {
+export interface NewPromptModel {
   title:string;
   question:string;
   message: any;
+  describe: string;
+  descriptionmessage: any;
+  price: string;
+  pricemessage: any;
+  sessions: string;
+  sessionsmessage: any;
 }
 
 @Component({
@@ -19,7 +25,8 @@ export interface PromptModel {
 
 
         <input type="text" *ngIf="show;else content" class="form-control" [(ngModel)]="message.Name" name="name" placeholder="Name" />
-        
+        <br>
+        <input type="text" *ngIf="show;else content" class="form-control" [(ngModel)]="message.Description"placeholder="Description" />
 
         <ng-template #content> <input type="text" class="form-control"  [(ngModel)]="message" name="name" /></ng-template>
       </div>
@@ -30,10 +37,16 @@ export interface PromptModel {
     </div>
   `
 })
-export class PromptComponent extends SimpleModalComponent<PromptModel, string> implements PromptModel {
+export class NewPromptComponent extends SimpleModalComponent<NewPromptModel, string> implements NewPromptModel {
   title: string;
   question: string;
   message: any;
+  describe: string;
+  descriptionmessage: any;
+  price: string;
+  pricemessage: any;
+  sessions: string;
+  sessionsmessage: any;
   show=false
   constructor() {
     super();
@@ -43,7 +56,7 @@ export class PromptComponent extends SimpleModalComponent<PromptModel, string> i
     }
   }
   apply() {
-    this.result = this.message;
+    this.result = this.message && this.pricemessage && this.sessionsmessage;
     this.close();
   }
 }
